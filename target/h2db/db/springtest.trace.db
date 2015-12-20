@@ -16,3 +16,6 @@ ALTER TABLE PUBLIC.course_student ADD CONSTRAINT fk_student_student_course_id FO
 2015-12-18 18:00:21 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "COURSE" already exists; SQL statement:
 CREATE TABLE PUBLIC.course (id BIGINT AUTO_INCREMENT NOT NULL, name VARCHAR(255), teacher_id BIGINT, CONSTRAINT PK_COURSE PRIMARY KEY (id)) [42101-190]
+2015-12-20 08:30:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "COURSE" already exists; SQL statement:
+CREATE TABLE PUBLIC.course (id BIGINT AUTO_INCREMENT NOT NULL, name VARCHAR(255), teacher_id BIGINT, CONSTRAINT PK_COURSE PRIMARY KEY (id)) [42101-190]

@@ -242,7 +242,7 @@ gulp.task('inject:app', function () {
 //// END INJECTION
 
 
-gulp.task('serve', ['scripts'], function () {
+gulp.task('serve', ['inject'], function () {
     runSequence('wiredep:test', 'wiredep:app', 'ngconstant:dev', 'sass', function () {
         var baseUri = 'http://localhost:' + yeoman.apiPort;
         // Routes to proxy to the backend. Routes ending with a / will setup
