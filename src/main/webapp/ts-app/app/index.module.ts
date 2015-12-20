@@ -3,5 +3,6 @@
 /// <reference path="index.http.config.ts" />
 /// <reference path="index.formly.conf.ts" />
 
-	angular.module('springTestApp', [])
-		.config(Onesnap.RouterConfig)
+module Onesnap {
+	angular.module('springTestApp', ['app.core', 'app.navigation', 'app.toolbar']);
+}

@@ -224,6 +224,7 @@ gulp.task('inject:app',['scripts'], function () {
 
 
     var injectComponents = gulp.src([
+        path.join(yeoman.app, 'scripts/components/**/*.module.js'),
         path.join(yeoman.app, 'scripts/components/**/*.js'),
         path.join('!' + yeoman.app, 'scripts/components/**/*.spec.js'),
         path.join('!' + yeoman.app, 'scripts/components/**/*.mock.js')

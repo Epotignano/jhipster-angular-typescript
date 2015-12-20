@@ -12,14 +12,14 @@ module Onesnap {
           url: '/app',
           views   : {
             'main@'         : {
-              templateUrl: 'scripts/core/layouts/default.html'
+              templateUrl: 'scripts/app/core/layouts/default.html'
             },
             'toolbar@app': {
-              templateUrl: 'scripts/toolbar/toolbar.html',
+              templateUrl: 'scripts/components/toolbar/toolbar.html',
               controller : 'ToolbarController as vm'
             },
             'navigation@app': {
-              templateUrl: 'scripts/sidenav/navigation/navigation.html',
+              templateUrl: 'scripts/components/sidenav/navigation/navigation.html',
               controller : 'NavigationController as vm'
             }
           }
@@ -33,4 +33,7 @@ module Onesnap {
     }
 
   }
+  
+  angular.module('springTestApp')
+    .config(RouterConfig);
 }

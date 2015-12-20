@@ -1,6 +1,8 @@
 $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
 
 // bower:scss
+@import "datatables-responsive/css/responsive.dataTables.scss";
+@import "font-awesome/scss/font-awesome.scss";
 // endbower
 
 body {

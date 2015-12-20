@@ -1,38 +1,65 @@
 <!doctype html>
 <html class="no-js">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>SpringTest</title>
-        <meta name="description" content="">
-        <meta name="google" value="notranslate">
-        <meta name="viewport" content="width=device-width">
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <!-- build:css assets/styles/vendor.css -->
-        <!-- bower:css -->
-        <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
-        <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
-        <!-- endbower -->
-        <!-- endbuild -->
-        <!-- build:css assets/styles/main.css -->
-        <link rel="stylesheet" href="assets/styles/main.css">
-        <!-- endbuild -->
-    </head>
-    <body ng-app="springTestApp">
-        <!--[if lt IE 9]>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SpringTest</title>
+    <meta name="description" content="">
+    <meta name="google" value="notranslate">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css assets/styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+    <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css" />
+    <link rel="stylesheet" href="bower_components/chartist/dist/chartist.min.css" />
+    <link rel="stylesheet" href="bower_components/datatables/media/css/jquery.dataTables.css" />
+    <link rel="stylesheet" href="bower_components/angular-datatables/dist/plugins/bootstrap/datatables.bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/nvd3/build/nv.d3.css" />
+    <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.css" />
+    <link rel="stylesheet" href="bower_components/c3/c3.css" />
+    <link rel="stylesheet" href="bower_components/highlightjs/styles/default.css" />
+    <link rel="stylesheet" href="bower_components/perfect-scrollbar/css/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="bower_components/textAngular/dist/textAngular.css" />
+    <link rel="stylesheet" href="bower_components/toastr/toastr.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css assets/styles/main.css -->
+    <link rel="stylesheet" href="assets/styles/main.css">
+    <!-- endbuild -->
+</head>
+
+<body ng-app="springTestApp">
+    <!--[if lt IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <div ng-show="{{ENV === 'dev'}}" class="development" ng-cloak=""></div>
-        <div ui-view="navbar" ng-cloak=""></div>
-        <div class="container">
-            <div class="well" ui-view="content"></div>
-
-            <div class="footer">
-                <p translate="footer">This is your footer</p>
+    <div ng-cloak id="splash-screen">
+        <div class="center">
+            <div class="logo">
+                <img src="assets/images/logos/smile-motivationz.png" alt="Smile motivationz logo">
             </div>
+            <!-- Material Design Spinner -->
+            <div class="spinner-wrapper">
+                <div class="outer-spinner">
+                    <div class="spinner">
+                        <div class="left">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- / Material Design Spinner -->
         </div>
+    </div>
 
-        <!-- Google Analytics: uncomment and change UA-XXXXX-X to be your site's ID.
+    <div id="main" class="animate slide-up" flex layout="row" ui-view="main"></div>
+
+    <!-- Google Analytics: uncomment and change UA-XXXXX-X to be your site's ID.
         <script>
             (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
             function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
@@ -42,37 +69,97 @@
             ga('create','UA-XXXXX-X');ga('send','pageview');
         </script>-->
 
-        <!-- build:js scripts/vendor.js -->
-        <!-- bower:js -->
-        <script src="bower_components/modernizr/modernizr.js"></script>
-        <script src="bower_components/jquery/dist/jquery.js"></script>
-        <script src="bower_components/angular/angular.js"></script>
-        <script src="bower_components/angular-aria/angular-aria.js"></script>
-        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-        <script src="bower_components/angular-cache-buster/angular-cache-buster.js"></script>
-        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-        <script src="bower_components/angular-dynamic-locale/src/tmhDynamicLocale.js"></script>
-        <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
-        <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
-        <script src="bower_components/angular-resource/angular-resource.js"></script>
-        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-        <script src="bower_components/angular-translate/angular-translate.js"></script>
-        <script src="bower_components/messageformat/messageformat.js"></script>
-        <script src="bower_components/angular-translate-interpolation-messageformat/angular-translate-interpolation-messageformat.js"></script>
-        <script src="bower_components/angular-translate-loader-partial/angular-translate-loader-partial.js"></script>
-        <script src="bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
-        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-        <script src="bower_components/angular-animate/angular-animate.js"></script>
-        <script src="bower_components/angular-material/angular-material.js"></script>
-        <script src="bower_components/json3/lib/json3.js"></script>
-        <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
-        <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
-        <script src="bower_components/sockjs-client/dist/sockjs.js"></script>
-        <script src="bower_components/stomp-websocket/lib/stomp.min.js"></script>
-        <script src="bower_components/api-check/dist/api-check.js"></script>
-        <script src="bower_components/angular-formly/dist/formly.js"></script>
-        <!-- endbower -->
-        <!-- endbuild -->
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/modernizr/modernizr.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-cache-buster/angular-cache-buster.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-dynamic-locale/src/tmhDynamicLocale.js"></script>
+    <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-translate/angular-translate.js"></script>
+    <script src="bower_components/messageformat/messageformat.js"></script>
+    <script src="bower_components/angular-translate-interpolation-messageformat/angular-translate-interpolation-messageformat.js"></script>
+    <script src="bower_components/angular-translate-loader-partial/angular-translate-loader-partial.js"></script>
+    <script src="bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/lodash/lodash.js"></script>
+    <script src="bower_components/rxjs/dist/rx.all.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/json3/lib/json3.js"></script>
+    <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
+    <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
+    <script src="bower_components/sockjs-client/dist/sockjs.js"></script>
+    <script src="bower_components/stomp-websocket/lib/stomp.min.js"></script>
+    <script src="bower_components/api-check/dist/api-check.js"></script>
+    <script src="bower_components/angular-formly/dist/formly.js"></script>
+    <script src="bower_components/Chart.js/Chart.js"></script>
+    <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
+    <script src="bower_components/chartist/dist/chartist.min.js"></script>
+    <script src="bower_components/angular-chartist.js/dist/angular-chartist.js"></script>
+    <script src="bower_components/datatables/media/js/jquery.dataTables.js"></script>
+    <script src="bower_components/angular-datatables/dist/angular-datatables.js"></script>
+    <script src="bower_components/angular-datatables/dist/plugins/bootstrap/angular-datatables.bootstrap.js"></script>
+    <script src="bower_components/angular-datatables/dist/plugins/colreorder/angular-datatables.colreorder.js"></script>
+    <script src="bower_components/angular-datatables/dist/plugins/columnfilter/angular-datatables.columnfilter.js"></script>
+    <script src="bower_components/angular-datatables/dist/plugins/light-columnfilter/angular-datatables.light-columnfilter.js"></script>
+    <script src="bower_components/angular-datatables/dist/plugins/colvis/angular-datatables.colvis.js"></script>
+    <script src="bower_components/angular-datatables/dist/plugins/fixedcolumns/angular-datatables.fixedcolumns.js"></script>
+    <script src="bower_components/angular-datatables/dist/plugins/fixedheader/angular-datatables.fixedheader.js"></script>
+    <script src="bower_components/angular-datatables/dist/plugins/scroller/angular-datatables.scroller.js"></script>
+    <script src="bower_components/angular-datatables/dist/plugins/tabletools/angular-datatables.tabletools.js"></script>
+    <script src="bower_components/angular-datatables/dist/plugins/buttons/angular-datatables.buttons.js"></script>
+    <script src="bower_components/angular-datatables/dist/plugins/select/angular-datatables.select.js"></script>
+    <script src="bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
+    <script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+    <script src="bower_components/d3/d3.js"></script>
+    <script src="bower_components/nvd3/build/nv.d3.js"></script>
+    <script src="bower_components/angular-nvd3/dist/angular-nvd3.js"></script>
+    <script src="bower_components/momentjs/moment.js"></script>
+    <script src="bower_components/humanize-duration/humanize-duration.js"></script>
+    <script src="bower_components/angular-timer/dist/angular-timer.js"></script>
+    <script src="bower_components/fullcalendar/dist/fullcalendar.js"></script>
+    <script src="bower_components/angular-ui-calendar/src/calendar.js"></script>
+    <script src="bower_components/c3/c3.js"></script>
+    <script src="bower_components/c3-angular/c3-angular.min.js"></script>
+    <script src="bower_components/datatables-responsive/js/dataTables.responsive.js"></script>
+    <script src="bower_components/handlebars/handlebars.js"></script>
+    <script src="bower_components/highlightjs/highlight.pack.js"></script>
+    <script src="bower_components/mobile-detect/mobile-detect.js"></script>
+    <script src="bower_components/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+    <script src="bower_components/perfect-scrollbar/js/perfect-scrollbar.js"></script>
+    <script src="bower_components/rangy/rangy-core.js"></script>
+    <script src="bower_components/rangy/rangy-classapplier.js"></script>
+    <script src="bower_components/rangy/rangy-highlighter.js"></script>
+    <script src="bower_components/rangy/rangy-selectionsaverestore.js"></script>
+    <script src="bower_components/rangy/rangy-serializer.js"></script>
+    <script src="bower_components/rangy/rangy-textrange.js"></script>
+    <script src="bower_components/textAngular/dist/textAngular.js"></script>
+    <script src="bower_components/textAngular/dist/textAngular-sanitize.js"></script>
+    <script src="bower_components/textAngular/dist/textAngularSetup.js"></script>
+    <script src="bower_components/toastr/toastr.js"></script>
+    <script src="bower_components/Sortable/Sortable.js"></script>
+    <script src="bower_components/Sortable/ng-sortable.js"></script>
+    <script src="bower_components/Sortable/knockout-sortable.js"></script>
+    <script src="bower_components/Sortable/react-sortable-mixin.js"></script>
+    <script src="bower_components/angular-smart-table/dist/smart-table.js"></script>
+    <script src="bower_components/angular-upload/angular-upload.js"></script>
+    <script src="bower_components/ng-file-upload-shim/ng-file-upload-shim.js"></script>
+    <script src="bower_components/object.observe/dist/object-observe.min.js"></script>
+    <script src="bower_components/moment-timezone/builds/moment-timezone-with-data-2010-2020.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
 
 
     <!-- inject:js -->
@@ -141,10 +228,10 @@
     <script src="scripts/app/account/register/register.js"></script>
     <script src="scripts/app/account/settings/settings.controller.js"></script>
     <script src="scripts/app/account/settings/settings.js"></script>
-    <script src="scripts/app/admin/configuration/configuration.controller.js"></script>
-    <script src="scripts/app/admin/configuration/configuration.js"></script>
     <script src="scripts/app/admin/audits/audits.controller.js"></script>
     <script src="scripts/app/admin/audits/audits.js"></script>
+    <script src="scripts/app/admin/configuration/configuration.controller.js"></script>
+    <script src="scripts/app/admin/configuration/configuration.js"></script>
     <script src="scripts/app/admin/docs/docs.js"></script>
     <script src="scripts/app/admin/health/health.controller.js"></script>
     <script src="scripts/app/admin/health/health.js"></script>
@@ -232,6 +319,9 @@
     <script src="scripts/app/main/components/elements/inputs/select/select.controller.js"></script>
     <script src="scripts/app/main/components/elements/inputs/slider/slider.controller.js"></script>
     <script src="scripts/app/main/components/elements/inputs/switch/switch.controller.js"></script>
+    <script src="scripts/components/toolbar/toolbar.module.js"></script>
+    <script src="scripts/components/sidenav/navigation/navigation.module.js"></script>
+    <script src="scripts/components/sidenav/quick-panel/quick-panel.module.js"></script>
     <script src="scripts/components/admin/audits.service.js"></script>
     <script src="scripts/components/admin/configuration.service.js"></script>
     <script src="scripts/components/admin/logs.service.js"></script>
@@ -256,7 +346,6 @@
     <script src="scripts/components/navbar/navbar.controller.js"></script>
     <script src="scripts/components/navbar/navbar.directive.js"></script>
     <script src="scripts/components/toolbar/toolbar.controller.js"></script>
-    <script src="scripts/components/toolbar/toolbar.module.js"></script>
     <script src="scripts/components/tracker/tracker.service.js"></script>
     <script src="scripts/components/user/user.service.js"></script>
     <script src="scripts/components/util/base64.service.js"></script>
@@ -277,10 +366,9 @@
     <script src="scripts/components/entities/teacher/teacher.search.service.js"></script>
     <script src="scripts/components/entities/teacher/teacher.service.js"></script>
     <script src="scripts/components/sidenav/navigation/navigation.controller.js"></script>
-    <script src="scripts/components/sidenav/navigation/navigation.module.js"></script>
     <script src="scripts/components/sidenav/quick-panel/quick-panel.controller.js"></script>
-    <script src="scripts/components/sidenav/quick-panel/quick-panel.module.js"></script>
     <script src="scripts/components/sidenav/quick-panel/tabs/chat/chat-tab.controller.js"></script>
     <!-- endinject -->
 </body>
+
 </html>
