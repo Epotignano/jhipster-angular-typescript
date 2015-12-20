@@ -1,0 +1,117 @@
+/*----------------------------------------------------------------*/
+/*  Angular Material Extend
+/*  Adds and/or modifies Angular Material styles
+/*----------------------------------------------------------------*/
+
+// Autocomplete
+md-autocomplete-wrap {
+
+    > input[type="search"] {
+        background: #FFFFFF;
+        padding: 0 15px !important;
+    }
+}
+
+// Backdrop
+md-backdrop {
+
+    &.md-opaque {
+        background-color: rgba(33, 33, 33, 0.48) !important;
+    }
+}
+
+// Button
+.md-button {
+
+    &.md-icon-button {
+        height: 40px;
+        line-height: 40px;
+        width: 40px;
+    }
+
+    // Fab
+    &.md-fab {
+        line-height: 1;
+    }
+}
+
+// Dialog
+md-dialog {
+
+    .md-actions {
+        min-height: 64px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+
+        .md-button {
+            margin: 0 8px;
+        }
+    }
+
+}
+
+// Lists
+md-list-item {
+
+    .md-list-item-text {
+
+        p {
+            font-size: 13px !important;
+        }
+    }
+}
+
+// Menu
+.md-menu {
+    padding: 0;
+}
+
+// IE fix
+md-menu-content {
+
+    md-menu-item {
+
+        .md-button {
+            text-align: left;
+        }
+    }
+}
+
+// Progress
+md-progress-linear {
+
+    .md-container {
+        top: 0 !important;
+    }
+}
+
+// Select
+md-select {
+
+    &.simplified {
+        margin: 0 8px;
+
+        .md-select-value {
+            border: none !important;
+            box-sizing: border-box;
+            padding: 0;
+
+            & *:first-child {
+                transform: none;
+            }
+
+            .md-select-icon {
+                transform: none;
+
+                &:after {
+                    top: 1px;
+                }
+            }
+        }
+    }
+}
+
+// Sidenav
+md-sidenav {
+    -webkit-overflow-scrolling: touch;
+}

@@ -1,0 +1,17 @@
+#swipe.element-doc-page {
+
+    .content {
+
+        .card {
+
+            .preview {
+                min-height: 200px;
+                .no-select {
+                    pointer-events: none;
+                    -webkit-touch-callout: none;
+                    user-select: none;
+                }
+            }
+        }
+    }
+}

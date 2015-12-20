@@ -1,0 +1,50 @@
+#menu-bar.element-doc-page {
+
+    .content {
+
+        .card {
+
+            .preview {
+
+                md-menu-bar {
+                    > md-menu {
+                        > button {
+                            font-size: 14px;
+                            padding: 0 10px;
+                            margin: 0;
+                            border: 0;
+                            background-color: transparent;
+                            height: 40px;
+                        }
+                    }
+                }
+
+                .page-container {
+                    background-color: #F1F1F1;
+                    padding: 32px;
+                }
+
+                .page {
+                    margin: 0 auto;
+                    background-color: white;
+                    padding: 24px;
+                    max-width: 680px;
+                    box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.25);
+                    h1 {
+                        text-align: center;
+                        font-size: 1.8rem;
+                        margin-top: 0;
+                        font-weight: normal;
+                        p {
+                            line-height: 1.6rem;
+                        }
+                    }
+                }
+            }
+
+            .source-code {
+                min-height: 400px;
+            }
+        }
+    }
+}

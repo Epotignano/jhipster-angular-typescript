@@ -1,0 +1,41 @@
+/*----------------------------------------------------------------*/
+/*  Global Widget Styles
+/*----------------------------------------------------------------*/
+.ms-widget {
+
+    .ms-widget-front {
+        box-shadow: $whiteframe-shadow-1dp;
+    }
+
+    .ms-widget-back {
+        box-shadow: $whiteframe-shadow-1dp;
+    }
+
+    &.sidenav-widget {
+
+        .ms-widget-front,
+        .ms-widget-back {
+            box-shadow: none;
+        }
+    }
+
+    // Flip to front button
+    .flip-to-front {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    // ie fix
+    .c3 {
+        height: 100%;
+    }
+
+    // chart fill
+    @for $i from 1 through 10 {
+
+        .chart-fill-#{$i * 8} {
+            margin: 0 #{(-$i * 8) + 'px'} #{(-$i * 8) + 'px'} #{(-$i * 8) + 'px'};
+        }
+    }
+}

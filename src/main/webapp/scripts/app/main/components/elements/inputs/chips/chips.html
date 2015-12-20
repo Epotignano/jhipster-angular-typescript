@@ -1,0 +1,204 @@
+<div id="chips" class="page-layout simple fullwidth doc-page element-doc-page">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="row" layout-align="space-between" layout-sm="column">
+
+        <div layout="column" layout-align="center start">
+            <div class="breadcrumb" layout="row" layout-align="start center">
+                <md-icon md-font-icon="icon-home" class="s16"></md-icon>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">COMPONENTS</span>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">ELEMENTS</span>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">INPUTS</span>
+            </div>
+            <div class="title">Chips / Tags</div>
+        </div>
+
+        <div layout="row" layout-align="start center">
+            <md-button class="md-raised reference-button"
+                       href="https://material.angularjs.org/latest/#/api/material.components.chips/directive/mdChip"
+                       target="_blank">
+                <md-icon md-font-icon="icon-link"></md-icon>
+                <span>Reference</span>
+            </md-button>
+        </div>
+
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <div class="description">
+            <p><code>&lt;md-chips&gt;</code> is an input component for building lists of strings or objects. The list
+                items are
+                displayed as 'chips'. This component can make use of an <code>&lt;input&gt;</code> element or an
+                <code>&lt;md-autocomplete&gt;</code> element.</p>
+
+            <p><strong>Custom <code>&lt;md-chip-template&gt;</code> template</strong>
+                A custom template may be provided to render the content of each chip. This is achieved by
+                specifying an <code>&lt;md-chip-template&gt;</code> element as a child of <code>&lt;md-chips&gt;</code>.
+                Note: Any attributes on
+                <code>&lt;md-chip-template&gt;</code> will be dropped as only the innerHTML is used for the chip
+                template. The
+                variables <code>$chip</code> and <code>$index</code> are available in the scope of <code>&lt;md-chip-template&gt;</code>,
+                representing
+                the chip object and its index in the list of chips, respectively.
+                To override the chip delete control, include an element (ideally a button) with the attribute
+                <code>md-chip-remove</code>. A click listener to remove the chip will be added automatically. The
+                element
+                is also placed as a sibling to the chip content (on which there are also click listeners) to
+                avoid a nested ng-click situation.</p>
+
+            <p><span style="font-size:.8em;text-align:center">
+                Warning: This component is a WORK IN PROGRESS. If you use it now,
+                it will probably break on you in the future.
+            </span></p>
+
+        </div>
+
+        <div class="md-title">Basic Usage</div>
+
+        <div class="card md-whiteframe-4dp" layout="column">
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <md-chips
+                            ng-model="vm.tags"
+                            placeholder="Enter a tag"
+                            delete-button-label="Remove Tag"
+                            delete-hint="Press delete to remove tag"
+                            secondary-placeholder="+Tag"></md-chips>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-chips
+                                ng-model="vm.tags"
+                                placeholder="Enter a tag"
+                                delete-button-label="Remove Tag"
+                                delete-hint="Press delete to remove tag"
+                                secondary-placeholder="+Tag"></md-chips>
+                </div>
+            </div>
+        </div>
+
+        <div class="md-title">Attributes</div>
+
+        <div class="attributes card md-whiteframe-4dp" layout="column">
+            <table class="simple" ms-responsive-table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            <b>* ng-model</b>
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-string">string</code><code
+                                    class="api-type label type-hint type-hint-object">object</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-string">string</code><code
+                                class="api-type label type-hint type-hint-object">object</code></td>
+                        <td class="description">
+                            <p>A model to bind the list of items to</p>
+                        </td>
+                    </tr>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            <b>* md-on-append</b>
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-expression">expression</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-expression">expression</code></td>
+                        <td class="description">
+                            <p>An expression expected to convert the input string into an
+                                object when adding a chip.</p>
+                        </td>
+                    </tr>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            placeholder
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-string">string</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-string">string</code></td>
+                        <td class="description">
+                            <p>Placeholder text that will be forwarded to the input.</p>
+                        </td>
+                    </tr>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            secondary-placeholder
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-string">string</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-string">string</code></td>
+                        <td class="description">
+                            <p>Placeholder text that will be forwarded to the input,
+                                displayed when there is at least on item in the list</p>
+                        </td>
+                    </tr>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            readonly
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-boolean">boolean</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-boolean">boolean</code></td>
+                        <td class="description">
+                            <p>Disables list manipulation (deleting or adding list items), hiding
+                                the input and delete buttons</p>
+                        </td>
+                    </tr>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            delete-hint
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-string">string</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-string">string</code></td>
+                        <td class="description">
+                            <p>A string read by screen readers instructing users that pressing
+                                the delete key will remove the chip.</p>
+                        </td>
+                    </tr>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            delete-button-label
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-string">string</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-string">string</code></td>
+                        <td class="description">
+                            <p>A label for the delete button. Also hidden and read by
+                                screen readers.</p>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <!-- / CONTENT -->
+
+</div>

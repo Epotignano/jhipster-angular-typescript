@@ -1,0 +1,445 @@
+<div id="bottom-sheet" class="page-layout simple fullwidth doc-page element-doc-page">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="row" layout-align="space-between" layout-sm="column">
+
+        <div layout="column" layout-align="center start">
+            <div class="breadcrumb" layout="row" layout-align="start center">
+                <md-icon md-font-icon="icon-home" class="s16"></md-icon>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">COMPONENTS</span>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">ELEMENTS</span>
+            </div>
+            <div class="title">Bottom Sheet</div>
+        </div>
+
+        <div layout="row" layout-align="start center">
+            <md-button class="md-raised reference-button"
+                       href="https://material.angularjs.org/latest/#/api/material.components.bottomSheet/service/$mdBottomSheet"
+                       target="_blank">
+                <md-icon md-font-icon="icon-link"></md-icon>
+                <span>Reference</span>
+            </md-button>
+        </div>
+
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <div class="description">
+            <p><code>$mdBottomSheet</code> opens a bottom sheet over the app and provides a simple promise API.</p>
+
+            <h2 id="restrictions">Restrictions</h2>
+            <ul>
+                <li>The bottom sheet's template must have an outer <code>&lt;md-bottom-sheet&gt;</code> element.</li>
+                <li>Add the <code>md-grid</code> class to the bottom sheet for a grid layout.</li>
+                <li>Add the <code>md-list</code> class to the bottom sheet for a list layout.</li>
+            </ul>
+        </div>
+
+        <div class="card md-whiteframe-4dp" layout="column">
+            <div layout="row" layout-sm="column">
+                <div flex class="preview" layout="column">
+                    <div class="md-caption">List</div>
+                    <div flex layout="column" layout-align="center center">
+                        <md-button class="md-primary md-raised" ng-click="vm.showListBottomSheet($event)">
+                            Show as List
+                        </md-button>
+                        <div>{{vm.alert}}</div>
+                    </div>
+                </div>
+                <div flex class="source-code">
+
+                    <md-tabs>
+                        <md-tab label="HTML">
+                            <hljs lang="html" ms-scroll>
+                                <md-button class="md-primary md-raised" ng-click="vm.showListBottomSheet($event)">
+                                    Show as List
+                                </md-button>
+                                <div>{{vm.alert}}</div>
+                            </hljs>
+                        </md-tab>
+                        <md-tab label="JS">
+                            <hljs lang="js" ms-scroll>
+                                vm.showListBottomSheet = function ($event)
+                                {
+                                    vm.alert = '';
+                                    $mdBottomSheet.show({
+                                        templateUrl: 'bottom-sheet-list-template.html',
+                                        controller : ListBottomSheetCtrl,
+                                        targetEvent: $event,
+                                        parent     : angular.element('#app-wrapper > main > .main-content')
+                                    }).then(function (clickedItem)
+                                    {
+                                        vm.alert = clickedItem.name + ' clicked!';
+                                    });
+                                };
+
+                                function ListBottomSheetCtrl($scope, $mdBottomSheet)
+                                {
+                                    $scope.items = [
+                                        {
+                                            name: 'Share',
+                                            icon: 'icon-share'
+                                        },
+                                        {
+                                            name: 'Upload',
+                                            icon: 'icon-upload'
+                                        },
+                                        {
+                                            name: 'Copy',
+                                            icon: 'icon-content-copy'
+                                        },
+                                        {
+                                            name: 'Print this page',
+                                            icon: 'icon-printer'
+                                        },
+                                    ];
+                                    $scope.listItemClick = function ($index)
+                                    {
+                                        var clickedItem = $scope.items[$index];
+                                        $mdBottomSheet.hide(clickedItem);
+                                    };
+                                }
+                            </hljs>
+                        </md-tab>
+                        <md-tab label="bottom-sheet-list-template.html">
+                            <hljs lang="html" ms-scroll>
+                                <md-bottom-sheet class="md-list md-has-header bottom-sheet-list-demo">
+                                    <md-subheader>Comment Actions</md-subheader>
+                                    <md-list>
+                                        <md-list-item ng-repeat="item in items">
+                                            <md-button class="md-list-item-content" ng-click="listItemClick($index)">
+                                                <md-icon md-font-icon="{{item.icon}}"></md-icon>
+                                                <span class="md-inline-list-icon-label">{{item.name}}</span>
+                                            </md-button>
+                                        </md-list-item>
+                                    </md-list>
+                                </md-bottom-sheet>
+                            </hljs>
+                        </md-tab>
+                    </md-tabs>
+
+                </div>
+            </div>
+            <div layout="row" layout-sm="column">
+                <div flex class="preview" layout="column">
+                    <div class="md-caption">Grid</div>
+                    <div flex layout="column" layout-align="center center">
+                        <md-button class="md-primary md-raised" ng-click="vm.showGridBottomSheet($event)">
+                            Show as Grid
+                        </md-button>
+                        <div>{{vm.alert2}}</div>
+                    </div>
+                </div>
+                <div flex class="source-code">
+
+                    <md-tabs>
+                        <md-tab label="HTML">
+                            <hljs lang="html" ms-scroll>
+                                <md-button class="md-primary md-raised" ng-click="vm.showGridBottomSheet($event)">
+                                    Show as Grid
+                                </md-button>
+                                <div>{{vm.alert2}}</div>
+                            </hljs>
+                        </md-tab>
+                        <md-tab label="JS">
+                            <hljs lang="js" ms-scroll>
+                                vm.showGridBottomSheet = function ($event)
+                                {
+                                    vm.alert2 = '';
+                                    $mdBottomSheet.show({
+                                        templateUrl: 'bottom-sheet-grid-template.html',
+                                        controller : GridBottomSheetCtrl,
+                                        targetEvent: $event,
+                                        parent     : angular.element('#app-wrapper > main > .main-content')
+                                    }).then(function (clickedItem)
+                                    {
+                                        vm.alert2 = clickedItem.name + ' clicked!';
+                                    });
+                                };
+
+                                function GridBottomSheetCtrl($scope, $mdBottomSheet)
+                                {
+                                    $scope.items = [
+                                        {
+                                            name: 'Share',
+                                            icon: 'icon-share'
+                                        },
+                                        {
+                                            name: 'Upload',
+                                            icon: 'icon-upload'
+                                        },
+                                        {
+                                            name: 'Copy',
+                                            icon: 'icon-content-copy'
+                                        },
+                                        {
+                                            name: 'Print this page',
+                                            icon: 'icon-printer'
+                                        },
+                                    ];
+                                    $scope.listItemClick = function ($index)
+                                    {
+                                        var clickedItem = $scope.items[$index];
+                                        $mdBottomSheet.hide(clickedItem);
+                                    };
+                                }
+                            </hljs>
+                        </md-tab>
+                        <md-tab label="bottom-sheet-grid-template.html">
+                            <hljs lang="html" ms-scroll>
+                                <md-bottom-sheet class="md-grid bottom-sheet-grid-demo">
+                                    <md-list>
+                                        <md-list-item ng-repeat="item in items">
+                                            <md-button class="md-grid-item-content" ng-click="listItemClick($index)">
+                                                <md-icon md-font-icon="{{item.icon}}"></md-icon>
+                                                <div class="md-grid-text"> {{item.name}}</div>
+                                            </md-button>
+                                        </md-list-item>
+                                    </md-list>
+                                </md-bottom-sheet>
+                            </hljs>
+                        </md-tab>
+                    </md-tabs>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="md-title">Methods</div>
+        <ul class="methods">
+            <li id="show">
+                <h3 class="method-function-syntax">
+                    <code class="method-function-syntax">$mdBottomSheet.show(options);
+                    </code>
+                </h3>
+
+                <div class="service-desc"><p>Show a bottom sheet with the specified options.</p>
+                </div>
+
+                <div class="method-param-table card md-whiteframe-4dp">
+                    <table class="simple" ms-responsive-table>
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="api-params-item">
+                                <td style="white-space: nowrap;">
+                                    <b>* options</b>
+
+                                    <span hide="" show-sm="">
+                                        <code class="api-type label type-hint type-hint-object">object</code></span>
+                                </td>
+                                <td style="white-space: nowrap;">
+                                    <code class="api-type label type-hint type-hint-object">object</code></td>
+                                <td class="description">
+                                    <p>An options object, with the following properties:</p>
+                                    <ul>
+                                        <li><code>templateUrl</code> - <code>{string=}</code>: The url of an html
+                                            template file that will
+                                            be used as the content of the bottom sheet. Restrictions: the template must
+                                            have an outer <code>md-bottom-sheet</code> element.
+                                        </li>
+                                        <li><code>template</code> - <code>{string=}</code>: Same as templateUrl, except
+                                            this is an actual
+                                            template string.
+                                        </li>
+                                        <li><code>scope</code> - <code>{object=}</code>: the scope to link the template
+                                            / controller to. If none is specified, it will create a new child scope.
+                                            This scope will be destroyed when the bottom sheet is removed unless <code>preserveScope</code>
+                                            is set to true.
+                                        </li>
+                                        <li><code>preserveScope</code> - <code>{boolean=}</code>: whether to preserve
+                                            the scope when the element is removed. Default is false
+                                        </li>
+                                        <li><code>controller</code> - <code>{string=}</code>: The controller to
+                                            associate with this bottom sheet.
+                                        </li>
+                                        <li><code>locals</code> - <code>{string=}</code>: An object containing key/value
+                                            pairs. The keys will
+                                            be used as names of values to inject into the controller. For example,
+                                            <code>locals: {three: 3}</code> would inject <code>three</code> into the
+                                            controller with the value
+                                            of 3.
+                                        </li>
+                                        <li><code>targetEvent</code> - <code>{DOMClickEvent=}</code>: A click's event
+                                            object. When passed in as an option,
+                                            the location of the click will be used as the starting point for the opening
+                                            animation
+                                            of the the dialog.
+                                        </li>
+                                        <li><code>resolve</code> - <code>{object=}</code>: Similar to locals, except it
+                                            takes promises as values
+                                            and the bottom sheet will not open until the promises resolve.
+                                        </li>
+                                        <li><code>controllerAs</code> - <code>{string=}</code>: An alias to assign the
+                                            controller to on the scope.
+                                        </li>
+                                        <li><code>parent</code> - <code>{element=}</code>: The element to append the
+                                            bottom sheet to. The <code>parent</code> may be a <code>function</code>,
+                                            <code>string</code>,
+                                            <code>object</code>, or null. Defaults to appending to the body of the root
+                                            element (or the root element) of the application.
+                                            e.g. angular.element(document.getElementById('content')) or "#content"
+                                        </li>
+                                        <li><code>disableParentScroll</code> - <code>{boolean=}</code>: Whether to
+                                            disable scrolling while the bottom sheet is open.
+                                            Default true.
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                    <table class="simple" ms-responsive-table>
+                        <thead>
+                            <tr>
+                                <th>Returns</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <code class="api-type label type-hint type-hint-promise">promise</code></td>
+                                <td class="description"><p>A promise that can be resolved with
+                                    <code>$mdBottomSheet.hide()</code>
+                                    or
+                                    rejected with <code>$mdBottomSheet.cancel()</code>.</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </li>
+
+            <li id="hide">
+                <h3 class="method-function-syntax">
+                    <code class="method-function-syntax">$mdBottomSheet.hide([response]);
+                    </code>
+                </h3>
+
+                <div class="service-desc"><p>Hide the existing bottom sheet and resolve the promise returned from
+                    <code>$mdBottomSheet.show()</code>. This call will close the most recently opened/current
+                    bottomsheet (if any).</p>
+                </div>
+
+                <div class="method-param-table card md-whiteframe-4dp">
+
+                    <table class="simple" ms-responsive-table>
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr class="api-params-item">
+                                <td style="white-space: nowrap;">
+                                    response
+
+                                    <span hide="" show-sm="">
+                                        <code class="api-type label type-hint type-hint-object">*</code></span>
+                                </td>
+                                <td style="white-space: nowrap;">
+                                    <code class="api-type label type-hint type-hint-object">*</code></td>
+                                <td class="description">
+                                    <p>An argument for the resolved promise.</p>
+
+
+                                </td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+
+
+                </div>
+
+            </li>
+
+            <li id="cancel">
+                <h3 class="method-function-syntax">
+                    <code class="method-function-syntax">$mdBottomSheet.cancel([response]);
+                    </code>
+                </h3>
+
+                <div class="service-desc"><p>Hide the existing bottom sheet and reject the promise returned from
+                    <code>$mdBottomSheet.show()</code>.</p>
+                </div>
+                <div class="method-param-table card md-whiteframe-4dp">
+                    <table class="simple" ms-responsive-table>
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="api-params-item">
+                                <td style="white-space: nowrap;">
+                                    response
+
+                                    <span hide="" show-sm="">
+                                        <code class="api-type label type-hint type-hint-object">*</code></span>
+                                </td>
+                                <td style="white-space: nowrap;">
+                                    <code class="api-type label type-hint type-hint-object">*</code></td>
+                                <td class="description">
+                                    <p>An argument for the rejected promise.</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </li>
+        </ul>
+
+    </div>
+    <!-- / CONTENT -->
+
+    <script type="text/ng-template" id="bottom-sheet-grid-template.html">
+        <md-bottom-sheet class="md-grid bottom-sheet-grid-demo">
+            <md-list>
+                <md-list-item ng-repeat="item in items">
+                    <md-button class="md-grid-item-content" ng-click="listItemClick($index)">
+                        <md-icon md-font-icon="{{item.icon}}"></md-icon>
+                        <div class="md-grid-text"> {{item.name}}</div>
+                    </md-button>
+                </md-list-item>
+            </md-list>
+        </md-bottom-sheet>
+    </script>
+
+    <script type="text/ng-template" id="bottom-sheet-list-template.html">
+        <md-bottom-sheet class="md-list md-has-header bottom-sheet-list-demo">
+            <md-subheader>Comment Actions</md-subheader>
+            <md-list>
+                <md-list-item ng-repeat="item in items">
+                    <md-button class="md-list-item-content" ng-click="listItemClick($index)">
+                        <md-icon md-font-icon="{{item.icon}}"></md-icon>
+                        <span class="md-inline-list-icon-label">{{item.name}}</span>
+                    </md-button>
+                </md-list-item>
+            </md-list>
+        </md-bottom-sheet>
+    </script>
+
+</div>

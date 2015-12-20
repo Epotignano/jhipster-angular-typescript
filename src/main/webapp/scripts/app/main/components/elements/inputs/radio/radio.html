@@ -1,0 +1,281 @@
+<div id="radio" class="page-layout simple fullwidth doc-page element-doc-page">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="row" layout-align="space-between" layout-sm="column">
+
+        <div layout="column" layout-align="center start">
+            <div class="breadcrumb" layout="row" layout-align="start center">
+                <md-icon md-font-icon="icon-home" class="s16"></md-icon>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">COMPONENTS</span>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">ELEMENTS</span>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">INPUTS</span>
+            </div>
+            <div class="title">Radio</div>
+        </div>
+
+        <div layout="row" layout-align="start center">
+            <md-button class="md-raised reference-button"
+                       href="https://material.angularjs.org/latest/#/api/material.components.radioButton/directive/mdRadioButton"
+                       target="_blank">
+                <md-icon md-font-icon="icon-link"></md-icon>
+                <span>Reference</span>
+            </md-button>
+        </div>
+
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <div class="md-title">Radio Group</div>
+        <div class="description">
+            <div class="api-profile-description">
+                <p>The <code>&lt;md-radio-group&gt;</code> directive identifies a grouping
+                    container for the 1..n grouped radio buttons; specified using nested
+                    <code>&lt;md-radio-button&gt;</code> tags.</p>
+
+                <p>As per the <a href="http://www.google.com/design/spec/style/color.html#color-ui-color-application">material
+                    design spec</a>
+                    the radio button is in the accent color by default. The primary color palette may be used with
+                    the <code>md-primary</code> class.</p>
+
+                <p>Note: <code>&lt;md-radio-group&gt;</code> and <code>&lt;md-radio-button&gt;</code> handle tabindex
+                    differently
+                    than the native <code>&lt;input type='radio'&gt;</code> controls. Whereas the native controls
+                    force the user to tab through all the radio buttons, <code>&lt;md-radio-group&gt;</code>
+                    is focusable, and by default the <code>&lt;md-radio-button&gt;</code>s are not.</p>
+            </div>
+        </div>
+        <div class="md-title">Radio Button</div>
+        <div class="description">
+            <p>The <code>&lt;md-radio-button&gt;</code>directive is the child directive required to be used within
+                <code>&lt;md-radio-group&gt;</code> elements.</p>
+
+            <p>While similar to the <code>&lt;input type="radio" ng-model="" value=""&gt;</code> directive,
+                the <code>&lt;md-radio-button&gt;</code> directive provides ink effects, ARIA support, and
+                supports use within named radio groups.</p>
+        </div>
+        <div class="card md-whiteframe-4dp" layout="column">
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Accent Colored</div>
+                    <div layout="column" layout-align="center center">
+                        <div>Selected Value: <span class="radioValue">{{vm.groupValue}}</span></div>
+                        <md-radio-group ng-model="vm.groupValue">
+                            <md-radio-button value="Apple">Apple</md-radio-button>
+                            <md-radio-button value="Banana"> Banana</md-radio-button>
+                            <md-radio-button value="Mango">Mango</md-radio-button>
+                        </md-radio-group>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-radio-group ng-model="vm.groupValue">
+                            <md-radio-button value="Apple">Apple</md-radio-button>
+                            <md-radio-button value="Banana"> Banana</md-radio-button>
+                            <md-radio-button value="Mango">Mango</md-radio-button>
+                        </md-radio-group>
+                    </hljs>
+                </div>
+            </div>
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Primary Colored</div>
+                    <div layout="column" layout-align="center center">
+                        <div>Selected Value: <span class="radioValue">{{vm.groupValue}}</span></div>
+                        <md-radio-group ng-model="vm.groupValue">
+                            <md-radio-button value="Apple" class="md-primary">Apple</md-radio-button>
+                            <md-radio-button value="Banana" class="md-primary"> Banana</md-radio-button>
+                            <md-radio-button value="Mango" class="md-primary">Mango</md-radio-button>
+                        </md-radio-group>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-radio-group ng-model="vm.groupValue">
+                            <md-radio-button value="Apple" class="md-primary">Apple</md-radio-button>
+                            <md-radio-button value="Banana" class="md-primary"> Banana</md-radio-button>
+                            <md-radio-button value="Mango" class="md-primary">Mango</md-radio-button>
+                        </md-radio-group>
+                    </hljs>
+                </div>
+            </div>
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Warn Colored</div>
+                    <div layout="column" layout-align="center center">
+                        <div>Selected Value: <span class="radioValue">{{vm.groupValue}}</span></div>
+                        <md-radio-group ng-model="vm.groupValue">
+                            <md-radio-button value="Apple" class="md-warn">Apple</md-radio-button>
+                            <md-radio-button value="Banana" class="md-warn"> Banana</md-radio-button>
+                            <md-radio-button value="Mango" class="md-warn">Mango</md-radio-button>
+                        </md-radio-group>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-radio-group ng-model="vm.groupValue">
+                            <md-radio-button value="Apple" class="md-warn">Apple</md-radio-button>
+                            <md-radio-button value="Banana" class="md-warn"> Banana</md-radio-button>
+                            <md-radio-button value="Mango" class="md-warn">Mango</md-radio-button>
+                        </md-radio-group>
+                    </hljs>
+                </div>
+            </div>
+        </div>
+
+        <div class="md-title">Radio Group Attributes</div>
+        <div class="attributes card md-whiteframe-4dp" layout="column">
+            <table class="simple" ms-responsive-table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            <b>* ng-model</b>
+
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-string">string</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-string">string</code></td>
+                        <td class="description">
+                            <p>Assignable angular expression to data-bind to.</p>
+                        </td>
+                    </tr>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            md-no-ink
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-boolean">boolean</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-boolean">boolean</code></td>
+                        <td class="description">
+                            <p>Use of attribute indicates flag to disable ink ripple effects.</p>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <div class="md-title">Radio Button Attributes</div>
+        <div class="attributes card md-whiteframe-4dp" layout="column">
+            <table class="simple" ms-responsive-table>
+
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            <b>* ngModel</b>
+
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-string">string</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-string">string</code></td>
+                        <td class="description">
+                            <p>Assignable angular expression to data-bind to.</p>
+                        </td>
+                    </tr>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            <b>* ngValue</b>
+
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-string">string</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-string">string</code></td>
+                        <td class="description">
+                            <p>Angular expression which sets the value to which the expression should
+                                be set when selected.*</p>
+                        </td>
+                    </tr>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            <b>* value</b>
+
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-string">string</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-string">string</code></td>
+                        <td class="description">
+                            <p>The value to which the expression should be set when selected.</p>
+                        </td>
+                    </tr>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            ngChange
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-string">string</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-string">string</code></td>
+                        <td class="description">
+                            <p>Angular expression to be executed when input changes due to user
+                                interaction with the input element.</p>
+                        </td>
+                    </tr>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            name
+
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-string">string</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-string">string</code></td>
+                        <td class="description">
+                            <p>Property name of the form under which the control is published.</p>
+                        </td>
+                    </tr>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            aria-label
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-string">string</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-string">string</code></td>
+                        <td class="description">
+                            <p>Adds label to radio button for accessibility.
+                                Defaults to radio button's text. If no text content is available, a warning will be
+                                logged.</p>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <!-- / CONTENT -->
+
+</div>

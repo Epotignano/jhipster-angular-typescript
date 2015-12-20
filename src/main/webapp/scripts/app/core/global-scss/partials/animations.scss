@@ -1,0 +1,348 @@
+/*----------------------------------------------------------------*/
+/*  Animations
+/*----------------------------------------------------------------*/
+
+@mixin transitionDuration($duration) {
+    transition-duration: $duration;
+    -webkit-transition-duration: $duration;
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
+}
+
+@mixin easingTimingFunction() {
+    -webkit-transition: all 0 cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    -moz-transition: all 0 cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    -ms-transition: all 0 cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    -o-transition: all 0 cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    transition: all 0 cubic-bezier(0.250, 0.460, 0.450, 0.940); /* easeOutQuad */
+
+    -webkit-transition-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    -moz-transition-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    -ms-transition-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    -o-transition-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    transition-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940); /* easeOutQuad */
+}
+
+@mixin bouncyTimingFunction() {
+    -webkit-transition: all 0 cubic-bezier(0.175, 0.885, 0.320, 1); /* older webkit */
+    -webkit-transition: all 0 cubic-bezier(0.175, 0.885, 0.320, 1.275);
+    -moz-transition: all 0 cubic-bezier(0.175, 0.885, 0.320, 1.275);
+    -ms-transition: all 0 cubic-bezier(0.175, 0.885, 0.320, 1.275);
+    -o-transition: all 0 cubic-bezier(0.175, 0.885, 0.320, 1.275);
+    transition: all 0 cubic-bezier(0.175, 0.885, 0.320, 1.275); /* easeOutBack */
+
+    -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.450, 1); /* older webkit */
+    -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.450, 1.595);
+    -moz-transition-timing-function: cubic-bezier(0.175, 0.885, 0.450, 1.595);
+    -ms-transition-timing-function: cubic-bezier(0.175, 0.885, 0.450, 1.595);
+    -o-transition-timing-function: cubic-bezier(0.175, 0.885, 0.450, 1.595);
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.450, 1.595); /* custom */
+}
+
+@mixin easingOutQuadTimingFunction() {
+    -webkit-transition: all 0 cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    -moz-transition: all 0 cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    -ms-transition: all 0 cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    -o-transition: all 0 cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    transition: all 0 cubic-bezier(0.250, 0.460, 0.450, 0.940); /* easeOutQuad */
+
+    -webkit-transition-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    -moz-transition-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    -ms-transition-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    -o-transition-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    transition-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940); /* easeOutQuad */
+}
+
+@mixin transform($value) {
+    transform: $value;
+    -ms-transform: $value;
+    -webkit-transform: $value;
+}
+
+.animate {
+    &.slide-up {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        @include easingOutQuadTimingFunction();
+        &.ng-enter,
+        &.ng-leave {
+            @include transitionDuration(400ms);
+        }
+        &.ng-enter {
+            top: 100%;
+            opacity: 0;
+        }
+        &.ng-enter-active {
+            opacity: 1;
+            top: 0;
+        }
+        &.ng-leave {
+            opacity: 1;
+            top: 0;
+        }
+        &.ng-leave-active {
+            top: -100%;
+            opacity: 0;
+        }
+    }
+}
+
+/* ------------------------------------------- */
+/* Scale in Fade
+/* ------------------------------------------- */
+
+.animate-switch-scale-fade-in {
+    > .ng-animate {
+        @include easingOutQuadTimingFunction();
+        position: absolute;
+        width: 100%;
+        overflow: hidden;
+        &.ng-enter {
+            @include transform(scale(3));
+            @include transitionDuration(250ms);
+            opacity: 0;
+            &.ng-enter-active {
+                @include transform(scale(1));
+                opacity: 1;
+            }
+        }
+        &.ng-leave {
+            @include transform(scale(1));
+            @include transitionDuration(250ms);
+            opacity: 1;
+            &.ng-leave.ng-leave-active {
+                @include transform(scale(3));
+                opacity: 0;
+            }
+        }
+    }
+}
+
+.animate-switch-slide-up {
+    > .ng-animate {
+        @include easingOutQuadTimingFunction();
+        position: absolute;
+        width: 100%;
+        overflow: hidden;
+        &.ng-enter {
+            @include transform(translate3d(0, 100%, 0));
+            @include transitionDuration(250ms);
+            opacity: 0;
+            &.ng-enter-active {
+                @include transform(translate3d(0, 0, 0));
+                opacity: 1;
+            }
+        }
+        &.ng-leave {
+            @include transform(translate3d(0, 0, 0));
+            @include transitionDuration(250ms);
+            opacity: 1;
+            &.ng-leave.ng-leave-active {
+                @include transform(translate3d(0, 100%, 0));
+                opacity: 0;
+            }
+        }
+    }
+}
+
+.animate-slide-up {
+    @include easingOutQuadTimingFunction();
+    opacity: 1;
+    &.ng-hide {
+        @include transform(translate3d(0, 100%, 0));
+        @include transitionDuration(300ms);
+        opacity: 0;
+    }
+    &.ng-hide-add,
+    &.ng-hide-remove {
+        @include transitionDuration(300ms);
+    }
+}
+
+.animate-slide-right {
+    @include easingOutQuadTimingFunction();
+    opacity: 1;
+    &.ng-hide {
+        @include transform(translate3d(-304px, 0, 0));
+        @include transitionDuration(300ms);
+        opacity: 0;
+    }
+    &.ng-hide-add,
+    &.ng-hide-remove {
+        @include transitionDuration(300ms);
+    }
+}
+
+.animate-slide-left {
+    @include easingOutQuadTimingFunction();
+    opacity: 1;
+    &.ng-hide {
+        @include transform(translate3d(304px, 0, 0));
+        @include transitionDuration(300ms);
+        opacity: 0;
+    }
+    &.ng-hide-add,
+    &.ng-hide-remove {
+        @include transitionDuration(300ms);
+    }
+}
+
+.animate-flipInX {
+    @include easingOutQuadTimingFunction();
+    opacity: 1;
+    &.ng-hide {
+        @include transform(perspective(100px) rotate3d(1, 0, 0, 90deg));
+        @include transitionDuration(250ms);
+        opacity: 0;
+    }
+    &.ng-hide-add,
+    &.ng-hide-remove {
+        @include transitionDuration(250ms);
+    }
+}
+
+.animate-fadeIn {
+    @include easingOutQuadTimingFunction();
+    opacity: 1;
+    &.ng-hide {
+        @include transitionDuration(250ms);
+        opacity: 0;
+    }
+    &.ng-hide-add,
+    &.ng-hide-remove {
+        @include transitionDuration(250ms);
+    }
+}
+
+.example-animate-container {
+    background: #ECECEC;
+    list-style: none;
+    margin: 0;
+    padding: 0 10px;
+}
+
+.animate-repeat {
+    line-height: 40px;
+    list-style: none;
+    border-bottom: 1px solid #FFFFFF;
+    -webkit-transition: 1s linear all;
+    transition: 1s linear all;
+}
+
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter,
+.animate-repeat.ng-leave {
+    -webkit-transition: all linear 0.5s;
+    transition: all linear 0.5s;
+}
+
+.animate-repeat.ng-leave.ng-leave-active,
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter {
+    opacity: 0;
+    max-height: 0;
+}
+
+.animate-repeat.ng-leave,
+.animate-repeat.ng-move.ng-move-active,
+.animate-repeat.ng-enter.ng-enter-active {
+    opacity: 1;
+    max-height: 40px;
+}
+
+/**
+ * Stagger Leave (hide) animation
+ */
+.animate-repeat.ng-leave-stagger {
+    /* this will have a 100ms delay between each successive leave animation */
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+
+    /* in case the stagger doesn't work then these two values
+     must be set to 0 to avoid an accidental CSS inheritance */
+    -webkit-transition-duration: 0s;
+    transition-duration: 0s;
+}
+
+/**
+ * Stagger ENTER ANIMATION
+ */
+.animate-repeat.ng-enter-stagger {
+    /* this will have a 100ms delay between each successive enter animation */
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+
+    /* in case the stagger doesn't work then these two values
+     must be set to 0 to avoid an accidental CSS inheritance */
+    -webkit-transition-duration: 0s;
+    transition-duration: 0s;
+}
+
+/*----------------------------------------------------------------*/
+/*  @ Custom Animation Keyframes
+/*----------------------------------------------------------------*/
+
+@keyframes slide-in-left {
+    0% {
+        opacity: 0;
+        transform: translateX(-500px);
+    }
+
+    65% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-in-right {
+    0% {
+        opacity: 0;
+        transform: translateX(500px);
+    }
+
+    65% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-in-bottom {
+    0% {
+        opacity: 0;
+        transform: translateY(200px);
+    }
+
+    65% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.animate-rotate {
+    animation: rotate 1.75s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg)
+    }
+}

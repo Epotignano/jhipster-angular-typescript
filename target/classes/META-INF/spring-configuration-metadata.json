@@ -1,0 +1,281 @@
+{
+  "groups": [
+    {
+      "name": "springtest",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties",
+      "type": "cl.onesnap.springtest.config.SpringTestProperties"
+    },
+    {
+      "name": "springtest.async",
+      "sourceMethod": "getAsync()",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties",
+      "type": "cl.onesnap.springtest.config.SpringTestProperties$Async"
+    },
+    {
+      "name": "springtest.cache",
+      "sourceMethod": "getCache()",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties",
+      "type": "cl.onesnap.springtest.config.SpringTestProperties$Cache"
+    },
+    {
+      "name": "springtest.cache.hazelcast",
+      "sourceMethod": "getHazelcast()",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties$Cache",
+      "type": "cl.onesnap.springtest.config.SpringTestProperties$Cache$Hazelcast"
+    },
+    {
+      "name": "springtest.datasource",
+      "sourceMethod": "getDatasource()",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties",
+      "type": "cl.onesnap.springtest.config.SpringTestProperties$Datasource"
+    },
+    {
+      "name": "springtest.http",
+      "sourceMethod": "getHttp()",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties",
+      "type": "cl.onesnap.springtest.config.SpringTestProperties$Http"
+    },
+    {
+      "name": "springtest.http.cache",
+      "sourceMethod": "getCache()",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties$Http",
+      "type": "cl.onesnap.springtest.config.SpringTestProperties$Http$Cache"
+    },
+    {
+      "name": "springtest.mail",
+      "sourceMethod": "getMail()",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties",
+      "type": "cl.onesnap.springtest.config.SpringTestProperties$Mail"
+    },
+    {
+      "name": "springtest.metrics",
+      "sourceMethod": "getMetrics()",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties",
+      "type": "cl.onesnap.springtest.config.SpringTestProperties$Metrics"
+    },
+    {
+      "name": "springtest.metrics.graphite",
+      "sourceMethod": "getGraphite()",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties$Metrics",
+      "type": "cl.onesnap.springtest.config.SpringTestProperties$Metrics$Graphite"
+    },
+    {
+      "name": "springtest.metrics.jmx",
+      "sourceMethod": "getJmx()",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties$Metrics",
+      "type": "cl.onesnap.springtest.config.SpringTestProperties$Metrics$Jmx"
+    },
+    {
+      "name": "springtest.metrics.spark",
+      "sourceMethod": "getSpark()",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties$Metrics",
+      "type": "cl.onesnap.springtest.config.SpringTestProperties$Metrics$Spark"
+    },
+    {
+      "name": "springtest.security",
+      "sourceMethod": "getSecurity()",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties",
+      "type": "cl.onesnap.springtest.config.SpringTestProperties$Security"
+    },
+    {
+      "name": "springtest.security.authentication",
+      "sourceMethod": "getAuthentication()",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties$Security",
+      "type": "cl.onesnap.springtest.config.SpringTestProperties$Security$Authentication"
+    },
+    {
+      "name": "springtest.security.authentication.oauth",
+      "sourceMethod": "getOauth()",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties$Security$Authentication",
+      "type": "cl.onesnap.springtest.config.SpringTestProperties$Security$Authentication$Oauth"
+    },
+    {
+      "name": "springtest.security.rememberme",
+      "sourceMethod": "getRememberme()",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties$Security",
+      "type": "cl.onesnap.springtest.config.SpringTestProperties$Security$Rememberme"
+    },
+    {
+      "name": "springtest.swagger",
+      "sourceMethod": "getSwagger()",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties",
+      "type": "cl.onesnap.springtest.config.SpringTestProperties$Swagger"
+    }
+  ],
+  "hints": [],
+  "properties": [
+    {
+      "defaultValue": 2,
+      "name": "springtest.async.core-pool-size",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties$Async",
+      "type": "java.lang.Integer"
+    },
+    {
+      "defaultValue": 50,
+      "name": "springtest.async.max-pool-size",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties$Async",
+      "type": "java.lang.Integer"
+    },
+    {
+      "defaultValue": 10000,
+      "name": "springtest.async.queue-capacity",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties$Async",
+      "type": "java.lang.Integer"
+    },
+    {
+      "defaultValue": 1,
+      "name": "springtest.cache.hazelcast.backup-count",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties$Cache$Hazelcast",
+      "type": "java.lang.Integer"
+    },
+    {
+      "defaultValue": 3600,
+      "name": "springtest.cache.time-to-live-seconds",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties$Cache",
+      "type": "java.lang.Integer"
+    },
+    {
+      "defaultValue": true,
+      "name": "springtest.datasource.cache-prep-stmts",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties$Datasource",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "defaultValue": 250,
+      "name": "springtest.datasource.prep-stmt-cache-size",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties$Datasource",
+      "type": "java.lang.Integer"
+    },
+    {
+      "defaultValue": 2048,
+      "name": "springtest.datasource.prep-stmt-cache-sql-limit",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties$Datasource",
+      "type": "java.lang.Integer"
+    },
+    {
+      "defaultValue": true,
+      "name": "springtest.datasource.use-server-prep-stmts",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties$Datasource",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "defaultValue": 31,
+      "name": "springtest.http.cache.time-to-live-in-days",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties$Http$Cache",
+      "type": "java.lang.Integer"
+    },
+    {
+      "defaultValue": "SpringTest@localhost",
+      "name": "springtest.mail.from",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties$Mail",
+      "type": "java.lang.String"
+    },
+    {
+      "defaultValue": false,
+      "name": "springtest.metrics.graphite.enabled",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties$Metrics$Graphite",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "defaultValue": "localhost",
+      "name": "springtest.metrics.graphite.host",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties$Metrics$Graphite",
+      "type": "java.lang.String"
+    },
+    {
+      "defaultValue": 2003,
+      "name": "springtest.metrics.graphite.port",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties$Metrics$Graphite",
+      "type": "java.lang.Integer"
+    },
+    {
+      "defaultValue": "SpringTest",
+      "name": "springtest.metrics.graphite.prefix",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties$Metrics$Graphite",
+      "type": "java.lang.String"
+    },
+    {
+      "defaultValue": true,
+      "name": "springtest.metrics.jmx.enabled",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties$Metrics$Jmx",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "defaultValue": false,
+      "name": "springtest.metrics.spark.enabled",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties$Metrics$Spark",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "defaultValue": "localhost",
+      "name": "springtest.metrics.spark.host",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties$Metrics$Spark",
+      "type": "java.lang.String"
+    },
+    {
+      "defaultValue": 9999,
+      "name": "springtest.metrics.spark.port",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties$Metrics$Spark",
+      "type": "java.lang.Integer"
+    },
+    {
+      "name": "springtest.security.authentication.oauth.clientid",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties$Security$Authentication$Oauth",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "springtest.security.authentication.oauth.secret",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties$Security$Authentication$Oauth",
+      "type": "java.lang.String"
+    },
+    {
+      "defaultValue": 1800,
+      "name": "springtest.security.authentication.oauth.token-validity-in-seconds",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties$Security$Authentication$Oauth",
+      "type": "java.lang.Integer"
+    },
+    {
+      "name": "springtest.security.rememberme.key",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties$Security$Rememberme",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "springtest.swagger.contact",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties$Swagger",
+      "type": "java.lang.String"
+    },
+    {
+      "defaultValue": "SpringTest API documentation",
+      "name": "springtest.swagger.description",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties$Swagger",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "springtest.swagger.license",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties$Swagger",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "springtest.swagger.license-url",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties$Swagger",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "springtest.swagger.terms-of-service-url",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties$Swagger",
+      "type": "java.lang.String"
+    },
+    {
+      "defaultValue": "SpringTest API",
+      "name": "springtest.swagger.title",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties$Swagger",
+      "type": "java.lang.String"
+    },
+    {
+      "defaultValue": "0.0.1",
+      "name": "springtest.swagger.version",
+      "sourceType": "cl.onesnap.springtest.config.SpringTestProperties$Swagger",
+      "type": "java.lang.String"
+    }
+  ]
+}

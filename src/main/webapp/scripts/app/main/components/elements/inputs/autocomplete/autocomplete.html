@@ -1,0 +1,415 @@
+<div id="autocomplete" class="page-layout simple fullwidth doc-page element-doc-page">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="row" layout-align="space-between" layout-sm="column">
+
+        <div layout="column" layout-align="center start">
+            <div class="breadcrumb" layout="row" layout-align="start center">
+                <md-icon md-font-icon="icon-home" class="s16"></md-icon>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">COMPONENTS</span>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">ELEMENTS</span>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">INPUTS</span>
+            </div>
+            <div class="title">Autocomplete</div>
+        </div>
+
+        <div layout="row" layout-align="start center">
+            <md-button class="md-raised reference-button"
+                       href="https://material.angularjs.org/latest/#/demo/material.components.autocomplete"
+                       target="_blank">
+                <md-icon md-font-icon="icon-link"></md-icon>
+                <span>Reference</span>
+            </md-button>
+        </div>
+
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <div class="description">
+            <p><code>&lt;md-autocomplete&gt;</code> is a special input component with a drop-down of all possible
+                matches to a custom query.
+                This component allows you to provide real-time suggestions as the user types in the input area.</p>
+
+            <p>To start, you will need to specify the required parameters and provide a template for your results.
+                The content inside <code>md-autocomplete</code> will be treated as a template.</p>
+
+            <p>In more complex cases, you may want to include other content such as a message to display when
+                no matches were found. You can do this by wrapping your template in <code>md-item-template</code> and
+                adding
+                a tag for <code>md-not-found</code>. An example of this is shown below.</p>
+
+            <h3 id="validation">Validation</h3>
+
+            <p>You can use <code>ng-messages</code> to include validation the same way that you would normally validate;
+                however, if you want to replicate a standard input with a floating label, you will have to do the
+                following:</p>
+            <ul>
+                <li>Make sure that your template is wrapped in <code>md-item-template</code></li>
+                <li>Add your <code>ng-messages</code> code inside of <code>md-autocomplete</code></li>
+                <li>Add your validation properties to <code>md-autocomplete</code> (ie. <code>required</code>)</li>
+                <li>Add a <code>name</code> to <code>md-autocomplete</code> (to be used on the generated
+                    <code>input</code>)
+                </li>
+            </ul>
+            <p>There is an example below of how this should look.</p>
+        </div>
+
+        <div class="card md-whiteframe-4dp" layout="column">
+            <div layout="row" layout-sm="column">
+                <div flex class="preview" layout="column">
+                    <div class="md-caption">Placeholder / No Float</div>
+                    <div flex layout="row" layout-align="center center">
+                        <form flex ng-submit="$event.preventDefault()">
+                            <md-autocomplete
+                                    md-selected-item="vm.selectedItem"
+                                    md-search-text-change="vm.searchTextChange(vm.searchText)"
+                                    md-search-text="vm.searchText"
+                                    md-selected-item-change="vm.selectedItemChange(item)"
+                                    md-items="item in vm.querySearch(vm.searchText)"
+                                    md-item-text="item.display"
+                                    md-min-length="0"
+                                    placeholder="What is your favorite US state?">
+                                <md-item-template>
+                                    <span md-highlight-text="vm.searchText"
+                                          md-highlight-flags="^i">{{item.display}}</span>
+                                </md-item-template>
+                                <md-not-found>
+                                    No matches found for "{{vm.searchText}}".
+                                </md-not-found>
+                            </md-autocomplete>
+                        </form>
+                    </div>
+                </div>
+                <div flex class="source-code">
+
+                    <md-tabs>
+                        <md-tab label="HTML">
+                            <hljs lang="html" ms-scroll>
+                                <md-autocomplete
+                                        md-selected-item="vm.selectedItem"
+                                        md-search-text-change="vm.searchTextChange(vm.searchText)"
+                                        md-search-text="vm.searchText"
+                                        md-selected-item-change="vm.selectedItemChange(item)"
+                                        md-items="item in vm.querySearch(vm.searchText)"
+                                        md-item-text="item.display"
+                                        md-min-length="0"
+                                        placeholder="What is your favorite US state?">
+                                    <md-item-template>
+                                        <span md-highlight-text="vm.searchText"
+                                              md-highlight-flags="^i">{{item.display}}</span>
+                                    </md-item-template>
+                                    <md-not-found>
+                                        No matches found for "{{vm.searchText}}".
+                                    </md-not-found>
+                                </md-autocomplete>
+                            </hljs>
+                        </md-tab>
+                        <md-tab label="JS">
+                            <hljs lang="js" ms-scroll>
+                                // list of `state` value/display objects
+                                vm.states = loadAll();
+                                vm.querySearch = querySearch;
+                                vm.selectedItemChange = selectedItemChange;
+                                vm.searchTextChange = searchTextChange;
+                                // ******************************
+                                // Internal methods
+                                // ******************************
+                                /**
+                                 * Search for states...
+                                 * remote dataservice call.
+                                 */
+                                function querySearch(query)
+                                {
+                                    var results = query ? vm.states.filter(createFilterFor(query)) : vm.states;
+                                    return results;
+                                }
+
+                                function searchTextChange(text)
+                                {
+                                    $log.info('Text changed to ' + text);
+                                }
+
+                                function selectedItemChange(item)
+                                {
+                                    $log.info('Item changed to ' + JSON.stringify(item));
+                                }
+
+                                /**
+                                 * Build `states` list of key/value pairs
+                                 */
+                                function loadAll()
+                                {
+                                    var allStates = 'Alabama, Alaska, Arizona, Arkansas, California, Colorado, Connecticut, Delaware, ' +
+                                            'Florida, Georgia, Hawaii, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana, ' +
+                                            'Maine, Maryland, Massachusetts, Michigan, Minnesota, Mississippi, Missouri, Montana, ' +
+                                            'Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, North Carolina, ' +
+                                            'North Dakota, Ohio, Oklahoma, Oregon, Pennsylvania, Rhode Island, South Carolina, ' +
+                                            'South Dakota, Tennessee, Texas, Utah, Vermont, Virginia, Washington, West Virginia, ' +
+                                            'Wisconsin, Wyoming';
+
+                                    return allStates.split(/, +/g).map(function (state)
+                                    {
+                                        return {
+                                            value  : state.toLowerCase(),
+                                            display: state
+                                        };
+                                    });
+                                }
+
+                                /**
+                                 * Create filter function for a query string
+                                 */
+                                function createFilterFor(query)
+                                {
+                                    var lowercaseQuery = angular.lowercase(query);
+                                    return function filterFn(state)
+                                    {
+                                        return (state.value.indexOf(lowercaseQuery) === 0);
+                                    };
+                                }
+                            </hljs>
+                        </md-tab>
+                    </md-tabs>
+
+                </div>
+            </div>
+            <div layout="row" layout-sm="column">
+                <div flex class="preview" layout="column">
+                    <div class="md-caption">Floating Label</div>
+                    <div flex layout="row" layout-align="center center">
+                        <form flex ng-submit="$event.preventDefault()">
+                            <md-autocomplete
+                                    md-selected-item="vm.selectedItem2"
+                                    md-search-text-change="vm.searchTextChange(vm.searchText2)"
+                                    md-search-text="vm.searchText2"
+                                    md-selected-item-change="vm.selectedItemChange(item)"
+                                    md-items="item in vm.querySearch(vm.searchText2)"
+                                    md-item-text="item.display"
+                                    md-min-length="0"
+                                    md-floating-label="What is your favorite US state?">
+                                <md-item-template>
+                                    <span md-highlight-text="vm.searchText2"
+                                          md-highlight-flags="^i">{{item.display}}</span>
+                                </md-item-template>
+                                <md-not-found>
+                                    No matches found for "{{vm.searchText2}}".
+                                </md-not-found>
+                            </md-autocomplete>
+                        </form>
+                    </div>
+                </div>
+                <div flex class="source-code">
+
+                    <md-tabs>
+                        <md-tab label="HTML">
+                            <hljs lang="html" ms-scroll>
+                                <md-autocomplete
+                                        md-selected-item="vm.selectedItem2"
+                                        md-search-text-change="vm.searchTextChange(vm.searchText2)"
+                                        md-search-text="vm.searchText2"
+                                        md-selected-item-change="vm.selectedItemChange(item)"
+                                        md-items="item in vm.querySearch(vm.searchText2)"
+                                        md-item-text="item.display"
+                                        md-min-length="0"
+                                        md-floating-label="What is your favorite US state?">
+                                    <md-item-template>
+                                        <span md-highlight-text="vm.searchText2"
+                                              md-highlight-flags="^i">{{item.display}}</span>
+                                    </md-item-template>
+                                    <md-not-found>
+                                        No matches found for "{{vm.searchText2}}".
+                                    </md-not-found>
+                                </md-autocomplete>
+                            </hljs>
+                        </md-tab>
+                        <md-tab label="JS">
+                            <hljs lang="js" ms-scroll>
+                                // list of `state` value/display objects
+                                vm.states = loadAll();
+                                vm.querySearch = querySearch;
+                                vm.selectedItemChange = selectedItemChange;
+                                vm.searchTextChange = searchTextChange;
+                                // ******************************
+                                // Internal methods
+                                // ******************************
+                                /**
+                                 * Search for states...
+                                 * remote dataservice call.
+                                 */
+                                function querySearch(query)
+                                {
+                                    var results = query ? vm.states.filter(createFilterFor(query)) : vm.states;
+                                    return results;
+                                }
+
+                                function searchTextChange(text)
+                                {
+                                    $log.info('Text changed to ' + text);
+                                }
+
+                                function selectedItemChange(item)
+                                {
+                                    $log.info('Item changed to ' + JSON.stringify(item));
+                                }
+
+                                /**
+                                 * Build `states` list of key/value pairs
+                                 */
+                                function loadAll()
+                                {
+                                    var allStates = 'Alabama, Alaska, Arizona, Arkansas, California, Colorado, Connecticut, Delaware, ' +
+                                            'Florida, Georgia, Hawaii, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana, ' +
+                                            'Maine, Maryland, Massachusetts, Michigan, Minnesota, Mississippi, Missouri, Montana, ' +
+                                            'Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, North Carolina, ' +
+                                            'North Dakota, Ohio, Oklahoma, Oregon, Pennsylvania, Rhode Island, South Carolina, ' +
+                                            'South Dakota, Tennessee, Texas, Utah, Vermont, Virginia, Washington, West Virginia, ' +
+                                            'Wisconsin, Wyoming';
+
+                                    return allStates.split(/, +/g).map(function (state)
+                                    {
+                                        return {
+                                            value  : state.toLowerCase(),
+                                            display: state
+                                        };
+                                    });
+                                }
+
+                                /**
+                                 * Create filter function for a query string
+                                 */
+                                function createFilterFor(query)
+                                {
+                                    var lowercaseQuery = angular.lowercase(query);
+                                    return function filterFn(state)
+                                    {
+                                        return (state.value.indexOf(lowercaseQuery) === 0);
+                                    };
+                                }
+                            </hljs>
+                        </md-tab>
+                    </md-tabs>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="md-title">Attributes</div>
+        <div class="attributes card md-whiteframe-4dp" layout="column">
+            <table class="simple" ms-responsive-table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            <b>* ng-model</b>
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-string">string</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-string">string</code></td>
+                        <td class="description">
+                            <p>Assignable angular expression to data-bind to.</p>
+                        </td>
+                    </tr>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            name
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-string">string</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-string">string</code></td>
+                        <td class="description">
+                            <p>Property name of the form under which the control is published.</p>
+                        </td>
+                    </tr>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            ng-true-value
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-expression">expression</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-expression">expression</code></td>
+                        <td class="description">
+                            <p>The value to which the expression should be set when selected.</p>
+                        </td>
+                    </tr>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            ng-false-value
+
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-expression">expression</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-expression">expression</code></td>
+                        <td class="description">
+                            <p>The value to which the expression should be set when not selected.</p>
+                        </td>
+                    </tr>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            ng-change
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-string">string</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-string">string</code></td>
+                        <td class="description">
+                            <p>Angular expression to be executed when input changes due to user interaction with the
+                                input element.</p>
+                        </td>
+                    </tr>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            md-no-ink
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-boolean">boolean</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-boolean">boolean</code></td>
+                        <td class="description">
+                            <p>Use of attribute indicates use of ripple ink effects</p>
+                        </td>
+                    </tr>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            aria-label
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-string">string</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-string">string</code></td>
+                        <td class="description">
+                            <p>Adds label to checkbox for accessibility.
+                                Defaults to checkbox's text. If no default text is found, a warning will be logged.</p>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <!-- / CONTENT -->
+
+</div>

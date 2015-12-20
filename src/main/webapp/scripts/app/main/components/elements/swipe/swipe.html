@@ -1,0 +1,83 @@
+<div id="swipe" class="page-layout simple fullwidth doc-page element-doc-page">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="row" layout-align="space-between" layout-sm="column">
+
+        <div layout="column" layout-align="center start">
+            <div class="breadcrumb" layout="row" layout-align="start center">
+                <md-icon md-font-icon="icon-home" class="s16"></md-icon>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">COMPONENTS</span>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">ELEMENTS</span>
+            </div>
+            <div class="title">Swipe</div>
+        </div>
+
+        <div layout="row" layout-align="start center">
+            <md-button class="md-raised reference-button"
+                       href="https://material.angularjs.org/0.11.2/#/demo/material.components.swipe"
+                       target="_blank">
+                <md-icon md-font-icon="icon-link"></md-icon>
+                <span>Reference</span>
+            </md-button>
+        </div>
+
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <div class="description">
+            <p>This UX pattern is intended for mobile devices only, and may not make sense to use on responsive sites.
+                To initiate a swipe gesture on a desktop, you must click, hold and drag either right or left
+            </p>
+        </div>
+
+        <div class="md-title">Usage</div>
+        <div class="card md-whiteframe-4dp">
+            <div layout="row" layout-sm="column">
+                <div flex class="preview" layout="column">
+                    <div class="md-caption">Swipe Left</div>
+                    <div flex layout="column" layout-align="center center">
+                        <div class="md-background-bg md-padding md-whiteframe-3dp"
+                             md-swipe-left="vm.swipeAction('left',$event)">
+                            <span class="no-select"> Swipe me to the left</span>
+                        </div>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <div class="md-background-bg md-padding md-whiteframe-3dp"
+                             md-swipe-left="vm.swipeAction('left',$event)">
+                            <span class="no-select"> Swipe me to the left</span>
+                        </div>
+                    </hljs>
+                </div>
+            </div>
+            <div layout="row" layout-sm="column">
+                <div flex class="preview" layout="column">
+                    <div class="md-caption">Swipe Right</div>
+                    <div flex layout="column" layout-align="center center">
+                        <div class="md-background-bg md-padding md-whiteframe-3dp"
+                             md-swipe-right="vm.swipeAction('right',$event)">
+                            <span class="no-select"> Swipe me to the right</span>
+                        </div>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <div class="md-background-bg md-padding md-whiteframe-3dp"
+                             md-swipe-right="vm.swipeAction('right',$event)">
+                            <span class="no-select"> Swipe me to the right</span>
+                        </div>
+                    </hljs>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- / CONTENT -->
+
+</div>

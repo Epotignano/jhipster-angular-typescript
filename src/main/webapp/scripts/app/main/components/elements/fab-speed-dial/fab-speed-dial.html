@@ -1,0 +1,167 @@
+<div id="fab-speed-dial" class="page-layout simple fullwidth doc-page element-doc-page">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="row" layout-align="space-between" layout-sm="column">
+
+        <div layout="column" layout-align="center start">
+            <div class="breadcrumb" layout="row" layout-align="start center">
+                <md-icon md-font-icon="icon-home" class="s16"></md-icon>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">COMPONENTS</span>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">ELEMENTS</span>
+            </div>
+            <div class="title">Fab Speed Dial</div>
+        </div>
+
+        <div layout="row" layout-align="start center">
+            <md-button class="md-raised reference-button"
+                       href="https://material.angularjs.org/latest/#/vm.demo/material.components.fabSpeedDial"
+                       target="_blank">
+                <md-icon md-font-icon="icon-link"></md-icon>
+                <span>Reference</span>
+            </md-button>
+        </div>
+
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <div class="description">
+            <p>
+                You may supply a direction of <code>left</code>, <code>up</code>, <code>down</code>, or
+                <code>right</code> through the <code>md-direction</code> attribute.
+            </p>
+        </div>
+
+        <div class="card md-whiteframe-4dp" layout="column">
+            <div layout="row" layout-sm="column">
+                <div flex class="preview" layout="column">
+                    <div class="md-caption">Usage</div>
+                    <div class="lock-size" layout="row" layout-align="center center">
+                        <md-fab-speed-dial md-open="vm.demo.isOpen" md-direction="{{vm.demo.selectedDirection}}"
+                                           ng-class="vm.demo.selectedMode">
+                            <md-fab-trigger>
+                                <md-button aria-label="menu" class="md-fab">
+                                    <md-icon md-font-icon="icon-menu"></md-icon>
+                                </md-button>
+                            </md-fab-trigger>
+                            <md-fab-actions>
+                                <md-button aria-label="twitter" class="md-fab md-accent md-raised md-mini">
+                                    <md-icon md-font-icon="icon-twitter"></md-icon>
+                                </md-button>
+                                <md-button aria-label="facebook" class="md-fab md-accent md-raised md-mini">
+                                    <md-icon md-font-icon="icon-facebook"></md-icon>
+                                </md-button>
+                                <md-button aria-label="Google" class="md-fab md-accent md-raised md-mini">
+                                    <md-icon md-font-icon="icon-google"></md-icon>
+                                </md-button>
+                            </md-fab-actions>
+                        </md-fab-speed-dial>
+                    </div>
+                    <div layout="row" layout-align="space-around">
+                        <div layout="column">
+                            <b>Direction</b>
+                            <md-radio-group ng-model="vm.demo.selectedDirection">
+                                <md-radio-button ng-repeat="direction in vm.demo.availableDirections"
+                                                 ng-value="direction" class="text-capitalize">
+                                    {{direction}}
+                                </md-radio-button>
+                            </md-radio-group>
+                        </div>
+                        <div layout="column">
+                            <b>Open/Closed</b>
+                            <md-radio-group ng-model="vm.demo.isOpen">
+                                <md-radio-button ng-value="true">Open</md-radio-button>
+                                <md-radio-button ng-value="false">Closed</md-radio-button>
+                            </md-radio-group>
+                        </div>
+                        <div layout="column">
+                            <b>Animation Modes</b>
+                            <md-radio-group ng-model="vm.demo.selectedMode">
+                                <md-radio-button ng-repeat="mode in vm.demo.availableModes" ng-value="mode">
+                                    {{mode}}
+                                </md-radio-button>
+                            </md-radio-group>
+                        </div>
+                    </div>
+                </div>
+                <div class="source-code" layout="column" flex>
+
+                    <md-tabs flex>
+                        <md-tab label="HTML">
+                            <hljs lang="html" ms-scroll>
+                                <div class="lock-size" layout="row" layout-align="center center">
+                                    <md-fab-speed-dial md-open="vm.demo.isOpen"
+                                                       md-direction="{{vm.demo.selectedDirection}}"
+                                                       ng-class="vm.demo.selectedMode">
+                                        <md-fab-trigger>
+                                            <md-button aria-label="menu" class="md-fab">
+                                                <md-icon md-font-icon="icon-menu"></md-icon>
+                                            </md-button>
+                                        </md-fab-trigger>
+                                        <md-fab-actions>
+                                            <md-button aria-label="twitter" class="md-fab md-accent md-raised md-mini">
+                                                <md-icon md-font-icon="icon-twitter"></md-icon>
+                                            </md-button>
+                                            <md-button aria-label="facebook" class="md-fab md-accent md-raised md-mini">
+                                                <md-icon md-font-icon="icon-facebook"></md-icon>
+                                            </md-button>
+                                            <md-button aria-label="Google" class="md-fab md-accent md-raised md-mini">
+                                                <md-icon md-font-icon="icon-google"></md-icon>
+                                            </md-button>
+                                        </md-fab-actions>
+                                    </md-fab-speed-dial>
+                                </div>
+                                <div layout="row" layout-align="space-around">
+                                    <div layout="column">
+                                        <b>Direction</b>
+                                        <md-radio-group ng-model="vm.demo.selectedDirection">
+                                            <md-radio-button ng-repeat="direction in vm.demo.availableDirections"
+                                                             ng-value="direction" class="text-capitalize">
+                                                {{direction}}
+                                            </md-radio-button>
+                                        </md-radio-group>
+                                    </div>
+                                    <div layout="column">
+                                        <b>Open/Closed</b>
+                                        <md-radio-group ng-model="vm.demo.isOpen">
+                                            <md-radio-button ng-value="true">Open</md-radio-button>
+                                            <md-radio-button ng-value="false">Closed</md-radio-button>
+                                        </md-radio-group>
+                                    </div>
+                                    <div layout="column">
+                                        <b>Animation Modes</b>
+                                        <md-radio-group ng-model="vm.demo.selectedMode">
+                                            <md-radio-button ng-repeat="mode in vm.demo.availableModes" ng-value="mode">
+                                                {{mode}}
+                                            </md-radio-button>
+                                        </md-radio-group>
+                                    </div>
+                                </div>
+                            </hljs>
+                        </md-tab>
+                        <md-tab label="JS">
+                            <hljs lang="js" ms-scroll>
+                                vm.demo = {
+                                    topDirections      : ['left', 'up'],
+                                    bottomDirections   : ['down', 'right'],
+                                    isOpen             : false,
+                                    availableModes     : ['md-fling', 'md-scale'],
+                                    selectedMode       : 'md-fling',
+                                    availableDirections: ['up', 'down', 'left', 'right'],
+                                    selectedDirection  : 'up'
+                                };
+                            </hljs>
+                        </md-tab>
+                    </md-tabs>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- / CONTENT -->
+
+</div>

@@ -1,0 +1,343 @@
+<div id="sidenav" class="page-layout simple fullwidth doc-page element-doc-page">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="row" layout-align="space-between" layout-sm="column">
+
+        <div layout="column" layout-align="center start">
+            <div class="breadcrumb" layout="row" layout-align="start center">
+                <md-icon md-font-icon="icon-home" class="s16"></md-icon>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">COMPONENTS</span>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">ELEMENTS</span>
+            </div>
+            <div class="title">Sidenav</div>
+        </div>
+
+        <div layout="row" layout-align="start center">
+            <md-button class="md-raised reference-button"
+                       href="https://material.angularjs.org/latest/#/api/material.components.sidenav/directive/mdSidenav"
+                       target="_blank">
+                <md-icon md-font-icon="icon-link"></md-icon>
+                <span>Reference</span>
+            </md-button>
+        </div>
+
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <div class="description">
+            <p>
+                A Sidenav component that can be opened and closed programatically.
+            </p>
+
+            <p>
+                By default, upon opening it will slide out on top of the main content area.
+            </p>
+
+            <p>For keyboard and screen reader accessibility, focus is sent to the sidenav wrapper by default.
+                It can be overridden with the <code>md-sidenav-focus</code> directive on the child element you want
+                focused.
+            </p>
+        </div>
+
+        <div class="card md-whiteframe-4dp" layout="column">
+            <div layout="row" layout-sm="column">
+                <div flex class="preview" layout="column">
+                    <div class="md-caption">Left Sidenav</div>
+                    <div layout="row" flex>
+                        <md-sidenav class="md-sidenav-left md-whiteframe-4dp" layout="column"
+                                    md-component-id="left-sidenav">
+                            <md-toolbar class="md-theme-indigo">
+                                <h1 class="md-toolbar-tools">Left Sidenav</h1>
+                            </md-toolbar>
+                            <div flex layout="column" layout-align="center center">
+                                <md-button class="md-raised md-primary" ng-click="vm.toggleLeftSidenav()">
+                                    Close Left Sidenav
+                                </md-button>
+                            </div>
+                        </md-sidenav>
+                        <div flex layout="column" layout-align="center center">
+                            <md-button class="md-raised md-accent" ng-click="vm.toggleLeftSidenav()">
+                                Open Left Sidenav
+                            </md-button>
+                        </div>
+                    </div>
+                </div>
+                <div flex class="source-code" layout="column">
+
+                    <md-tabs flex>
+                        <md-tab label="HTML">
+                            <hljs lang="html" ms-scroll>
+                                <div layout="row" flex>
+                                    <md-sidenav class="md-sidenav-left md-whiteframe-4dp" layout="column"
+                                                md-component-id="left-sidenav">
+                                        <md-toolbar class="md-theme-indigo">
+                                            <h1 class="md-toolbar-tools">Left Sidenav</h1>
+                                        </md-toolbar>
+                                        <div flex layout="column" layout-align="center center">
+                                            <md-button class="md-raised md-primary" ng-click="vm.toggleLeftSidenav()">
+                                                Close Left Sidenav
+                                            </md-button>
+                                        </div>
+                                    </md-sidenav>
+                                    <div flex layout="column" layout-align="center center">
+                                        <md-button class="md-raised md-accent" ng-click="vm.toggleLeftSidenav()">
+                                            Open Left Sidenav
+                                        </md-button>
+                                    </div>
+                                </div>
+                            </hljs>
+                        </md-tab>
+                        <md-tab label="JS">
+                            <hljs lang="js" ms-scroll>
+                                function toggleLeftSidenav()
+                                {
+                                    $mdSidenav('left-sidenav').toggle();
+                                }
+                            </hljs>
+                        </md-tab>
+                    </md-tabs>
+
+                </div>
+            </div>
+
+            <div layout="row" layout-sm="column">
+                <div flex class="preview" layout="column">
+                    <div class="md-caption">Right Sidenav</div>
+                    <div layout="row" flex>
+                        <md-sidenav class="md-sidenav-right md-whiteframe-4dp" layout="column"
+                                    md-component-id="right-sidenav">
+                            <md-toolbar class="md-theme-indigo">
+                                <h1 class="md-toolbar-tools">Right Sidenav</h1>
+                            </md-toolbar>
+                            <div flex layout="column" layout-align="center center">
+                                <md-button class="md-raised md-primary" ng-click="vm.toggleRightSidenav()">
+                                    Close Right Sidenav
+                                </md-button>
+                            </div>
+                        </md-sidenav>
+                        <div flex layout="column" layout-align="center center">
+                            <md-button class="md-raised md-accent" ng-click="vm.toggleRightSidenav()">
+                                Open Right Sidenav
+                            </md-button>
+                        </div>
+                    </div>
+                </div>
+                <div flex class="source-code" layout="column">
+
+                    <md-tabs flex>
+                        <md-tab label="HTML">
+                            <hljs lang="html" ms-scroll>
+                                <div layout="row" flex>
+                                    <md-sidenav class="md-sidenav-right md-whiteframe-4dp" layout="column"
+                                                md-component-id="right-sidenav">
+                                        <md-toolbar class="md-theme-indigo">
+                                            <h1 class="md-toolbar-tools">Right Sidenav</h1>
+                                        </md-toolbar>
+                                        <div flex layout="column" layout-align="center center">
+                                            <md-button class="md-raised md-primary" ng-click="vm.toggleRightSidenav()">
+                                                Close Right Sidenav
+                                            </md-button>
+                                        </div>
+                                    </md-sidenav>
+                                    <div flex layout="column" layout-align="center center">
+                                        <md-button class="md-raised md-accent" ng-click="vm.toggleRightSidenav()">
+                                            Open Right Sidenav
+                                        </md-button>
+                                    </div>
+                                </div>
+                            </hljs>
+                        </md-tab>
+                        <md-tab label="JS">
+                            <hljs lang="js" ms-scroll>
+                                function toggleRightSidenav()
+                                {
+                                    $mdSidenav('right-sidenav').toggle();
+                                }
+                            </hljs>
+                        </md-tab>
+                    </md-tabs>
+
+                </div>
+            </div>
+
+            <div layout="row" layout-sm="column">
+                <div flex class="preview" layout="column">
+                    <div class="md-caption">Left Sidenav Locked</div>
+                    <div layout="row" flex>
+                        <md-sidenav md-is-locked-open="$mdMedia('gt-md')"
+                                    class="md-sidenav-left md-whiteframe-4dp" layout="column"
+                                    md-component-id="left-sidenav-locked">
+                            <md-toolbar class="md-theme-indigo">
+                                <h1 class="md-toolbar-tools">Left Sidenav Locked</h1>
+                            </md-toolbar>
+                            <div class="md-padding" flex layout="column" layout-align="center center">
+                                <md-button class="md-raised md-primary" ng-click="vm.toggleLeftSidenavLocked()"
+                                           hide-gt-md>
+                                    Close Left Sidenav
+                                </md-button>
+                                <p hide-md show-gt-md>
+                                    This sidenav is locked open on your device. To go back to the default behavior,
+                                    narrow your display.
+                                </p>
+                            </div>
+                        </md-sidenav>
+                        <div flex layout="column" layout-align="center center">
+                            <p>
+                                The left sidenav will 'lock open' on a medium (>=960px wide) device.
+                            </p>
+                            <md-button ng-click="vm.toggleLeftSidenavLocked()"
+                                       class="md-primary" hide-gt-md>
+                                Open Left Sidenav
+                            </md-button>
+                        </div>
+                    </div>
+                </div>
+                <div flex class="source-code" layout="column">
+
+                    <md-tabs flex>
+                        <md-tab label="HTML">
+                            <hljs lang="html" ms-scroll>
+                                <div layout="row" flex>
+                                    <md-sidenav md-is-locked-open="$mdMedia('gt-md')"
+                                                class="md-sidenav-left md-whiteframe-4dp" layout="column"
+                                                md-component-id="left-sidenav-locked">
+                                        <md-toolbar class="md-theme-indigo">
+                                            <h1 class="md-toolbar-tools">Left Sidenav Locked</h1>
+                                        </md-toolbar>
+                                        <div class="md-padding" flex layout="column" layout-align="center center">
+                                            <md-button class="md-raised md-primary"
+                                                       ng-click="vm.toggleLeftSidenavLocked()"
+                                                       hide-gt-md>
+                                                Close Left Sidenav
+                                            </md-button>
+                                            <p hide-md show-gt-md>
+                                                This sidenav is locked open on your device. To go back to the default
+                                                behavior,
+                                                narrow your display.
+                                            </p>
+                                        </div>
+                                    </md-sidenav>
+                                    <div flex layout="column" layout-align="center center">
+                                        <p>
+                                            The left sidenav will 'lock open' on a medium (>=960px wide) device.
+                                        </p>
+                                        <md-button ng-click="vm.toggleLeftSidenavLocked()"
+                                                   class="md-primary" hide-gt-md>
+                                            Open Left Sidenav
+                                        </md-button>
+                                    </div>
+                                </div>
+                            </hljs>
+                        </md-tab>
+                        <md-tab label="JS">
+                            <hljs lang="js" ms-scroll>
+                                function toggleLeftSidenavLocked()
+                                {
+                                    $mdSidenav('left-sidenav-locked').toggle();
+                                }
+                            </hljs>
+                        </md-tab>
+                    </md-tabs>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="md-title">Attributes</div>
+        <div class="attributes card md-whiteframe-4dp" layout="column">
+            <table class="simple" ms-responsive-table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            md-is-open
+
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-expression">expression</code></span>
+                        </td>
+
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-expression">expression</code>
+                        </td>
+
+                        <td class="description">
+                            <p>A model bound to whether the sidenav is opened.</p>
+                        </td>
+                    </tr>
+
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            md-component-id
+
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-string">string</code></span>
+                        </td>
+
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-string">string</code>
+                        </td>
+
+                        <td class="description">
+                            <p>componentId to use with $mdSidenav service.</p>
+                        </td>
+                    </tr>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            md-is-locked-open
+
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-expression">expression</code>
+                            </span>
+                        </td>
+
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-expression">expression</code>
+                        </td>
+
+                        <td class="description">
+                            <p>When this expression evalutes to true,
+                                the sidenav 'locks open': it falls into the content's flow instead
+                                of appearing over it. This overrides the <code>is-open</code> attribute.</p>
+
+                            <p>The $mdMedia() service is exposed to the is-locked-open attribute, which
+                                can be given a media query or one of the <code>sm</code>, <code>gt-sm</code>,
+                                <code>md</code>, <code>gt-md</code>, <code>lg</code> or <code>gt-lg</code> presets.
+                                Examples:</p>
+                            <ul>
+                                <li><code>&lt;md-sidenav
+                                    md-is-locked-open="shouldLockOpen"&gt;&lt;/md-sidenav&gt;</code>
+                                </li>
+                                <li><code>&lt;md-sidenav md-is-locked-open="$mdMedia('min-width: 1000px')"&gt;&lt;/md-sidenav&gt;</code>
+                                </li>
+                                <li><code>&lt;md-sidenav
+                                    md-is-locked-open="$mdMedia('sm')"&gt;&lt;/md-sidenav&gt;</code>
+                                    (locks open on small screens)
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <!-- / CONTENT -->
+
+</div>

@@ -1,0 +1,369 @@
+<div id="fields" class="page-layout simple fullwidth doc-page element-doc-page">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="row" layout-align="space-between" layout-sm="column">
+
+        <div layout="column" layout-align="center start">
+            <div class="breadcrumb" layout="row" layout-align="start center">
+                <md-icon md-font-icon="icon-home" class="s16"></md-icon>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">COMPONENTS</span>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">ELEMENTS</span>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">INPUTS</span>
+            </div>
+            <div class="title">Fields</div>
+        </div>
+
+        <div layout="row" layout-align="start center">
+            <md-button class="md-raised reference-button"
+                       href="https://material.angularjs.org/latest/#/api/material.components.input/directive/mdInput"
+                       target="_blank">
+                <md-icon md-font-icon="icon-link"></md-icon>
+                <span>Reference</span>
+            </md-button>
+        </div>
+
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <div class="description">
+            <p><code>&lt;md-input-container&gt;</code> is the parent of any input or textarea element.</p>
+
+            <p>Input and textarea elements will not behave properly unless the md-input-container
+                parent is provided.</p>
+
+            <p>Use the <code>&lt;input&gt;</code> or the <code>&lt;textarea&gt;</code> as a child of an <code>&lt;md-input-container&gt;</code>.
+            </p>
+        </div>
+
+        <div class="md-title">Label / Float</div>
+
+        <div class="card md-whiteframe-4dp" layout="column">
+
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Text</div>
+                    <div layout="column" layout-align="center center">
+                        <md-input-container>
+                            <label>Title</label>
+                            <input ng-model="vm.user.title">
+                        </md-input-container>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-input-container>
+                            <label>Title</label>
+                            <input ng-model="vm.user.title">
+                        </md-input-container>
+                    </hljs>
+                </div>
+            </div>
+
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Email</div>
+                    <div layout="column" layout-align="center center">
+                        <md-input-container>
+                            <label>Email</label>
+                            <input ng-model="vm.user.email" type="email">
+                        </md-input-container>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-input-container>
+                            <label>Email</label>
+                            <input ng-model="vm.user.email" type="email">
+                        </md-input-container>
+                    </hljs>
+                </div>
+            </div>
+
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Textarea</div>
+                    <div layout="column" layout-align="center center">
+                        <md-input-container flex layout-fill>
+                            <label>Biography</label>
+                            <textarea ng-model="vm.user.biography" columns="1" md-maxlength="150"></textarea>
+                        </md-input-container>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-input-container flex>
+                            <label>Biography</label>
+                            <textarea ng-model="vm.user.biography" columns="1" md-maxlength="150"></textarea>
+                        </md-input-container>
+                    </hljs>
+                </div>
+            </div>
+
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Number</div>
+                    <div layout="column" layout-align="center center">
+                        <md-input-container>
+                            <label>Hourly Rate ($)</label>
+                            <input type="number" step="any" name="rate" ng-model="vm.user.rate" min="0"
+                                   max="4999">
+                        </md-input-container>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-input-container>
+                            <label>Hourly Rate ($)</label>
+                            <input type="number" step="any" name="rate" ng-model="vm.user.rate" min="0"
+                                   max="4999">
+                        </md-input-container>
+                    </hljs>
+                </div>
+            </div>
+
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Required</div>
+                    <div layout="column" layout-align="center center">
+                        <md-input-container>
+                            <label>Hourly Rate ($)</label>
+                            <input required type="number" step="any" name="rate" ng-model="vm.user.rate" min="0"
+                                   max="4999">
+                        </md-input-container>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-input-container>
+                            <label>Hourly Rate ($)</label>
+                            <input required type="number" step="any" name="rate" ng-model="vm.user.rate" min="0"
+                                   max="4999">
+                        </md-input-container>
+                    </hljs>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="md-title">Placeholder / No Float</div>
+
+        <div class="card md-whiteframe-4dp" layout="column">
+
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Text</div>
+                    <div layout="column" layout-align="center center">
+                        <md-input-container md-no-float>
+                            <input placeholder="Title" ng-model="vm.user.title">
+                        </md-input-container>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-input-container md-no-float>
+                            <input placeholder="Title" ng-model="vm.user.title">
+                        </md-input-container>
+                    </hljs>
+                </div>
+            </div>
+
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Email</div>
+                    <div layout="column" layout-align="center center">
+                        <md-input-container md-no-float>
+                            <input placeholder="Email" ng-model="vm.user.email" type="email">
+                        </md-input-container>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-input-container md-no-float>
+                            <input placeholder="Email" ng-model="vm.user.email" type="email">
+                        </md-input-container>
+                    </hljs>
+                </div>
+            </div>
+
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Textarea</div>
+                    <div layout="column" layout-align="center center">
+                        <md-input-container md-no-float>
+                            <textarea placeholder="Biography" ng-model="vm.user.biography" columns="1"
+                                      md-maxlength="150"></textarea>
+                        </md-input-container>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-input-container md-no-float>
+                            <textarea placeholder="Biography" ng-model="vm.user.biography" columns="1"
+                                      md-maxlength="150"></textarea>
+                        </md-input-container>
+                    </hljs>
+                </div>
+            </div>
+
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Number</div>
+                    <div layout="column" layout-align="center center">
+                        <md-input-container md-no-float>
+                            <input placeholder="Hourly Rate ($)" type="number" step="any" name="rate"
+                                   ng-model="vm.user.rate" min="0"
+                                   max="4999">
+                        </md-input-container>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-input-container md-no-float>
+                            <input placeholder="Hourly Rate ($)" type="number" step="any" name="rate"
+                                   ng-model="vm.user.rate" min="0"
+                                   max="4999">
+                        </md-input-container>
+                    </hljs>
+                </div>
+            </div>
+
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Required</div>
+                    <div layout="column" layout-align="center center">
+                        <md-input-container md-no-float>
+                            <input required placeholder="Hourly Rate ($)" type="number" step="any" name="rate"
+                                   ng-model="vm.user.rate" min="0"
+                                   max="4999">
+                        </md-input-container>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-input-container md-no-float>
+                            <input required placeholder="Hourly Rate ($)" type="number" step="any" name="rate"
+                                   ng-model="vm.user.rate" min="0"
+                                   max="4999">
+                        </md-input-container>
+                    </hljs>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="md-title">Attributes (md-input-container)</div>
+        <div class="attributes card md-whiteframe-4dp" layout="column">
+            <table class="simple" ms-responsive-table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            md-is-error
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-expression">expression</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-expression">expression</code></td>
+                        <td class="description">
+                            <p>When the given expression evaluates to true, the input container will go into error
+                                state. Defaults to erroring if the input has been touched and is invalid.</p>
+                        </td>
+                    </tr>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            md-no-float
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-boolean">boolean</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-boolean">boolean</code></td>
+                        <td class="description">
+                            <p>When present, placeholders will not be converted to floating labels</p>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+        <div class="md-title">Attributes (md-input)</div>
+
+        <div class="attributes card md-whiteframe-4dp" layout="column">
+            <table class="simple" ms-responsive-table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            md-maxlength
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-number">number</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-number">number</code></td>
+                        <td class="description">
+                            <p>The maximum number of characters allowed in this input. If this is specified, a character
+                                counter will be shown underneath the input.<br><br>
+                                The purpose of <strong><code>md-maxlength</code></strong> is exactly to show the max
+                                length counter text. If you don't want the counter text and only need "plain"
+                                validation, you can use the "simple" <code>ng-maxlength</code> or maxlength attributes.
+                            </p>
+                        </td>
+                    </tr>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            aria-label
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-string">string</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-string">string</code></td>
+                        <td class="description">
+                            <p>Aria-label is required when no label is present. A warning message will be logged in the
+                                console if not present.</p>
+                        </td>
+                    </tr>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            placeholder
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-string">string</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-string">string</code></td>
+                        <td class="description">
+                            <p>An alternative approach to using aria-label when the label is not present. The
+                                placeholder text is copied to the aria-label attribute.</p>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <!-- / CONTENT -->
+
+</div>

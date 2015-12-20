@@ -1,0 +1,26 @@
+/*----------------------------------------------------------------*/
+/*  Fixes
+/*----------------------------------------------------------------*/
+
+// IE layout-fill fix
+[layout] {
+
+    > * {
+        min-height: auto;
+        min-height: initial;
+    }
+}
+
+// IE card img auto height Fix
+md-card > img,
+md-card > :not(md-card-content) img {
+    height: inherit;
+    height: initial;
+}
+
+// Date picker box-sizing Fix
+.md-datepicker-calendar-pane {
+    * {
+        box-sizing: initial;
+    }
+}

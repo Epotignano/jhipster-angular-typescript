@@ -1,0 +1,18 @@
+2015-12-17 17:56:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "DATABASECHANGELOGLOCK" not found; SQL statement:
+select count(*) from PUBLIC.DATABASECHANGELOGLOCK [42102-190]
+2015-12-17 18:00:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "STUDENT" not found; SQL statement:
+select count(student0_.id) as col_0_0_ from student student0_ [42102-190]
+2015-12-17 18:00:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "STUDENT" not found; SQL statement:
+insert into student (id, firstname, lastname) values (null, ?, ?) [42102-190]
+2015-12-17 18:00:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "STUDENT" not found; SQL statement:
+insert into student (id, firstname, lastname) values (null, ?, ?) [42102-190]
+2015-12-17 23:45:23 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "STUDENT" not found; SQL statement:
+ALTER TABLE PUBLIC.course_student ADD CONSTRAINT fk_student_student_course_id FOREIGN KEY (students_id) REFERENCES PUBLIC.student (id) [42102-190]
+2015-12-18 18:00:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "COURSE" already exists; SQL statement:
+CREATE TABLE PUBLIC.course (id BIGINT AUTO_INCREMENT NOT NULL, name VARCHAR(255), teacher_id BIGINT, CONSTRAINT PK_COURSE PRIMARY KEY (id)) [42101-190]
