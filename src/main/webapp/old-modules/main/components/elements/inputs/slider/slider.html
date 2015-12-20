@@ -1,0 +1,292 @@
+<div id="slider" class="page-layout simple fullwidth doc-page element-doc-page">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="row" layout-align="space-between" layout-sm="column">
+
+        <div layout="column" layout-align="center start">
+            <div class="breadcrumb" layout="row" layout-align="start center">
+                <md-icon md-font-icon="icon-home" class="s16"></md-icon>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">COMPONENTS</span>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">ELEMENTS</span>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">INPUTS</span>
+            </div>
+            <div class="title">Slider</div>
+        </div>
+
+        <div layout="row" layout-align="start center">
+            <md-button class="md-raised reference-button"
+                       href="https://material.angularjs.org/latest/#/api/material.components.slider/directive/mdSlider"
+                       target="_blank">
+                <md-icon md-font-icon="icon-link"></md-icon>
+                <span>Reference</span>
+            </md-button>
+        </div>
+
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <div class="description">
+            <p>The <code>&lt;md-slider&gt;</code> component allows the user to choose from a range of
+                values.</p>
+
+            <p>As per the <a href="http://www.google.com/design/spec/style/color.html#color-ui-color-application">material
+                design spec</a>
+                the slider is in the accent color by default. The primary color palette may be used with
+                the <code>md-primary</code> class.</p>
+
+            <p>It has two modes: 'normal' mode, where the user slides between a wide range
+                of values, and 'discrete' mode, where the user slides between only a few
+                select values.</p>
+
+            <p>To enable discrete mode, add the <code>md-discrete</code> attribute to a slider,
+                and use the <code>step</code> attribute to change the distance between
+                values the user is allowed to pick.</p>
+
+        </div>
+
+        <div class="md-title">Normal Mode</div>
+
+        <div class="card md-whiteframe-4dp" layout="column">
+
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Accent Colored (default)</div>
+                    <div layout="row" layout-align="center center">
+                        <md-slider flex min="0" max="255" ng-model="vm.sliderValue" aria-label="slider"></md-slider>
+                        <input flex="15" type="number" ng-model="vm.sliderValue" aria-label="red"
+                               aria-controls="red-slider">
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-slider flex min="0" max="255" ng-model="vm.sliderValue" aria-label="slider"></md-slider>
+                        <input flex="15" type="number" ng-model="vm.sliderValue" aria-label="red"
+                               aria-controls="red-slider">
+                    </hljs>
+                </div>
+            </div>
+
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Primary Colored</div>
+                    <div layout="row" layout-align="center center">
+                        <md-slider flex class="md-primary" min="0" max="255" ng-model="vm.sliderValue"
+                                   aria-label="slider"></md-slider>
+                        <input flex="15" type="number" ng-model="vm.sliderValue" aria-label="red"
+                               aria-controls="red-slider">
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-slider flex class="md-primary" min="0" max="255" ng-model="vm.sliderValue"
+                                   aria-label="slider"></md-slider>
+                        <input flex="15" type="number" ng-model="vm.sliderValue" aria-label="red"
+                               aria-controls="red-slider">
+                    </hljs>
+                </div>
+            </div>
+
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Warn Colored</div>
+                    <div layout="row" layout-align="center center">
+                        <md-slider flex class="md-warn" min="0" max="255" ng-model="vm.sliderValue"
+                                   aria-label="slider"></md-slider>
+                        <input flex="15" type="number" ng-model="vm.sliderValue" aria-label="red"
+                               aria-controls="red-slider">
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-slider flex class="md-warn" min="0" max="255" ng-model="vm.sliderValue"
+                                   aria-label="slider"></md-slider>
+                        <input flex="15" type="number" ng-model="vm.sliderValue" aria-label="red"
+                               aria-controls="red-slider">
+                    </hljs>
+                </div>
+            </div>
+
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Disabled</div>
+                    <div layout="row" layout-align="center center">
+                        <md-slider ng-disabled="true" flex min="0" max="255" ng-model="vm.sliderValue"
+                                   aria-label="slider"></md-slider>
+                        <input flex="15" type="number" ng-model="vm.sliderValue" aria-label="red"
+                               aria-controls="red-slider">
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-slider ng-disabled="true" flex min="0" max="255" ng-model="vm.sliderValue"
+                                   aria-label="slider"></md-slider>
+                        <input flex="15" type="number" ng-model="vm.sliderValue" aria-label="red"
+                               aria-controls="red-slider">
+                    </hljs>
+                </div>
+            </div>
+        </div>
+
+        <div class="md-title">Discrete Mode</div>
+
+        <div class="card md-whiteframe-4dp" layout="column">
+
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Accent Colored (default)</div>
+                    <div layout="row" layout-align="center center">
+                        <md-slider md-discrete flex min="0" max="255" ng-model="vm.sliderValue"
+                                   aria-label="slider"></md-slider>
+                        <input flex="15" type="number" ng-model="vm.sliderValue" aria-label="red"
+                               aria-controls="red-slider">
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-slider md-discrete flex min="0" max="255" ng-model="vm.sliderValue"
+                                   aria-label="slider"></md-slider>
+                        <input flex="15" type="number" ng-model="vm.sliderValue" aria-label="red"
+                               aria-controls="red-slider">
+                    </hljs>
+                </div>
+            </div>
+
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Primary Colored</div>
+                    <div layout="row" layout-align="center center">
+                        <md-slider md-discrete flex class="md-primary" min="0" max="255" ng-model="vm.sliderValue"
+                                   aria-label="slider"></md-slider>
+                        <input flex="15" type="number" ng-model="vm.sliderValue" aria-label="red"
+                               aria-controls="red-slider">
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-slider md-discrete flex class="md-primary" min="0" max="255" ng-model="vm.sliderValue"
+                                   aria-label="slider"></md-slider>
+                        <input flex="15" type="number" ng-model="vm.sliderValue" aria-label="red"
+                               aria-controls="red-slider">
+                    </hljs>
+                </div>
+            </div>
+
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Warn Colored</div>
+                    <div layout="row" layout-align="center center">
+                        <md-slider md-discrete flex class="md-warn" min="0" max="255" ng-model="vm.sliderValue"
+                                   aria-label="slider"></md-slider>
+                        <input flex="15" type="number" ng-model="vm.sliderValue" aria-label="red"
+                               aria-controls="red-slider">
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-slider md-discrete flex class="md-warn" min="0" max="255" ng-model="vm.sliderValue"
+                                   aria-label="slider"></md-slider>
+                        <input flex="15" type="number" ng-model="vm.sliderValue" aria-label="red"
+                               aria-controls="red-slider">
+                    </hljs>
+                </div>
+            </div>
+
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Disabled</div>
+                    <div layout="row" layout-align="center center">
+                        <md-slider md-discrete ng-disabled="true" flex min="0" max="255" ng-model="vm.sliderValue"
+                                   aria-label="slider"></md-slider>
+                        <input flex="15" type="number" ng-model="vm.sliderValue" aria-label="red"
+                               aria-controls="red-slider">
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-slider md-discrete ng-disabled="true" flex min="0" max="255" ng-model="vm.sliderValue"
+                                   aria-label="slider"></md-slider>
+                        <input flex="15" type="number" ng-model="vm.sliderValue" aria-label="red"
+                               aria-controls="red-slider">
+                    </hljs>
+                </div>
+            </div>
+        </div>
+
+        <div class="md-title">Attributes</div>
+        <div class="attributes card md-whiteframe-4dp" layout="column">
+            <table class="simple" ms-responsive-table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            md-discrete
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-boolean">boolean</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-boolean">boolean</code></td>
+                        <td class="description">
+                            <p>Whether to enable discrete mode.</p>
+                        </td>
+                    </tr>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            step
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-number">number</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-number">number</code></td>
+                        <td class="description">
+                            <p>The distance between values the user is allowed to pick. Default 1.</p>
+                        </td>
+                    </tr>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            min
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-number">number</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-number">number</code></td>
+                        <td class="description">
+                            <p>The minimum value the user is allowed to pick. Default 0.</p>
+                        </td>
+                    </tr>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            max
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-number">number</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-number">number</code></td>
+                        <td class="description">
+                            <p>The maximum value the user is allowed to pick. Default 100.</p>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <!-- / CONTENT -->
+
+</div>

@@ -211,9 +211,9 @@ gulp.task('scripts', ['tsd:install', 'scripts:app']);
 // END TYPESCRIPT
 
 /// Start inject section 
-gulp.task('inject', ['wiredep', 'inject:app']);
+gulp.task('inject', ['wiredep','inject:app']);
 
-gulp.task('inject:app', function () {
+gulp.task('inject:app',['scripts'], function () {
 
     var injectScripts = gulp.src([
         path.join(yeoman.app, 'scripts/app/**/*.module.js'),

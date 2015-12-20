@@ -1,0 +1,220 @@
+<div id="datepicker" class="page-layout simple fullwidth doc-page element-doc-page">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="row" layout-align="space-between" layout-sm="column">
+
+        <div layout="column" layout-align="center start">
+            <div class="breadcrumb" layout="row" layout-align="start center">
+                <md-icon md-font-icon="icon-home" class="s16"></md-icon>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">COMPONENTS</span>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">ELEMENTS</span>
+            </div>
+            <div class="title">Datepicker</div>
+        </div>
+
+        <div layout="row" layout-align="start center">
+            <md-button class="md-raised reference-button"
+                       href="https://material.angularjs.org/latest/#/api/material.components.datepicker/directive/mdDatepicker"
+                       target="_blank">
+                <md-icon md-font-icon="icon-link"></md-icon>
+                <span>Reference</span>
+            </md-button>
+        </div>
+
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <div class="description">
+            <p><code>&lt;md-datepicker&gt;</code> is a component used to select a single date.
+                For information on how to configure internationalization for the date picker,
+                see <code>$mdDateLocaleProvider</code>.</p>
+
+            <p>This component supports <a target="_blank"
+                                          href="https://docs.angularjs.org/api/ngMessages/directive/ngMessages">ngMessages</a>.
+                Supported attributes are:</p>
+            <ul>
+                <li><code>required</code>: whether a required date is not set.</li>
+                <li><code>mindate</code>: whether the selected date is before the minimum allowed date.</li>
+                <li><code>maxdate</code>: whether the selected date is after the maximum allowed date.</li>
+            </ul>
+        </div>
+
+        <div class="md-title">Basic Usage</div>
+        <div class="card md-whiteframe-4dp">
+            <div layout="row" layout-sm="column">
+                <div flex class="preview" layout="column">
+                    <div class="md-caption">Standard date-picker</div>
+                    <div flex layout="column" layout-align="center center">
+                        <md-datepicker ng-model="vm.myDate" md-placeholder="Enter date"></md-datepicker>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-datepicker ng-model="vm.myDate" md-placeholder="Enter date"></md-datepicker>
+                    </hljs>
+                </div>
+            </div>
+            <div layout="row" layout-sm="column">
+                <div flex class="preview" layout="column">
+                    <div class="md-caption">Disabled date-picker</div>
+                    <div flex layout="column" layout-align="center center">
+                        <md-datepicker ng-model="vm.myDate" md-placeholder="Enter date" disabled></md-datepicker>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-datepicker ng-model="vm.myDate" md-placeholder="Enter date" disabled></md-datepicker>
+                    </hljs>
+                </div>
+            </div>
+            <div layout="row" layout-sm="column">
+                <div flex class="preview" layout="column">
+                    <div class="md-caption">Date-picker with min date and max date</div>
+                    <div flex layout="column" layout-align="center center">
+                        <md-datepicker ng-model="vm.myDate" md-placeholder="Enter date" md-min-date="vm.minDate"
+                                       md-max-date="vm.maxDate"></md-datepicker>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-datepicker ng-model="vm.myDate" md-placeholder="Enter date" md-min-date="vm.minDate"
+                                       md-max-date="vm.maxDate"></md-datepicker>
+                    </hljs>
+                </div>
+            </div>
+            <div layout="row" layout-sm="column">
+                <div flex class="preview" layout="column">
+                    <div class="md-caption">With ngMessages</div>
+                    <div flex layout="column" layout-align="center center">
+                        <form name="myForm">
+                            <md-datepicker name="dateField" ng-model="vm.myDate" md-placeholder="Enter date"
+                                           required md-min-date="vm.minDate" md-max-date="vm.maxDate"></md-datepicker>
+                            <div class="validation-messages" ng-messages="myForm.dateField.$error">
+                                <div ng-message="required">This date is required!</div>
+                                <div ng-message="mindate">Date is too early!</div>
+                                <div ng-message="maxdate">Date is too late!</div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <form name="myForm">
+                            <md-datepicker name="dateField" ng-model="vm.myDate" md-placeholder="Enter date"
+                                           required md-min-date="vm.minDate" md-max-date="vm.maxDate"></md-datepicker>
+                            <div class="validation-messages" ng-messages="myForm.dateField.$error">
+                                <div ng-message="required">This date is required!</div>
+                                <div ng-message="mindate">Date is too early!</div>
+                                <div ng-message="maxdate">Date is too late!</div>
+                            </div>
+                        </form>
+                    </hljs>
+                </div>
+            </div>
+        </div>
+
+        <div class="md-title">Attributes</div>
+        <div class="attributes card md-whiteframe-4dp" layout="column">
+            <table class="simple" ms-responsive-table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            <b>* ng-model</b>
+
+                            <span class="hide show-sm">
+                                <code class="api-type label type-hint type-hint-date">Date</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-date">Date</code></td>
+                        <td class="description">
+                            <p>The component's model. Expects a JavaScript Date object.</p>
+                        </td>
+                    </tr>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            ng-change
+                            <span class="hide show-sm">
+                                <code class="api-type label type-hint type-hint-expression">expression</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-expression">expression</code></td>
+                        <td class="description">
+                            <p>Expression evaluated when the model value changes.</p>
+                        </td>
+                    </tr>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            md-min-date
+                            <span class="hide show-sm">
+                                <code class="api-type label type-hint type-hint-date">Date</code>
+                            </span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-date">Date</code></td>
+                        <td class="description">
+                            <p>Expression representing a min date (inclusive).</p>
+                        </td>
+                    </tr>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            md-max-date
+
+                            <span class="hide show-sm">
+                                <code class="api-type label type-hint type-hint-date">Date</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-date">Date</code></td>
+                        <td class="description">
+                            <p>Expression representing a max date (inclusive).</p>
+                        </td>
+                    </tr>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            disabled
+
+                            <span class="hide show-sm">
+                                <code class="api-type label type-hint type-hint-boolean">boolean</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-boolean">boolean</code></td>
+                        <td class="description">
+                            <p>Whether the datepicker is disabled.</p>
+                        </td>
+                    </tr>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            required
+
+                            <span class="hide show-sm">
+                                <code class="api-type label type-hint type-hint-boolean">boolean</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-boolean">boolean</code></td>
+                        <td class="description">
+                            <p>Whether a value is required for the datepicker.</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- / CONTENT -->
+
+</div>

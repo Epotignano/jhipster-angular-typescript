@@ -69,13 +69,17 @@
         <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
         <script src="bower_components/sockjs-client/dist/sockjs.js"></script>
         <script src="bower_components/stomp-websocket/lib/stomp.min.js"></script>
+        <script src="bower_components/api-check/dist/api-check.js"></script>
+        <script src="bower_components/angular-formly/dist/formly.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 
 
     <!-- inject:js -->
-    <script src="scripts/app/app.module.js"></script>
+    <script src="scripts/app/index.module.js"></script>
+    <script src="scripts/app/commons/commons.module.js"></script>
     <script src="scripts/app/core/core.module.js"></script>
+    <script src="scripts/app/dashboard/dashboard.module.js"></script>
     <script src="scripts/app/main/components/components.module.js"></script>
     <script src="scripts/app/main/components/cards/cards.module.js"></script>
     <script src="scripts/app/main/components/maps/maps.module.js"></script>
@@ -112,14 +116,19 @@
     <script src="scripts/app/main/components/elements/inputs/slider/slider.module.js"></script>
     <script src="scripts/app/main/components/elements/inputs/switch/switch.module.js"></script>
     <script src="scripts/app/app.constants.js"></script>
+    <script src="scripts/app/index.formly.conf.js"></script>
+    <script src="scripts/app/index.http.config.js"></script>
+    <script src="scripts/app/index.routes.js"></script>
     <script src="scripts/app/account/account.js"></script>
     <script src="scripts/app/admin/admin.js"></script>
     <script src="scripts/app/auth/auth.modulle.js"></script>
+    <script src="scripts/app/commons/subscriptions.service.js"></script>
+    <script src="scripts/app/commons/toaster.service.js"></script>
     <script src="scripts/app/core/core.config.js"></script>
     <script src="scripts/app/core/core.run.js"></script>
+    <script src="scripts/app/dashboard/dashboard.controller.js"></script>
+    <script src="scripts/app/dashboard/dashboard.routes.js"></script>
     <script src="scripts/app/entities/entity.js"></script>
-    <script src="scripts/app/main/main.controller.js"></script>
-    <script src="scripts/app/main/main.js"></script>
     <script src="scripts/app/error/error.js"></script>
     <script src="scripts/app/account/activate/activate.controller.js"></script>
     <script src="scripts/app/account/activate/activate.js"></script>
@@ -132,10 +141,10 @@
     <script src="scripts/app/account/register/register.js"></script>
     <script src="scripts/app/account/settings/settings.controller.js"></script>
     <script src="scripts/app/account/settings/settings.js"></script>
-    <script src="scripts/app/admin/audits/audits.controller.js"></script>
-    <script src="scripts/app/admin/audits/audits.js"></script>
     <script src="scripts/app/admin/configuration/configuration.controller.js"></script>
     <script src="scripts/app/admin/configuration/configuration.js"></script>
+    <script src="scripts/app/admin/audits/audits.controller.js"></script>
+    <script src="scripts/app/admin/audits/audits.js"></script>
     <script src="scripts/app/admin/docs/docs.js"></script>
     <script src="scripts/app/admin/health/health.controller.js"></script>
     <script src="scripts/app/admin/health/health.js"></script>
@@ -227,12 +236,12 @@
     <script src="scripts/components/admin/configuration.service.js"></script>
     <script src="scripts/components/admin/logs.service.js"></script>
     <script src="scripts/components/admin/monitoring.service.js"></script>
+    <script src="scripts/components/alert/alert.directive.js"></script>
+    <script src="scripts/components/alert/alert.service.js"></script>
     <script src="scripts/components/auth/auth.modulle.js"></script>
     <script src="scripts/components/auth/auth.service.js"></script>
     <script src="scripts/components/auth/authority.directive.js"></script>
     <script src="scripts/components/auth/principal.service.js"></script>
-    <script src="scripts/components/alert/alert.directive.js"></script>
-    <script src="scripts/components/alert/alert.service.js"></script>
     <script src="scripts/components/example/example.component.js"></script>
     <script src="scripts/components/form/form.directive.js"></script>
     <script src="scripts/components/form/maxbytes.directive.js"></script>
@@ -246,6 +255,8 @@
     <script src="scripts/components/language/language.service.js"></script>
     <script src="scripts/components/navbar/navbar.controller.js"></script>
     <script src="scripts/components/navbar/navbar.directive.js"></script>
+    <script src="scripts/components/toolbar/toolbar.controller.js"></script>
+    <script src="scripts/components/toolbar/toolbar.module.js"></script>
     <script src="scripts/components/tracker/tracker.service.js"></script>
     <script src="scripts/components/user/user.service.js"></script>
     <script src="scripts/components/util/base64.service.js"></script>
@@ -265,6 +276,11 @@
     <script src="scripts/components/entities/student/student.service.js"></script>
     <script src="scripts/components/entities/teacher/teacher.search.service.js"></script>
     <script src="scripts/components/entities/teacher/teacher.service.js"></script>
+    <script src="scripts/components/sidenav/navigation/navigation.controller.js"></script>
+    <script src="scripts/components/sidenav/navigation/navigation.module.js"></script>
+    <script src="scripts/components/sidenav/quick-panel/quick-panel.controller.js"></script>
+    <script src="scripts/components/sidenav/quick-panel/quick-panel.module.js"></script>
+    <script src="scripts/components/sidenav/quick-panel/tabs/chat/chat-tab.controller.js"></script>
     <!-- endinject -->
 </body>
 </html>

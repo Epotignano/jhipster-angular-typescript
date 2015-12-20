@@ -1,0 +1,561 @@
+<div id="toast" class="page-layout simple fullwidth doc-page element-doc-page">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="row" layout-align="space-between" layout-sm="column">
+
+        <div layout="column" layout-align="center start">
+            <div class="breadcrumb" layout="row" layout-align="start center">
+                <md-icon md-font-icon="icon-home" class="s16"></md-icon>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">COMPONENTS</span>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">ELEMENTS</span>
+            </div>
+            <div class="title">Toast</div>
+        </div>
+
+        <div layout="row" layout-align="start center">
+            <md-button class="md-raised reference-button"
+                       href="https://material.angularjs.org/latest/#/api/material.components.toast/service/$mdToast"
+                       target="_blank">
+                <md-icon md-font-icon="icon-link"></md-icon>
+                <span>Reference</span>
+            </md-button>
+        </div>
+
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <div class="description">
+            <p><code>$mdToast</code> is a service to build a toast notification on any position
+                on the screen with an optional duration, and provides a simple promise API.</p>
+
+            <h2 id="restrictions-on-custom-toasts">Restrictions on custom toasts</h2>
+            <ul>
+                <li>The toast's template must have an outer <code>&lt;md-toast&gt;</code> element.</li>
+                <li>For a toast action, use element with class <code>md-action</code>.</li>
+                <li>Add the class <code>md-capsule</code> for curved corners.</li>
+            </ul>
+        </div>
+
+        <div class="card md-whiteframe-4dp" layout="column">
+            <div layout="row" layout-sm="column">
+                <div flex class="preview" layout="column">
+                    <div class="md-caption">Simple - Position: "top right"</div>
+                    <div flex layout="row" layout-align="center center">
+                        <md-button class="md-accent md-raised" ng-click="vm.showSimpleToast()" flex="50">
+                            Show Simple
+                        </md-button>
+                    </div>
+                </div>
+                <div flex class="source-code">
+
+                    <md-tabs>
+                        <md-tab label="HTML">
+                            <hljs lang="html" ms-scroll>
+                                <md-button class="md-accent md-raised" ng-click="vm.showSimpleToast()" flex="50">
+                                    Show Simple
+                                </md-button>
+                            </hljs>
+                        </md-tab>
+                        <md-tab label="JS">
+                            <hljs lang="js" ms-scroll>
+                                function showSimpleToast()
+                                {
+                                    $mdToast.show(
+                                            $mdToast.simple()
+                                                    .content('Simple Toast!')
+                                                    .position('top right')
+                                                    .hideDelay(3000)
+                                    );
+                                }
+                            </hljs>
+                        </md-tab>
+                    </md-tabs>
+
+                </div>
+            </div>
+            <div layout="row" layout-sm="column">
+                <div flex class="preview" layout="column">
+                    <div class="md-caption">With Action - Position: "top left"</div>
+                    <div flex layout="row" layout-align="center center">
+                        <md-button class="md-primary md-raised" ng-click="vm.showActionToast()" flex="50">
+                            Show With Action
+                        </md-button>
+                    </div>
+                </div>
+                <div flex class="source-code">
+
+                    <md-tabs>
+                        <md-tab label="HTML">
+                            <hljs lang="html" ms-scroll>
+                                <md-button class="md-primary md-raised" ng-click="vm.showActionToast()" flex="50">
+                                    Show With Action
+                                </md-button>
+                            </hljs>
+                        </md-tab>
+                        <md-tab label="JS">
+                            <hljs lang="js" ms-scroll>
+                                function showActionToast()
+                                {
+                                    var toast = $mdToast.simple()
+                                            .content('Action Toast!')
+                                            .action('OK')
+                                            .highlightAction(false)
+                                            .position('top left');
+                                    $mdToast.show(toast).then(function (test)
+                                    {
+                                        alert('You clicked \'OK\'.');
+                                    });
+                                }
+                            </hljs>
+                        </md-tab>
+                    </md-tabs>
+
+                </div>
+            </div>
+
+            <div layout="row" layout-sm="column">
+                <div flex class="preview" layout="column">
+                    <div class="md-caption">Custom - Position:"bttom right"</div>
+                    <div flex layout="row" layout-align="center center">
+                        <md-button class="md-warn md-raised" ng-click="vm.showCustomToast()" flex="50">
+                            Show Custom
+                        </md-button>
+                    </div>
+                </div>
+                <div flex class="source-code">
+
+                    <md-tabs>
+                        <md-tab label="HTML">
+                            <hljs lang="html" ms-scroll>
+                                <md-button class="md-warn md-raised" ng-click="vm.showCustomToast()" flex="50">
+                                    Show Custom
+                                </md-button>
+                            </hljs>
+                        </md-tab>
+                        <md-tab label="JS">
+                            <hljs lang="js" ms-scroll>
+                                function showCustomToast()
+                                {
+                                    $mdToast.show({
+                                        controller : ToastCtrl,
+                                        templateUrl: 'toast-template.html',
+                                        hideDelay  : 6000,
+                                        position   : 'bottom right'
+                                    });
+                                }
+
+                                function ToastCtrl($scope, $mdToast)
+                                {
+                                    $scope.closeToast = function ()
+                                    {
+                                        $mdToast.hide();
+                                    };
+                                }
+                            </hljs>
+                        </md-tab>
+                        <md-tab label="toast-template.html">
+                            <hljs lang="html" ms-scroll>
+                                <md-toast>
+                                    <span flex>Custom toast!</span>
+                                    <md-button ng-click="closeToast()">
+                                        Close
+                                    </md-button>
+                                </md-toast>
+                            </hljs>
+                        </md-tab>
+                    </md-tabs>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="md-title">Methods</div>
+        <ul class="methods">
+            <li id="showSimple">
+                <h3 class="method-function-syntax">
+                    <code class="method-function-syntax">$mdToast.showSimple();
+                    </code>
+                </h3>
+
+                <div class="service-desc"><p>Convenience method which builds and shows a simple toast.</p>
+                </div>
+
+                <div class="method-param-table card md-whiteframe-4dp">
+
+                    <table class="simple" ms-responsive-table>
+                        <thead>
+                            <tr>
+                                <th>Returns</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <code class="api-type label type-hint type-hint-promise">promise</code></td>
+                                <td class="description"><p>A promise that can be resolved with
+                                    <code>$mdToast.hide()</code> or
+                                    rejected with <code>$mdToast.cancel()</code>.</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </li>
+
+            <li id="simple">
+                <h3 class="method-function-syntax">
+                    <code class="method-function-syntax">$mdToast.simple();
+                    </code>
+                </h3>
+
+                <div class="service-desc"><p>Builds a preconfigured toast.</p>
+                </div>
+
+                <div class="method-param-table card md-whiteframe-4dp">
+
+                    <table class="simple" ms-responsive-table>
+                        <thead>
+                            <tr>
+                                <th>Returns</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <code class="api-type label type-hint type-hint-obj">obj</code></td>
+                                <td class="description"><p>a <code>$mdToastPreset</code> with the chainable
+                                    configuration methods:</p>
+                                    <ul>
+                                        <li>$mdToastPreset#content(string) - sets toast content to string</li>
+                                        <li>$mdToastPreset#action(string) - adds an action button, which resolves the
+                                            promise returned from <code>show()</code> if clicked.
+                                        </li>
+                                        <li>$mdToastPreset#highlightAction(boolean) - sets action button to be
+                                            highlighted
+                                        </li>
+                                        <li>$mdToastPreset#capsule(boolean) - adds 'md-capsule' class to the toast
+                                            (curved corners)
+                                        </li>
+                                        <li>$mdToastPreset#theme(boolean) - sets the theme on the toast to theme
+                                            (default is <code>$mdThemingProvider</code>'s default theme)
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </li>
+
+            <li id="updateContent">
+                <h3 class="method-function-syntax">
+                    <code class="method-function-syntax">$mdToast.updateContent();
+                    </code>
+                </h3>
+
+                <div class="service-desc"><p>Updates the content of an existing toast. Useful for updating things like
+                    counts, etc.</p>
+                </div>
+
+            </li>
+
+            <li id="build">
+                <h3 class="method-function-syntax">
+                    <code class="method-function-syntax">$mdToast.build();
+                    </code>
+                </h3>
+
+                <div class="service-desc"><p>Creates a custom <code>$mdToastPreset</code> that you can configure.</p>
+                </div>
+
+                <div class="method-param-table card md-whiteframe-4dp">
+
+                    <table class="simple" ms-responsive-table>
+                        <thead>
+                            <tr>
+                                <th>Returns</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <code class="api-type label type-hint type-hint-obj">obj</code></td>
+                                <td class="description"><p>a <code>$mdToastPreset</code> with the chainable
+                                    configuration methods for shows' options (see below).</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </li>
+
+            <li id="show">
+                <h3 class="method-function-syntax">
+                    <code class="method-function-syntax">$mdToast.show(optionsOrPreset);
+                    </code>
+                </h3>
+
+                <div class="service-desc"><p>Shows the toast.</p>
+                </div>
+
+                <div class="method-param-table card md-whiteframe-4dp">
+
+                    <table class="simple" ms-responsive-table>
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr class="api-params-item">
+                                <td style="white-space: nowrap;">
+                                    <b>* optionsOrPreset</b>
+                                    <span hide="" show-sm="">
+                                        <code class="api-type label type-hint type-hint-object">object</code></span>
+                                </td>
+                                <td style="white-space: nowrap;">
+                                    <code class="api-type label type-hint type-hint-object">object</code></td>
+                                <td class="description">
+                                    <p>Either provide an <code>$mdToastPreset</code> returned from <code>simple()</code>
+                                        and <code>build()</code>, or an options object with the following properties:
+                                    </p>
+                                    <ul>
+                                        <li><code>templateUrl</code> - <code>{string=}</code>: The url of an html
+                                            template file that will
+                                            be used as the content of the toast. Restrictions: the template must
+                                            have an outer <code>md-toast</code> element.
+                                        </li>
+                                        <li><code>template</code> - <code>{string=}</code>: Same as templateUrl, except
+                                            this is an actual
+                                            template string.
+                                        </li>
+                                        <li><code>scope</code> - <code>{object=}</code>: the scope to link the template
+                                            / controller to. If none is specified, it will create a new child scope.
+                                            This scope will be destroyed when the toast is removed unless
+                                            <code>preserveScope</code>
+                                            is set to true.
+                                        </li>
+                                        <li><code>preserveScope</code> - <code>{boolean=}</code>: whether to preserve
+                                            the scope when the element is removed. Default is false
+                                        </li>
+                                        <li><code>hideDelay</code> - <code>{number=}</code>: How many milliseconds the
+                                            toast should stay
+                                            active before automatically closing. Set to 0 or false to have the toast
+                                            stay open until
+                                            closed manually. Default: 3000.
+                                        </li>
+                                        <li><code>position</code> - <code>{string=}</code>: Where to place the toast.
+                                            Available: any combination
+                                            of 'bottom', 'left', 'top', 'right', 'fit'. Default: 'bottom left'.
+                                        </li>
+                                        <li><code>controller</code> - <code>{string=}</code>: The controller to
+                                            associate with this toast.
+                                            The controller will be injected the local <code>$hideToast</code>, which is
+                                            a function
+                                            used to hide the toast.
+                                        </li>
+                                        <li><code>locals</code> - <code>{string=}</code>: An object containing key/value
+                                            pairs. The keys will
+                                            be used as names of values to inject into the controller. For example,
+                                            <code>locals: {three: 3}</code> would inject <code>three</code> into the
+                                            controller with the value
+                                            of 3.
+                                        </li>
+                                        <li><code>bindToController</code> - <code>bool</code>: bind the locals to the
+                                            controller, instead of passing them in. These values will not be available
+                                            until after initialization.
+                                        </li>
+                                        <li><code>resolve</code> - <code>{object=}</code>: Similar to locals, except it
+                                            takes promises as values
+                                            and the toast will not open until the promises resolve.
+                                        </li>
+                                        <li><code>controllerAs</code> - <code>{string=}</code>: An alias to assign the
+                                            controller to on the scope.
+                                        </li>
+                                        <li><code>parent</code> - <code>{element=}</code>: The element to append the
+                                            toast to. Defaults to appending
+                                            to the root element of the application.
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                    <table class="simple" ms-responsive-table>
+                        <thead>
+                            <tr>
+                                <th>Returns</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <code class="api-type label type-hint type-hint-promise">promise</code></td>
+                                <td class="description"><p>A promise that can be resolved with
+                                    <code>$mdToast.hide()</code> or
+                                    rejected with <code>$mdToast.cancel()</code>.</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </li>
+
+            <li id="hide">
+                <h3 class="method-function-syntax">
+                    <code class="method-function-syntax">
+                        $mdToast.hide([response]);
+                    </code>
+                </h3>
+
+                <div class="service-desc">
+                    <p>Hide an existing toast and resolve the promise returned from <code>$mdToast.show()</code>.
+                    </p>
+                </div>
+
+                <div class="method-param-table card md-whiteframe-4dp">
+
+                    <table class="simple" ms-responsive-table>
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr class="api-params-item">
+                                <td style="white-space: nowrap;">
+                                    response
+                                    <span hide="" show-sm="">
+                                        <code class="api-type label type-hint type-hint-object">*</code></span>
+                                </td>
+                                <td style="white-space: nowrap;">
+                                    <code class="api-type label type-hint type-hint-object">*</code></td>
+                                <td class="description">
+                                    <p>An argument for the resolved promise.</p>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                    <table class="simple" ms-responsive-table>
+                        <thead>
+                            <tr>
+                                <th>Returns</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <code class="api-type label type-hint type-hint-promise">promise</code></td>
+                                <td class="description"><p>a promise that is called when the existing element is removed
+                                    from the DOM</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </li>
+
+            <li id="cancel">
+                <h3 class="method-function-syntax">
+                    <code class="method-function-syntax">$mdToast.cancel([response]);
+                    </code>
+                </h3>
+
+                <div class="service-desc"><p>Hide the existing toast and reject the promise returned from
+                    <code>$mdToast.show()</code>.</p>
+                </div>
+
+                <div class="method-param-table card md-whiteframe-4dp">
+
+                    <table class="simple" ms-responsive-table>
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr class="api-params-item">
+                                <td style="white-space: nowrap;">
+                                    response
+
+                                    <span hide="" show-sm="">
+                                        <code class="api-type label type-hint type-hint-object">*</code></span>
+                                </td>
+                                <td style="white-space: nowrap;">
+                                    <code class="api-type label type-hint type-hint-object">*</code></td>
+                                <td class="description">
+                                    <p>An argument for the rejected promise.</p>
+
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                    <table class="simple" ms-responsive-table>
+                        <thead>
+                            <tr>
+                                <th>Returns</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <code class="api-type label type-hint type-hint-promise">promise</code></td>
+                                <td class="description"><p>a promise that is called when the existing element is removed
+                                    from the DOM</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+    <!-- / CONTENT -->
+
+    <script type="text/ng-template" id="toast-template.html">
+        <md-toast>
+            <span flex>Custom toast!</span>
+            <md-button ng-click="closeToast()">
+                Close
+            </md-button>
+        </md-toast>
+    </script>
+
+</div>

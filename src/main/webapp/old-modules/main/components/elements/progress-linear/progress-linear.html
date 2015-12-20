@@ -1,0 +1,256 @@
+<div id="progress-linear" class="page-layout simple fullwidth doc-page element-doc-page">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="row" layout-align="space-between" layout-sm="column">
+
+        <div layout="column" layout-align="center start">
+            <div class="breadcrumb" layout="row" layout-align="start center">
+                <md-icon md-font-icon="icon-home" class="s16"></md-icon>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">COMPONENTS</span>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">ELEMENTS</span>
+            </div>
+            <div class="title">Progreess Linear</div>
+        </div>
+
+        <div layout="row" layout-align="start center">
+            <md-button class="md-raised reference-button"
+                       href="https://material.angularjs.org/latest/#/api/material.components.progressLinear/directive/mdProgressLinear"
+                       target="_blank">
+                <md-icon md-font-icon="icon-link"></md-icon>
+                <span>Reference</span>
+            </md-button>
+        </div>
+
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <div class="description">
+            <p>The linear progress directive is used to make loading content in your app as delightful and painless as
+                possible by minimizing the amount of visual change a user sees before they can view and interact with
+                content. Each operation should only be represented by one activity indicator—for example, one refresh
+                operation should not display both a refresh bar and an activity circle.</p>
+
+            <p>For operations where the percentage of the operation completed can be determined, use a determinate
+                indicator. They give users a quick sense of how long an operation will take.</p>
+
+            <p>For operations where the user is asked to wait a moment while something finishes up, and it’s not
+                necessary to expose what's happening behind the scenes and how long it will take, use an indeterminate
+                indicator.</p>
+        </div>
+
+        <div class="md-title">Determinate</div>
+        <div class="card md-whiteframe-4dp">
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Accent Colored</div>
+                    <div layout="row" layout-align="center center">
+                        <md-progress-linear md-mode="determinate"
+                                            value="{{vm.determinateValue}}" class="md-accent"></md-progress-linear>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-progress-linear md-mode="determinate"
+                                            value="{{vm.determinateValue}}" class="md-accent"></md-progress-linear>
+                    </hljs>
+                </div>
+            </div>
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Primary Colored</div>
+                    <div layout="row" layout-align="center center">
+                        <md-progress-linear md-mode="determinate" value="{{vm.determinateValue}}"
+                                            class="md-primary"></md-progress-linear>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-progress-linear md-mode="determinate" value="{{vm.determinateValue}}"
+                                            class="md-primary"></md-progress-linear>
+                    </hljs>
+                </div>
+            </div>
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Warn Colored</div>
+                    <div layout="row" layout-align="center center">
+                        <md-progress-linear md-mode="determinate" value="{{vm.determinateValue}}"
+                                            class="md-warn"></md-progress-linear>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-progress-linear md-mode="determinate" value="{{vm.determinateValue}}"
+                                            class="md-warn"></md-progress-linear>
+                    </hljs>
+                </div>
+            </div>
+        </div>
+
+        <div class="md-title">Indeterminate</div>
+        <div class="card md-whiteframe-4dp">
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Accent Colored</div>
+                    <div layout="row" layout-align="center center">
+                        <md-progress-linear md-mode="indeterminate" class="md-accent"></md-progress-linear>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-progress-linear md-mode="indeterminate" class="md-accent"></md-progress-linear>
+                    </hljs>
+                </div>
+            </div>
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Primary Colored</div>
+                    <div layout="row" layout-align="center center">
+                        <md-progress-linear md-mode="indeterminate" class="md-primary"></md-progress-linear>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-progress-linear md-mode="indeterminate" class="md-primary"></md-progress-linear>
+                    </hljs>
+                </div>
+            </div>
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Warn Colored</div>
+                    <div layout="row" layout-align="center center">
+                        <md-progress-linear md-mode="indeterminate" class="md-warn"></md-progress-linear>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-progress-linear md-mode="indeterminate" class="md-warn"></md-progress-linear>
+                    </hljs>
+                </div>
+            </div>
+        </div>
+
+        <div class="md-title">Buffer</div>
+        <div class="card md-whiteframe-4dp">
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Accent Colored</div>
+                    <div layout="row" layout-align="center center">
+                        <md-progress-linear md-mode="buffer"
+                                            value="{{vm.determinateValue}}"
+                                            md-buffer-value="{{vm.determinateValue2}}"
+                                            class="md-accent"></md-progress-linear>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-progress-linear md-mode="buffer"
+                                            value="{{vm.determinateValue}}"
+                                            md-buffer-value="{{vm.determinateValue2}}"
+                                            class="md-accent"></md-progress-linear>
+                    </hljs>
+                </div>
+            </div>
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Primary Colored</div>
+                    <div layout="row" layout-align="center center">
+                        <md-progress-linear md-mode="buffer"
+                                            value="{{vm.determinateValue}}"
+                                            md-buffer-value="{{vm.determinateValue2}}"
+                                            class="md-primary"></md-progress-linear>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-progress-linear md-mode="buffer"
+                                            value="{{vm.determinateValue}}"
+                                            md-buffer-value="{{vm.determinateValue2}}"
+                                            class="md-primary"></md-progress-linear>
+                    </hljs>
+                </div>
+            </div>
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Warn Colored</div>
+                    <div layout="row" layout-align="center center">
+                        <md-progress-linear md-mode="buffer" value="{{vm.determinateValue}}"
+                                            md-buffer-value="{{vm.determinateValue2}}"
+                                            class="md-warn"></md-progress-linear>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-progress-linear md-mode="buffer" value="{{vm.determinateValue}}"
+                                            md-buffer-value="{{vm.determinateValue2}}"
+                                            class="md-warn"></md-progress-linear>
+                    </hljs>
+                </div>
+            </div>
+        </div>
+
+        <div class="md-title">Attributes</div>
+        <div class="attributes card md-whiteframe-4dp" layout="column">
+            <table class="simple" ms-responsive-table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            <b>* md-mode</b>
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-string">string</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-string">string</code></td>
+                        <td class="description">
+                            <p>Select from one of four modes: determinate, indeterminate, buffer or query.</p>
+                        </td>
+                    </tr>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            value
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-number">number</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-number">number</code></td>
+                        <td class="description">
+                            <p>In determinate and buffer modes, this number represents the percentage of the primary
+                                progress bar. Default: 0</p>
+                        </td>
+                    </tr>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            md-buffer-value
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-number">number</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-number">number</code></td>
+                        <td class="description">
+                            <p>In the buffer mode, this number represents the precentage of the secondary progress bar.
+                                Default: 0</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <!-- / CONTENT -->
+
+</div>

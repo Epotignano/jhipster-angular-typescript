@@ -1,0 +1,18 @@
+#sidenav.element-doc-page {
+
+    .content {
+
+        .card {
+
+            .preview {
+                position: relative;
+                min-height: 500px;
+                overflow: hidden;
+
+                md-content {
+                    padding: 24px;
+                }
+            }
+        }
+    }
+}

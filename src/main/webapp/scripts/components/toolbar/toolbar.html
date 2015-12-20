@@ -1,0 +1,53 @@
+<div layout="row" layout-align="start center">
+    <div layout="row" layout-align="start center" flex>
+        <md-button id="navigation-toggle" class="md-icon-button" ng-click="vm.toggleSidenav('navigation')"
+                   hide-gt-md aria-label="Toggle navigation" translate
+                   translate-attr-aria-label="TOOLBAR.TOGGLE_NAVIGATION">
+            <md-icon md-font-icon="icon-menu" class="icon"></md-icon>
+        </md-button>
+
+        <md-button id="navigation-sidenav-mode-toggle" class="md-icon-button"
+                   ng-click="vm.toggleNavigationSidenavFold($event)" hide show-gt-md
+                   aria-label="Toggle navigation mode" translate
+                   translate-attr-aria-label="TOOLBAR.TOGGLE_NAVIGATION_MODE">
+            <md-icon md-font-icon="icon-backburger" class="icon"></md-icon>
+        </md-button>
+
+
+        <md-progress-circular id="toolbar-progress" ng-if="$root.loadingProgress" class="md-accent"
+                              md-mode="indeterminate" md-diameter="32">
+        </md-progress-circular>
+    </div>
+
+    <div layout="row" layout-align="start center">
+        <md-menu-bar id="user-menu">
+            <md-menu md-offset="0 72" md-position-mode="target-right target">
+                <md-button class="user-button" ng-click="$mdOpenMenu()"
+                           aria-label="User settings"
+                           translate md-menu-origin
+                           translate-attr-aria-label="TOOLBAR.USER_SETTINGS">
+                    <div layout="row" layout-align="space-between center">
+                        <div class="avatar-wrapper">
+                            <img md-menu-align-target class="avatar" src="assets/images/avatars/profile.jpg">
+                        </div>
+                        <span class="username" hide-sm >{{ vm.userEmail }}</span>
+                        <md-icon md-font-icon="icon-chevron-down"
+                                 class="icon s16" hide-sm></md-icon>
+                    </div>
+                </md-button>
+
+                <md-menu-content width="3" class="md-background-bg">
+                    <md-menu-item>
+                        <md-button ng-click="vm.logout()">
+                            <span layout="row" layout-align="start center">
+                                <md-icon md-font-icon="icon-logout" class="icon"></md-icon>
+                                <span>Logout</span>
+                            </span>
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+        </md-menu-bar>
+
+    </div>
+</div>

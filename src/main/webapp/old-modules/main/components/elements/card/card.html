@@ -1,0 +1,127 @@
+<div id="card" class="page-layout simple fullwidth doc-page element-doc-page">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="row" layout-align="space-between" layout-sm="column">
+
+        <div layout="column" layout-align="center start">
+            <div class="breadcrumb" layout="row" layout-align="start center">
+                <md-icon md-font-icon="icon-home" class="s16"></md-icon>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">COMPONENTS</span>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">ELEMENTS</span>
+            </div>
+            <div class="title">Card</div>
+        </div>
+
+        <div layout="row" layout-align="start center">
+            <md-button class="md-raised reference-button" href="https://material.angularjs.org/latest/#/api/material.components.card/directive/mdCard"
+                       target="_blank">
+                <md-icon md-font-icon="icon-link"></md-icon>
+                <span>Reference</span>
+            </md-button>
+        </div>
+
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <div class="description">
+            <p>The <code>&lt;md-card&gt;</code> directive is a container element used within <code>
+                &lt;md-content&gt;</code> containers.</p>
+
+            <p>An image included as a direct descendant will fill the card's width, while the <code>&lt;md-card-content&gt;</code>
+                container will wrap text content and provide padding. An <code>&lt;md-card-footer&gt;</code> element can
+                be
+                optionally included to put content flush against the bottom edge of the card.</p>
+
+            <p>Action buttons can be included in an element with the <code>.md-actions</code> class, also used in <code>md-dialog</code>.
+                You can then position buttons using layout attributes.</p>
+
+            <p>Cards have constant width and variable heights; where the maximum height is limited to what can
+                fit within a single view on a platform, but it can temporarily expand as needed.</p>
+        </div>
+
+        <div class="md-title">Card With Optional Footer</div>
+        <div class="card md-whiteframe-4dp">
+
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <md-card>
+                        <img src="assets/images/etc/early-sunrise.jpg" class="md-card-image"
+                             alt="image caption">
+                        <md-card-content>
+                            <h2>Nature</h2>
+
+                            <p>Look deep into nature, and then you will understand everything better.</p>
+                        </md-card-content>
+                        <md-card-footer class="text-right">
+                            Albert Einstein
+                        </md-card-footer>
+                    </md-card>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-card>
+                            <img src="assets/images/etc/early-sunrise.jpg" class="md-card-image"
+                                 alt="image caption">
+                            <md-card-content>
+                                <h2>Nature</h2>
+
+                                <p>Look deep into nature, and then you will understand everything better.</p>
+                            </md-card-content>
+                            <md-card-footer class="text-right">
+                                Albert Einstein
+                            </md-card-footer>
+                        </md-card>
+                    </hljs>
+                </div>
+            </div>
+        </div>
+        <div class="md-title">Card With Actions</div>
+
+        <div class="card md-whiteframe-4dp">
+
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <md-card>
+                        <img src="assets/images/etc/early-sunrise.jpg" class="md-card-image"
+                             alt="image caption">
+                        <md-card-content>
+                            <h2>Nature</h2>
+
+                            <p>Look deep into nature, and then you will understand everything better. Albert
+                                Einstein
+                            </p>
+                        </md-card-content>
+                        <div class="md-actions" layout="row" layout-align="end center">
+                            <md-button>Action 1</md-button>
+                            <md-button>Action 2</md-button>
+                        </div>
+                    </md-card>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-card>
+                            <img src="assets/images/etc/early-sunrise.jpg" class="md-card-image"
+                                 alt="image caption">
+                            <md-card-content>
+                                <h2>Nature</h2>
+
+                                <p>Look deep into nature, and then you will understand everything better.</p>
+                            </md-card-content>
+                            <md-card-footer class="text-right">
+                                Albert Einstein
+                            </md-card-footer>
+                        </md-card>
+                    </hljs>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- / CONTENT -->
+
+</div>

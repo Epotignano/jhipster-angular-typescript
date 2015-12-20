@@ -1,0 +1,642 @@
+<div id="dialog" class="page-layout simple fullwidth doc-page element-doc-page">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="row" layout-align="space-between" layout-sm="column">
+
+        <div layout="column" layout-align="center start">
+            <div class="breadcrumb" layout="row" layout-align="start center">
+                <md-icon md-font-icon="icon-home" class="s16"></md-icon>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">COMPONENTS</span>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">ELEMENTS</span>
+            </div>
+            <div class="title">Dialog</div>
+        </div>
+
+        <div layout="row" layout-align="start center">
+            <md-button class="md-raised reference-button"
+                       href="https://material.angularjs.org/latest/#/api/material.components.dialog/service/$mdDialog"
+                       target="_blank">
+                <md-icon md-font-icon="icon-link"></md-icon>
+                <span>Reference</span>
+            </md-button>
+        </div>
+
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <div class="description">
+            <p><code>$mdDialog</code> opens a dialog over the app to inform users about critical information or require
+                them to make decisions. There are two approaches for setup: a simple promise API
+                and regular object syntax.</p>
+
+            <h2 id="restrictions">Restrictions</h2>
+            <ul>
+                <li>The dialog is always given an isolate scope.</li>
+                <li>The dialog's template must have an outer <code>&lt;md-dialog&gt;</code> element.
+                    Inside, use an <code>&lt;md-dialog-content&gt;</code> element for the dialog's content, and use
+                    an element with class <code>md-actions</code> for the dialog's actions.
+                </li>
+                <li>Dialogs must cover the entire application to keep interactions inside of them.
+                    Use the <code>parent</code> option to change where dialogs are appended.
+                </li>
+            </ul>
+            <h2 id="sizing">Sizing</h2>
+            <ul>
+                <li>Complex dialogs can be sized with <code>flex="percentage"</code>, i.e. <code>flex="66"</code>.</li>
+                <li>Default max-width is 80% of the <code>rootElement</code> or <code>parent</code>.</li>
+            </ul>
+        </div>
+
+        <div class="card md-whiteframe-4dp" layout="column">
+            <div layout="row" layout-sm="column">
+                <div flex class="preview" layout="column">
+                    <div class="md-caption">Alert</div>
+                    <div flex layout="row" layout-align="center center">
+                        <md-button class="md-warn md-raised" ng-click="vm.showAlert($event)" flex="50">
+                            Alert Dialog
+                        </md-button>
+                    </div>
+                </div>
+                <div flex class="source-code">
+
+                    <md-tabs>
+                        <md-tab label="HTML">
+                            <hljs lang="html" ms-scroll>
+                                <md-button class="md-warn md-raised" ng-click="vm.showAlert($event)" flex flex-md="100">
+                                    Alert Dialog
+                                </md-button>
+                            </hljs>
+                        </md-tab>
+                        <md-tab label="JS">
+                            <hljs lang="js" ms-scroll>
+                                vm.showAlert = function (ev)
+                                {
+                                    // Appending dialog to document.body to cover sidenav in docs app
+                                    // Modal dialogs should fully cover application
+                                    // to prevent interaction outside of dialog
+                                    $mdDialog.show(
+                                            $mdDialog.alert()
+                                                    .parent(angular.element(document.body))
+                                                    .title('This is an alert title')
+                                                    .content('You can specify some description text in here.')
+                                                    .ariaLabel('Alert Dialog Demo')
+                                                    .ok('Got it!')
+                                                    .targetEvent(ev)
+                                    );
+                                };
+                            </hljs>
+                        </md-tab>
+                    </md-tabs>
+
+                </div>
+            </div>
+            <div layout="row" layout-sm="column">
+                <div flex class="preview" layout="column">
+                    <div class="md-caption">Confirm</div>
+                    <div flex layout="row" layout-align="center center">
+                        <md-button class="md-accent md-raised" ng-click="vm.showConfirm($event)" flex="50">
+                            Confirm Dialog
+                        </md-button>
+                    </div>
+                </div>
+                <div flex class="source-code">
+
+                    <md-tabs>
+                        <md-tab label="HTML">
+                            <hljs lang="html" ms-scroll>
+                                <md-button class="md-accent md-raised" ng-click="vm.showConfirm($event)" flex="50">
+                                    Confirm Dialog
+                                </md-button>
+                            </hljs>
+                        </md-tab>
+                        <md-tab label="JS">
+                            <hljs lang="js" ms-scroll>
+                                vm.showConfirm = function (ev)
+                                {
+                                    // Appending dialog to document.body to cover sidenav in docs app
+                                    var confirm = $mdDialog.confirm()
+                                            .parent(angular.element(document.body))
+                                            .title('Would you like to delete your debt?')
+                                            .content('All of the banks have agreed to forgive you your debts.')
+                                            .ariaLabel('Lucky day')
+                                            .ok('Please do it!')
+                                            .cancel('Sounds like a scam')
+                                            .targetEvent(ev);
+                                    $mdDialog.show(confirm).then(function ()
+                                    {
+                                        vm.alert = 'You decided to get rid of your debt.';
+                                    }, function ()
+                                    {
+                                        vm.alert = 'You decided to keep your debt.';
+                                    });
+                                };
+                            </hljs>
+                        </md-tab>
+                    </md-tabs>
+
+                </div>
+            </div>
+
+            <div layout="row" layout-sm="column">
+                <div flex class="preview" layout="column">
+                    <div class="md-caption">Custom</div>
+                    <div flex layout="row" layout-align="center center">
+                        <md-button class="md-primary md-raised" ng-click="vm.showAdvanced($event)" flex="50">
+                            Custom Dialog
+                        </md-button>
+                    </div>
+                </div>
+                <div flex class="source-code">
+
+                    <md-tabs>
+                        <md-tab label="HTML">
+                            <hljs lang="html" ms-scroll>
+                                <md-button class="md-primary md-raised" ng-click="vm.showAdvanced($event)" flex="50">
+                                    Custom Dialog
+                                </md-button>
+                            </hljs>
+                        </md-tab>
+                        <md-tab label="JS">
+                            <hljs lang="js" ms-scroll>
+                                vm.showAdvanced = function (ev)
+                                {
+                                    $mdDialog.show({
+                                        controller         : Dialog1Controller,
+                                        templateUrl        : 'dialog1.tmpl.html',
+                                        parent             : angular.element(document.body),
+                                        targetEvent        : ev,
+                                        clickOutsideToClose: true
+                                    })
+                                            .then(function (answer)
+                                            {
+                                                vm.alert = 'You said the information was "' + answer + '".';
+                                            }, function ()
+                                            {
+                                                vm.alert = 'You cancelled the dialog.';
+                                            });
+                                };
+
+                                function Dialog1Controller($scope, $mdDialog)
+                                {
+                                    $scope.hide = function ()
+                                    {
+                                        $mdDialog.hide();
+                                    };
+
+                                    $scope.cancel = function ()
+                                    {
+                                        $mdDialog.cancel();
+                                    };
+
+                                    $scope.answer = function (answer)
+                                    {
+                                        $mdDialog.hide(answer);
+                                    };
+                                }
+                            </hljs>
+                        </md-tab>
+                        <md-tab label="dialog1.tmpl.html">
+                            <hljs lang="html" ms-scroll>
+                                <md-dialog aria-label="Sunrise" style="max-width:800px">
+                                    <form>
+                                        <md-toolbar>
+                                            <div class="md-toolbar-tools">
+                                                <h2>Sunrise</h2>
+                                                <span flex></span>
+                                                <md-button class="md-icon-button" ng-click="answer('not applicable')">
+                                                    <md-icon md-svg-src="img/icons/ic_close_24px.svg"
+                                                             aria-label="Close dialog"></md-icon>
+                                                </md-button>
+                                            </div>
+                                        </md-toolbar>
+                                        <md-dialog-content>
+                                            <div>
+                                                <img style="max-width:100%"
+                                                     src="assets/images/etc/early-sunrise.jpg"
+                                                     alt="Sunrise">
+
+                                                <p>
+                                                    <b>Sunrise</b> or <b>sun up</b> is the instant at which the upper
+                                                    edge of the Sun
+                                                    appears over the eastern horizon in the morning.
+                                                </p>
+
+                                                <p>
+                                                    The term can also refer to the entire process of the Sun crossing
+                                                    the horizon and its
+                                                    accompanying atmospheric effects.
+                                                </p>
+                                            </div>
+                                        </md-dialog-content>
+                                        <div class="md-actions" layout="row">
+                                            <md-button href="https://en.wikipedia.org/wiki/Sunrise" target="_blank">
+                                                More on Wikipedia
+                                            </md-button>
+                                            <span flex></span>
+                                            <md-button ng-click="answer('not useful')" class="md-primary">
+                                                Not Useful
+                                            </md-button>
+                                            <md-button ng-click="answer('useful')" class="md-primary">
+                                                Useful
+                                            </md-button>
+                                        </div>
+                                    </form>
+                                </md-dialog>
+                            </hljs>
+                        </md-tab>
+                    </md-tabs>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="md-title">Methods</div>
+        <ul class="methods">
+            <li id="alert">
+                <h3 class="method-function-syntax">
+                    <code class="method-function-syntax">$mdDialog.alert();
+                    </code>
+                </h3>
+
+                <div class="service-desc">
+                    <p>Builds a preconfigured dialog with the specified message.</p>
+                </div>
+
+                <div class="method-param-table card md-whiteframe-4dp ">
+                    <table class="simple" ms-responsive-table>
+                        <thead>
+                            <tr>
+                                <th>Returns</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <code class="api-type label type-hint type-hint-obj">obj</code></td>
+                                <td class="description"><p>an <code>$mdDialogPreset</code> with the chainable
+                                    configuration methods:</p>
+                                    <ul>
+                                        <li>$mdDialogPreset#title(string) - sets title to string</li>
+                                        <li>$mdDialogPreset#content(string) - sets content / message to string</li>
+                                        <li>$mdDialogPreset#ok(string) - sets okay button text to string</li>
+                                        <li>$mdDialogPreset#theme(string) - sets the theme of the dialog</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </li>
+
+            <li id="confirm">
+                <h3 class="method-function-syntax">
+                    <code class="method-function-syntax">$mdDialog.confirm();
+                    </code>
+                </h3>
+
+                <div class="service-desc"><p>Builds a preconfigured dialog with the specified message. You can call
+                    show and the promise returned
+                    will be resolved only if the user clicks the confirm action on the dialog.</p>
+                </div>
+
+                <div class="method-param-table card md-whiteframe-4dp">
+                    <table class="simple" ms-responsive-table>
+                        <thead>
+                            <tr>
+                                <th>Returns</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <code class="api-type label type-hint type-hint-obj">obj</code></td>
+                                <td class="description"><p>an <code>$mdDialogPreset</code> with the chainable
+                                    configuration methods:</p>
+
+                                    <p>Additionally, it supports the following methods:</p>
+                                    <ul>
+                                        <li>$mdDialogPreset#title(string) - sets title to string</li>
+                                        <li>$mdDialogPreset#content(string) - sets content / message to string</li>
+                                        <li>$mdDialogPreset#ok(string) - sets okay button text to string</li>
+                                        <li>$mdDialogPreset#cancel(string) - sets cancel button text to string</li>
+                                        <li>$mdDialogPreset#theme(string) - sets the theme of the dialog</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </li>
+
+            <li id="show">
+                <h3 class="method-function-syntax">
+                    <code class="method-function-syntax">$mdDialog.show(optionsOrPreset);
+                    </code>
+                </h3>
+
+                <div class="service-desc"><p>Show a dialog with the specified options.</p>
+                </div>
+
+                <div class="method-param-table card md-whiteframe-4dp">
+                    <table class="simple" ms-responsive-table>
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="api-params-item">
+                                <td style="white-space: nowrap;">
+                                    <b>* optionsOrPreset</b>
+                                    <span hide="" show-sm="">
+                                        <code class="api-type label type-hint type-hint-object">object</code></span>
+                                </td>
+                                <td style="white-space: nowrap;">
+                                    <code class="api-type label type-hint type-hint-object">object</code></td>
+                                <td class="description">
+                                    <p>Either provide an <code>$mdDialogPreset</code> returned from
+                                        <code>alert()</code>, and
+                                        <code>confirm()</code>, or an options object with the following properties:
+                                    </p>
+                                    <ul>
+                                        <li><code>templateUrl</code> - <code>{string=}</code>: The url of a template
+                                            that will be used as the content
+                                            of the dialog.
+                                        </li>
+                                        <li><code>template</code> - <code>{string=}</code>: Same as templateUrl,
+                                            except this is an actual template string.
+                                        </li>
+                                        <li><code>targetEvent</code> - <code>{DOMClickEvent=}</code>: A click's
+                                            event object. When passed in as an option,
+                                            the location of the click will be used as the starting point for the
+                                            opening animation
+                                            of the the dialog.
+                                        </li>
+                                        <li><code>scope</code> - <code>{object=}</code>: the scope to link the
+                                            template / controller to. If none is specified,
+                                            it will create a new isolate scope.
+                                            This scope will be destroyed when the dialog is removed unless <code>preserveScope</code>
+                                            is set to true.
+                                        </li>
+                                        <li><code>preserveScope</code> - <code>{boolean=}</code>: whether to
+                                            preserve the scope when the element is removed. Default is false
+                                        </li>
+                                        <li><code>disableParentScroll</code> - <code>{boolean=}</code>: Whether to
+                                            disable scrolling while the dialog is open.
+                                            Default true.
+                                        </li>
+                                        <li><code>hasBackdrop</code> - <code>{boolean=}</code>: Whether there should
+                                            be an opaque backdrop behind the dialog.
+                                            Default true.
+                                        </li>
+                                        <li><code>clickOutsideToClose</code> - <code>{boolean=}</code>: Whether the
+                                            user can click outside the dialog to
+                                            close it. Default false.
+                                        </li>
+                                        <li><code>escapeToClose</code> - <code>{boolean=}</code>: Whether the user
+                                            can press escape to close the dialog.
+                                            Default true.
+                                        </li>
+                                        <li><code>focusOnOpen</code> - <code>{boolean=}</code>: An option to
+                                            override focus behavior on open. Only disable if
+                                            focusing some other way, as focus management is required for dialogs to
+                                            be accessible.
+                                            Defaults to true.
+                                        </li>
+                                        <li><code>controller</code> - <code>{string=}</code>: The controller to
+                                            associate with the dialog. The controller
+                                            will be injected with the local <code>$mdDialog</code>, which passes
+                                            along a scope for the dialog.
+                                        </li>
+                                        <li><code>locals</code> - <code>{object=}</code>: An object containing
+                                            key/value pairs. The keys will be used as names
+                                            of values to inject into the controller. For example, <code>locals:
+                                                {three: 3}</code> would inject
+                                            <code>three</code> into the controller, with the value 3. If <code>bindToController</code>
+                                            is true, they will be
+                                            copied to the controller instead.
+                                        </li>
+                                        <li><code>bindToController</code> - <code>bool</code>: bind the locals to
+                                            the controller, instead of passing them in.
+                                            These values will not be available until after initialization.
+                                        </li>
+                                        <li><code>resolve</code> - <code>{object=}</code>: Similar to locals, except
+                                            it takes promises as values, and the
+                                            dialog will not open until all of the promises resolve.
+                                        </li>
+                                        <li><code>controllerAs</code> - <code>{string=}</code>: An alias to assign
+                                            the controller to on the scope.
+                                        </li>
+                                        <li><code>parent</code> - <code>{element=}</code>: The element to append the
+                                            dialog to. Defaults to appending
+                                            to the root element of the application.
+                                        </li>
+                                        <li><code>onComplete</code> <code>{function=}</code>: Callback function used
+                                            to announce when the show() action is
+                                            finished.
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="simple" ms-responsive-table>
+                        <thead>
+                            <tr>
+                                <th>Returns</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <code class="api-type label type-hint type-hint-promise">promise</code></td>
+                                <td class="description"><p>A promise that can be resolved with
+                                    <code>$mdDialog.hide()</code>
+                                    or
+                                    rejected with <code>$mdDialog.cancel()</code>.</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </li>
+
+            <li id="hide">
+                <h3 class="method-function-syntax">
+                    <code class="method-function-syntax">$mdDialog.hide([response]);
+                    </code>
+                </h3>
+
+                <div class="service-desc">
+                    <p>Hide an existing dialog and resolve the promise returned from <code>$mdDialog.show()</code>.
+                    </p>
+                </div>
+
+                <div class="method-param-table card md-whiteframe-4dp">
+                    <table class="simple" ms-responsive-table>
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr class="api-params-item">
+                                <td style="white-space: nowrap;">
+                                    response
+                                    <span hide="" show-sm="">
+                                        <code class="api-type label type-hint type-hint-object">*</code></span>
+                                </td>
+                                <td style="white-space: nowrap;">
+                                    <code class="api-type label type-hint type-hint-object">*</code></td>
+                                <td class="description">
+                                    <p>An argument for the resolved promise.</p>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                    <table class="simple" ms-responsive-table>
+                        <thead>
+                            <tr>
+                                <th>Returns</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <code class="api-type label type-hint type-hint-promise">promise</code></td>
+                                <td class="description"><p>A promise that is resolved when the dialog has been
+                                    closed.</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </li>
+
+            <li id="cancel">
+                <h3 class="method-function-syntax">
+                    <code class="method-function-syntax">$mdDialog.cancel([response]);
+                    </code>
+                </h3>
+
+                <div class="service-desc">
+                    <p>Hide an existing dialog and reject the promise returned from <code>$mdDialog.show()</code>.
+                    </p>
+                </div>
+
+                <div class="method-param-table card md-whiteframe-4dp">
+                    <table class="simple" ms-responsive-table>
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="api-params-item">
+                                <td style="white-space: nowrap;">
+                                    response
+                                    <span hide="" show-sm="">
+                                        <code class="api-type label type-hint type-hint-object">*</code></span>
+                                </td>
+                                <td style="white-space: nowrap;">
+                                    <code class="api-type label type-hint type-hint-object">*</code></td>
+                                <td class="description">
+                                    <p>An argument for the rejected promise.</p>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                    <table class="simple" ms-responsive-table>
+                        <thead>
+                            <tr>
+                                <th>Returns</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <code class="api-type label type-hint type-hint-promise">promise</code></td>
+                                <td class="description"><p>A promise that is resolved when the dialog has been
+                                    closed.</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </li>
+        </ul>
+
+    </div>
+    <!-- / CONTENT -->
+
+    <script type="text/ng-template" id="dialog1.tmpl.html">
+        <md-dialog aria-label="Sunrise" style="max-width:800px">
+            <form>
+                <md-toolbar>
+                    <div class="md-toolbar-tools">
+                        <h2>Sunrise</h2>
+                        <span flex></span>
+                        <md-button class="md-icon-button" ng-click="answer('not applicable')">
+                            <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                        </md-button>
+                    </div>
+                </md-toolbar>
+                <md-dialog-content>
+                    <div>
+                        <img style="max-width:100%" src="assets/images/etc/early-sunrise.jpg"
+                             alt="Sunrise">
+
+                        <p>
+                            <b>Sunrise</b> or <b>sun up</b> is the instant at which the upper edge of the Sun
+                            appears over the eastern horizon in the morning.
+                        </p>
+
+                        <p>
+                            The term can also refer to the entire process of the Sun crossing the horizon and its
+                            accompanying atmospheric effects.
+                        </p>
+                    </div>
+                </md-dialog-content>
+                <div class="md-actions" layout="row">
+                    <md-button href="https://en.wikipedia.org/wiki/Sunrise" target="_blank">
+                        More on Wikipedia
+                    </md-button>
+                    <span flex></span>
+                    <md-button ng-click="answer('not useful')" class="md-primary">
+                        Not Useful
+                    </md-button>
+                    <md-button ng-click="answer('useful')" class="md-primary">
+                        Useful
+                    </md-button>
+                </div>
+            </form>
+        </md-dialog>
+    </script>
+
+</div>

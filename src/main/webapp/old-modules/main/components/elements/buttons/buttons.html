@@ -1,0 +1,408 @@
+<div id="buttons" class="page-layout simple fullwidth doc-page element-doc-page">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="row" layout-align="space-between" layout-sm="column">
+
+        <div layout="column" layout-align="center start">
+            <div class="breadcrumb" layout="row" layout-align="start center">
+                <md-icon md-font-icon="icon-home" class="s16"></md-icon>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">COMPONENTS</span>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">ELEMENTS</span>
+            </div>
+            <div class="title">Buttons</div>
+        </div>
+
+        <div layout="row" layout-align="start center">
+            <md-button class="md-raised reference-button"
+                       href="https://material.angularjs.org/latest/#/api/material.components.button/directive/mdButton"
+                       target="_blank">
+                <md-icon md-font-icon="icon-link"></md-icon>
+                <span>Reference</span>
+            </md-button>
+        </div>
+
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <div class="description">
+            <code>&lt;md-button&gt;</code> is a button directive with optional ink ripples (default enabled).
+
+            <p>
+                If you supply a href or ng-href attribute, it will become an <code>&lt;a&gt;</code> element. Otherwise,
+                it
+                will become a
+                <code>&lt;button&gt;</code> element.
+                As per the Material Design specifications the FAB button background is filled with the accent color [by
+                default].
+                The primary color palette may be used with the md-primary class.
+            </p>
+        </div>
+
+        <div class="md-title">FLAT</div>
+        <div class="card md-whiteframe-4dp">
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Accent Colored</div>
+                    <div layout="row" layout-align="center center">
+                        <md-button class="md-accent" aria-label="Use Android">
+                            ACCENT
+                        </md-button>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-button class="md-accent" aria-label="Use Android">
+                            ACCENT
+                        </md-button>
+                    </hljs>
+                </div>
+            </div>
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Primary Colored</div>
+                    <div layout="row" layout-align="center center">
+                        <md-button class="md-primary" aria-label="Use Android">
+                            PRIMARY
+                        </md-button>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-button class="md-primary" aria-label="Use Android">
+                            PRIMARY
+                        </md-button>
+                    </hljs>
+                </div>
+            </div>
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Warn Colored</div>
+                    <div layout="row" layout-align="center center">
+                        <md-button class="md-warn" aria-label="Use Android">
+                            WARN
+                        </md-button>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-button class="md-warn" aria-label="Use Android">
+                            WARN
+                        </md-button>
+                    </hljs>
+                </div>
+            </div>
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Disabled</div>
+                    <div layout="row" layout-align="center center">
+                        <md-button class="md-primary" aria-label="Use Android" ng-disabled="true">
+                            DISABLED
+                        </md-button>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-button class="md-primary" aria-label="Use Android" ng-disabled="true">
+                            DISABLED
+                        </md-button>
+                    </hljs>
+                </div>
+            </div>
+        </div>
+        <div class="md-title">RAISED</div>
+        <div class="card md-whiteframe-4dp" layout="column">
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Accent Colored</div>
+                    <div layout="row" layout-align="center center">
+                        <md-button class="md-raised md-accent" aria-label="Use Android">
+                            ACCENT
+                        </md-button>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-button class="md-raised md-accent" aria-label="Use Android">
+                            ACCENT
+                        </md-button>
+                    </hljs>
+                </div>
+            </div>
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Primary Colored</div>
+                    <div layout="row" layout-align="center center">
+                        <md-button class="md-raised md-primary" aria-label="Use Android">
+                            PRIMARY
+                        </md-button>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-button class="md-raised md-primary" aria-label="Use Android">
+                            PRIMARY
+                        </md-button>
+                    </hljs>
+                </div>
+            </div>
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Warn Colored</div>
+                    <div layout="row" layout-align="center center">
+                        <md-button class="md-raised md-warn" aria-label="Use Android">
+                            WARN
+                        </md-button>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-button class="md-raised md-warn" aria-label="Use Android">
+                            WARN
+                        </md-button>
+                    </hljs>
+                </div>
+            </div>
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Disabled</div>
+                    <div layout="row" layout-align="center center">
+                        <md-button class="md-raised md-primary" aria-label="Use Android" ng-disabled="true">
+                            DISABLED
+                        </md-button>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-button class="md-raised md-primary" aria-label="Use Android" ng-disabled="true">
+                            DISABLED
+                        </md-button>
+                    </hljs>
+                </div>
+            </div>
+        </div>
+        <div class="md-title">FAB</div>
+        <div class="card md-whiteframe-4dp" layout="column">
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Accent Colored</div>
+                    <div layout="row" layout-align="center center">
+                        <md-button class="md-fab md-accent" aria-label="Use Android">
+                            <md-icon md-font-icon="icon-android"></md-icon>
+                        </md-button>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-button class="md-fab md-accent" aria-label="Use Android">
+                            <md-icon md-font-icon="icon-android"></md-icon>
+                        </md-button>
+                    </hljs>
+                </div>
+            </div>
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Primary Colored</div>
+                    <div layout="row" layout-align="center center">
+                        <md-button class="md-fab md-primary" aria-label="Use Android">
+                            <md-icon md-font-icon="icon-android"></md-icon>
+                        </md-button>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-button class="md-fab md-primary" aria-label="Use Android">
+                            <md-icon md-font-icon="icon-android"></md-icon>
+                        </md-button>
+                    </hljs>
+                </div>
+            </div>
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Warn Colored</div>
+                    <div layout="row" layout-align="center center">
+                        <md-button class="md-fab md-warn" aria-label="Use Android">
+                            <md-icon md-font-icon="icon-android"></md-icon>
+                        </md-button>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-button class="md-fab md-warn" aria-label="Use Android">
+                            <md-icon md-font-icon="icon-android"></md-icon>
+                        </md-button>
+                    </hljs>
+                </div>
+            </div>
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Disabled</div>
+                    <div layout="row" layout-align="center center">
+                        <md-button class="md-fab md-primary" aria-label="Use Android" ng-disabled="true">
+                            <md-icon md-font-icon="icon-android"></md-icon>
+                        </md-button>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-button class="md-fab md-primary" aria-label="Use Android" ng-disabled="true">
+                            <md-icon md-font-icon="icon-android"></md-icon>
+                        </md-button>
+                    </hljs>
+                </div>
+            </div>
+        </div>
+        <div class="md-title">ICON BUTTON</div>
+        <div class="card md-whiteframe-4dp" layout="column">
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Accent Colored</div>
+                    <div layout="row" layout-align="center center">
+                        <md-button class="md-icon-button md-accent" aria-label="Use Android">
+                            <md-icon md-font-icon="icon-android"></md-icon>
+                        </md-button>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-button class="md-icon-button md-accent" aria-label="Use Android">
+                            <md-icon md-font-icon="icon-android"></md-icon>
+                        </md-button>
+                    </hljs>
+                </div>
+            </div>
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Primary Colored</div>
+                    <div layout="row" layout-align="center center">
+                        <md-button class="md-icon-button md-primary" aria-label="Use Android">
+                            <md-icon md-font-icon="icon-android"></md-icon>
+                        </md-button>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-button class="md-icon-button md-primary" aria-label="Use Android">
+                            <md-icon md-font-icon="icon-android"></md-icon>
+                        </md-button>
+                    </hljs>
+                </div>
+            </div>
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Warn Colored</div>
+                    <div layout="row" layout-align="center center">
+                        <md-button class="md-icon-button md-warn" aria-label="Use Android">
+                            <md-icon md-font-icon="icon-android"></md-icon>
+                        </md-button>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-button class="md-icon-button md-warn" aria-label="Use Android">
+                            <md-icon md-font-icon="icon-android"></md-icon>
+                        </md-button>
+                    </hljs>
+                </div>
+            </div>
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Disabled</div>
+                    <div layout="row" layout-align="center center">
+                        <md-button class="md-icon-button md-primary" aria-label="Use Android"
+                                   ng-disabled="true">
+                            <md-icon md-font-icon="icon-android"></md-icon>
+                        </md-button>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-button class="md-icon-button md-primary" aria-label="Use Android"
+                                   ng-disabled="true">
+                            <md-icon md-font-icon="icon-android"></md-icon>
+                        </md-button>
+                    </hljs>
+                </div>
+            </div>
+        </div>
+
+        <div class="md-title">Attributes</div>
+        <div class="attributes card md-whiteframe-4dp" layout="column">
+            <table class="simple" ms-responsive-table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            md-no-ink
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-boolean">boolean</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-boolean">boolean</code></td>
+                        <td class="description">
+                            <p>If present, disable ripple ink effects.</p>
+                        </td>
+                    </tr>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            ng-disabled
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-expression">expression</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-expression">expression</code></td>
+                        <td class="description">
+                            <p>En/Disable based on the expression</p>
+                        </td>
+                    </tr>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            md-ripple-size
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-string">string</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-string">string</code></td>
+                        <td class="description">
+                            <p>Overrides the default ripple size logic. Options: <code>full</code>,
+                                <code>partial</code>,
+                                <code>auto</code></p>
+                        </td>
+                    </tr>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            aria-label
+
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-string">string</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-string">string</code></td>
+                        <td class="description">
+                            <p>Adds alternative text to button for accessibility, useful for icon buttons.
+                                If no default text is found, a warning will be logged.</p>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <!-- / CONTENT -->
+
+</div>

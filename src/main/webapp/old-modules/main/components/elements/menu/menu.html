@@ -1,0 +1,642 @@
+<div id="menu" class="page-layout simple fullwidth doc-page element-doc-page">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="row" layout-align="space-between" layout-sm="column">
+
+        <div layout="column" layout-align="center start">
+            <div class="breadcrumb" layout="row" layout-align="start center">
+                <md-icon md-font-icon="icon-home" class="s16"></md-icon>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">COMPONENTS</span>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">ELEMENTS</span>
+            </div>
+            <div class="title">Menu</div>
+        </div>
+
+        <div layout="row" layout-align="start center">
+            <md-button class="md-raised reference-button"
+                       href="https://material.angularjs.org/latest/#/api/material.components.menu/directive/mdMenu"
+                       target="_blank">
+                <md-icon md-font-icon="icon-link"></md-icon>
+                <span>Reference</span>
+            </md-button>
+        </div>
+
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <div class="description">
+            <p>Menus are elements that open when clicked. They are useful for displaying
+                additional options within the context of an action.</p>
+
+            <p>Every <code>md-menu</code> must specify exactly two child elements. The first element is what is
+                left in the DOM and is used to open the menu. This element is called the trigger element.
+                The trigger element's scope has access to <code>$mdOpenMenu()</code>
+                which it may call to open the menu.</p>
+
+            <p>The second element is the <code>md-menu-content</code> element which represents the
+                contents of the menu when it is open. Typically this will contain <code>md-menu-item</code>s,
+                but you can do custom content as well.</p>
+        </div>
+
+        <div class="md-title">Basic Usage</div>
+        <div class="card md-whiteframe-4dp">
+            <div layout="row" layout-sm="column">
+                <div flex class="preview" layout="column">
+                    <div class="md-caption">Simple Dropdown Menu</div>
+                    <div layout="row" layout-align="center center" flex>
+                        <md-menu>
+                            <md-button aria-label="Open phone interactions menu" class="md-icon-button"
+                                       ng-click="$mdOpenMenu()">
+                                <md-icon md-menu-origin md-font-icon="icon-phone"></md-icon>
+                            </md-button>
+                            <md-menu-content width="4">
+                                <md-menu-item>
+                                    <md-button ng-click="vm.redial($event)">
+                                        <md-icon md-font-icon="icon-phone" md-menu-align-target></md-icon>
+                                        Redial
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button disabled="disabled" ng-click="vm.checkVoicemail()">
+                                        <md-icon md-font-icon="icon-voicemail" md-menu-align-target></md-icon>
+                                        Check voicemail
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-divider></md-menu-divider>
+                                <md-menu-item>
+                                    <md-button ng-click="vm.toggleNotifications()">
+                                        <md-icon md-font-icon="icon-bell-off"
+                                                 md-menu-align-target ng-if="vm.notificationsEnabled"></md-icon>
+                                        <md-icon md-font-icon="icon-bell"
+                                                 md-menu-align-target ng-if="!vm.notificationsEnabled"></md-icon>
+                                        {{vm.notificationsEnabled ? 'Disable' : 'Enable'}} notifications
+                                    </md-button>
+                                </md-menu-item>
+                            </md-menu-content>
+                        </md-menu>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-menu>
+                            <md-button aria-label="Open phone interactions menu" class="md-icon-button"
+                                       ng-click="$mdOpenMenu()">
+                                <md-icon md-menu-origin md-font-icon="icon-phone"></md-icon>
+                            </md-button>
+                            <md-menu-content width="4">
+                                <md-menu-item>
+                                    <md-button ng-click="vm.redial($event)">
+                                        <md-icon md-font-icon="icon-phone" md-menu-align-target></md-icon>
+                                        Redial
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button disabled="disabled" ng-click="vm.checkVoicemail()">
+                                        <md-icon md-font-icon="icon-voicemail" md-menu-align-target></md-icon>
+                                        Check voicemail
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-divider></md-menu-divider>
+                                <md-menu-item>
+                                    <md-button ng-click="vm.toggleNotifications()">
+                                        <md-icon md-font-icon="icon-bell-off"
+                                                 md-menu-align-target ng-if="vm.notificationsEnabled"></md-icon>
+                                        <md-icon md-font-icon="icon-bell"
+                                                 md-menu-align-target ng-if="!vm.notificationsEnabled"></md-icon>
+                                        {{vm.notificationsEnabled ? 'Disable' : 'Enable'}} notifications
+                                    </md-button>
+                                </md-menu-item>
+                            </md-menu-content>
+                        </md-menu>
+                    </hljs>
+                </div>
+            </div>
+
+        </div>
+
+        <h2 id="aligning-menus">Aligning Menus</h2>
+
+        <p>When a menu opens, it is important that the content aligns with the trigger element.
+            Failure to align menus can result in jarring experiences for users as content
+            suddenly shifts. To help with this, <code>md-menu</code> provides serveral APIs to help
+            with alignment.
+        </p>
+
+        <div class="md-title">Target Mode</div>
+
+        <p>To specify the alignment element in the <code>trigger</code> you can use the <code>md-menu-origin</code>
+            attribute on a child element. If no <code>md-menu-origin</code> is specified, the <code>md-menu</code>
+            will be used as the origin element.
+        </p>
+
+        <p>Similarly, the <code>md-menu-content</code> may specify a <code>md-menu-align-target</code> for a
+            <code>md-menu-item</code> to specify the node that it should try and align with.
+        </p>
+
+        <p>In this example code, we specify an icon to be our origin element, and an
+            icon in our menu content to be our alignment target. This ensures that both
+            icons are aligned when the menu opens.
+        </p>
+
+        <p>Sometimes we want to specify alignment on the right side of an element, for example
+            if we have a menu on the right side a toolbar, we want to right align our menu content.
+        </p>
+
+        <p>We can specify the origin by using the <code>md-position-mode</code> attribute on both
+            the <code>x</code> and <code>y</code> axis. Right now only the <code>x-axis</code> has more than one option.
+            You may specify the default mode of <code>target target</code> or
+            <code>target-right target</code> to specify a right-oriented alignment target. See the
+            position section of the demos for more examples.</p>
+
+        <div class="card md-whiteframe-4dp" layout="column">
+            <div layout="row" layout-sm="column">
+                <div flex class="preview" layout="column">
+                    <div class="md-caption">Target Mode Positioning (default)</div>
+                    <div layout="row" layout-align="center center" flex>
+                        <md-menu>
+                            <md-button aria-label="Open phone interactions menu" class="md-icon-button"
+                                       ng-click="$mdOpenMenu()">
+                                <md-icon md-menu-origin md-font-icon="icon-phone"></md-icon>
+                            </md-button>
+                            <md-menu-content width="4">
+                                <md-menu-item>
+                                    <md-button ng-click="vm.redial($event)">
+                                        <md-icon md-font-icon="icon-phone" md-menu-align-target></md-icon>
+                                        Redial
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button disabled="disabled" ng-click="vm.checkVoicemail()">
+                                        <md-icon md-font-icon="icon-voicemail" md-menu-align-target></md-icon>
+                                        Check voicemail
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-divider></md-menu-divider>
+                                <md-menu-item>
+                                    <md-button ng-click="vm.toggleNotifications()">
+                                        <md-icon md-font-icon="icon-bell-off"
+                                                 md-menu-align-target ng-if="vm.notificationsEnabled"></md-icon>
+                                        <md-icon md-font-icon="icon-bell"
+                                                 md-menu-align-target ng-if="!vm.notificationsEnabled"></md-icon>
+                                        {{vm.notificationsEnabled ? 'Disable' : 'Enable'}} notifications
+                                    </md-button>
+                                </md-menu-item>
+                            </md-menu-content>
+                        </md-menu>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-menu>
+                            <md-button aria-label="Open phone interactions menu" class="md-icon-button"
+                                       ng-click="$mdOpenMenu()">
+                                <md-icon md-menu-origin md-font-icon="icon-phone"></md-icon>
+                            </md-button>
+                            <md-menu-content width="4">
+                                <md-menu-item>
+                                    <md-button ng-click="vm.redial($event)">
+                                        <md-icon md-font-icon="icon-phone" md-menu-align-target></md-icon>
+                                        Redial
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button disabled="disabled" ng-click="vm.checkVoicemail()">
+                                        <md-icon md-font-icon="icon-voicemail" md-menu-align-target></md-icon>
+                                        Check voicemail
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-divider></md-menu-divider>
+                                <md-menu-item>
+                                    <md-button ng-click="vm.toggleNotifications()">
+                                        <md-icon md-font-icon="icon-bell-off"
+                                                 md-menu-align-target ng-if="vm.notificationsEnabled"></md-icon>
+                                        <md-icon md-font-icon="icon-bell"
+                                                 md-menu-align-target ng-if="!vm.notificationsEnabled"></md-icon>
+                                        {{vm.notificationsEnabled ? 'Disable' : 'Enable'}} notifications
+                                    </md-button>
+                                </md-menu-item>
+                            </md-menu-content>
+                        </md-menu>
+                    </hljs>
+                </div>
+            </div>
+            <div layout="row" layout-sm="column">
+                <div flex class="preview" layout="column">
+                    <div class="md-caption">Target Mode Positioning with md-offset="10 50"</div>
+                    <div layout="row" layout-align="center center" flex>
+                        <md-menu md-offset="10 50">
+                            <md-button aria-label="Open phone interactions menu" class="md-icon-button"
+                                       ng-click="$mdOpenMenu()">
+                                <md-icon md-menu-origin md-font-icon="icon-phone"></md-icon>
+                            </md-button>
+                            <md-menu-content width="4">
+                                <md-menu-item>
+                                    <md-button ng-click="vm.redial($event)">
+                                        <md-icon md-font-icon="icon-phone" md-menu-align-target></md-icon>
+                                        Redial
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button disabled="disabled" ng-click="vm.checkVoicemail()">
+                                        <md-icon md-font-icon="icon-voicemail" md-menu-align-target></md-icon>
+                                        Check voicemail
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-divider></md-menu-divider>
+                                <md-menu-item>
+                                    <md-button ng-click="vm.toggleNotifications()">
+                                        <md-icon md-font-icon="icon-bell-off"
+                                                 md-menu-align-target ng-if="vm.notificationsEnabled"></md-icon>
+                                        <md-icon md-font-icon="icon-bell"
+                                                 md-menu-align-target ng-if="!vm.notificationsEnabled"></md-icon>
+                                        {{vm.notificationsEnabled ? 'Disable' : 'Enable'}} notifications
+                                    </md-button>
+                                </md-menu-item>
+                            </md-menu-content>
+                        </md-menu>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-menu md-offset="10 50">
+                            <md-button aria-label="Open phone interactions menu" class="md-icon-button"
+                                       ng-click="$mdOpenMenu()">
+                                <md-icon md-menu-origin md-font-icon="icon-phone"></md-icon>
+                            </md-button>
+                            <md-menu-content width="4">
+                                <md-menu-item>
+                                    <md-button ng-click="vm.redial($event)">
+                                        <md-icon md-font-icon="icon-phone" md-menu-align-target></md-icon>
+                                        Redial
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button disabled="disabled" ng-click="vm.checkVoicemail()">
+                                        <md-icon md-font-icon="icon-voicemail" md-menu-align-target></md-icon>
+                                        Check voicemail
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-divider></md-menu-divider>
+                                <md-menu-item>
+                                    <md-button ng-click="vm.toggleNotifications()">
+                                        <md-icon md-font-icon="icon-bell-off"
+                                                 md-menu-align-target ng-if="vm.notificationsEnabled"></md-icon>
+                                        <md-icon md-font-icon="icon-bell"
+                                                 md-menu-align-target ng-if="!vm.notificationsEnabled"></md-icon>
+                                        {{vm.notificationsEnabled ? 'Disable' : 'Enable'}} notifications
+                                    </md-button>
+                                </md-menu-item>
+                            </md-menu-content>
+                        </md-menu>
+                    </hljs>
+                </div>
+            </div>
+            <div layout="row" layout-sm="column">
+                <div flex class="preview" layout="column">
+                    <div class="md-caption">md-position-mode="target-right target"</div>
+                    <div layout="row" layout-align="center center" flex>
+                        <md-menu md-position-mode="target-right target">
+                            <md-button aria-label="Open phone interactions menu" class="md-icon-button"
+                                       ng-click="$mdOpenMenu()">
+                                <md-icon md-menu-origin md-menu-align-target md-font-icon="icon-phone"></md-icon>
+                            </md-button>
+                            <md-menu-content width="4">
+                                <md-menu-item>
+                                    <md-button ng-click="vm.redial($event)">
+                                        <md-icon md-font-icon="icon-phone"></md-icon>
+                                        Redial
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button disabled="disabled" ng-click="vm.checkVoicemail()">
+                                        <md-icon md-menu-align-target md-font-icon="icon-voicemail"></md-icon>
+                                        Check voicemail
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-divider></md-menu-divider>
+                                <md-menu-item>
+                                    <md-button ng-click="vm.toggleNotifications()">
+                                        <md-icon md-font-icon="icon-bell-off"
+                                                 md-menu-align-target ng-if="vm.notificationsEnabled"></md-icon>
+                                        <md-icon md-font-icon="icon-bell"
+                                                 md-menu-align-target ng-if="!vm.notificationsEnabled"></md-icon>
+                                        {{vm.notificationsEnabled ? 'Disable' : 'Enable'}} notifications
+                                    </md-button>
+                                </md-menu-item>
+                            </md-menu-content>
+                        </md-menu>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-menu md-position-mode="target-right target">
+                            <md-button aria-label="Open phone interactions menu" class="md-icon-button"
+                                       ng-click="$mdOpenMenu()">
+                                <md-icon md-menu-origin md-menu-align-target md-font-icon="icon-phone"></md-icon>
+                            </md-button>
+                            <md-menu-content width="4">
+                                <md-menu-item>
+                                    <md-button ng-click="vm.redial($event)">
+                                        <md-icon md-font-icon="icon-phone"></md-icon>
+                                        Redial
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button disabled="disabled" ng-click="vm.checkVoicemail()">
+                                        <md-icon md-menu-align-target md-font-icon="icon-voicemail"></md-icon>
+                                        Check voicemail
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-divider></md-menu-divider>
+                                <md-menu-item>
+                                    <md-button ng-click="vm.toggleNotifications()">
+                                        <md-icon md-font-icon="icon-bell-off"
+                                                 md-menu-align-target ng-if="vm.notificationsEnabled"></md-icon>
+                                        <md-icon md-font-icon="icon-bell"
+                                                 md-menu-align-target ng-if="!vm.notificationsEnabled"></md-icon>
+                                        {{vm.notificationsEnabled ? 'Disable' : 'Enable'}} notifications
+                                    </md-button>
+                                </md-menu-item>
+                            </md-menu-content>
+                        </md-menu>
+                    </hljs>
+                </div>
+            </div>
+        </div>
+        <div class="md-title">Sizing Menus</div>
+        <p>The width of the menu when it is open may be specified by specifying a <code>width</code>
+            attribute on the <code>md-menu-content</code> element.
+            See the <a href="http://www.google.com/design/spec/components/menus.html#menus-specs">Material Design
+                Spec</a>
+            for more information.</p>
+
+        <div class="card md-whiteframe-4dp" layout="column">
+            <div layout="row" layout-sm="column">
+                <div flex class="preview" layout="column">
+                    <div class="md-caption">Wide menu (width=6)</div>
+                    <div layout="row" layout-align="center center" flex>
+                        <md-menu>
+                            <md-button aria-label="Open phone interactions menu" class="md-icon-button"
+                                       ng-click="$mdOpenMenu()">
+                                <md-icon md-menu-origin md-font-icon="icon-phone"></md-icon>
+                            </md-button>
+                            <md-menu-content width="6">
+                                <md-menu-item>
+                                    <md-button ng-click="vm.redial($event)">
+                                        <md-icon md-font-icon="icon-phone" md-menu-align-target></md-icon>
+                                        Redial
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button disabled="disabled" ng-click="vm.checkVoicemail()">
+                                        <md-icon md-font-icon="icon-voicemail" md-menu-align-target></md-icon>
+                                        Check voicemail
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-divider></md-menu-divider>
+                                <md-menu-item>
+                                    <md-button ng-click="vm.toggleNotifications()">
+                                        <md-icon md-font-icon="icon-bell-off"
+                                                 md-menu-align-target ng-if="vm.notificationsEnabled"></md-icon>
+                                        <md-icon md-font-icon="icon-bell"
+                                                 md-menu-align-target ng-if="!vm.notificationsEnabled"></md-icon>
+                                        {{vm.notificationsEnabled ? 'Disable' : 'Enable'}} notifications
+                                    </md-button>
+                                </md-menu-item>
+                            </md-menu-content>
+                        </md-menu>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-menu>
+                            <md-button aria-label="Open phone interactions menu" class="md-icon-button"
+                                       ng-click="$mdOpenMenu()">
+                                <md-icon md-menu-origin md-font-icon="icon-phone"></md-icon>
+                            </md-button>
+                            <md-menu-content width="6">
+                                <md-menu-item>
+                                    <md-button ng-click="vm.redial($event)">
+                                        <md-icon md-font-icon="icon-phone" md-menu-align-target></md-icon>
+                                        Redial
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button disabled="disabled" ng-click="vm.checkVoicemail()">
+                                        <md-icon md-font-icon="icon-voicemail" md-menu-align-target></md-icon>
+                                        Check voicemail
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-divider></md-menu-divider>
+                                <md-menu-item>
+                                    <md-button ng-click="vm.toggleNotifications()">
+                                        <md-icon md-font-icon="icon-bell-off"
+                                                 md-menu-align-target ng-if="vm.notificationsEnabled"></md-icon>
+                                        <md-icon md-font-icon="icon-bell"
+                                                 md-menu-align-target ng-if="!vm.notificationsEnabled"></md-icon>
+                                        {{vm.notificationsEnabled ? 'Disable' : 'Enable'}} notifications
+                                    </md-button>
+                                </md-menu-item>
+                            </md-menu-content>
+                        </md-menu>
+                    </hljs>
+                </div>
+            </div>
+            <div layout="row" layout-sm="column">
+                <div flex class="preview" layout="column">
+                    <div class="md-caption">Medium menu (width=4)</div>
+                    <div layout="row" layout-align="center center" flex>
+                        <md-menu>
+                            <md-button aria-label="Open phone interactions menu" class="md-icon-button"
+                                       ng-click="$mdOpenMenu()">
+                                <md-icon md-menu-origin md-font-icon="icon-phone"></md-icon>
+                            </md-button>
+                            <md-menu-content width="4">
+                                <md-menu-item>
+                                    <md-button ng-click="vm.redial($event)">
+                                        <md-icon md-font-icon="icon-phone" md-menu-align-target></md-icon>
+                                        Redial
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button disabled="disabled" ng-click="vm.checkVoicemail()">
+                                        <md-icon md-font-icon="icon-voicemail" md-menu-align-target></md-icon>
+                                        Check voicemail
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-divider></md-menu-divider>
+                                <md-menu-item>
+                                    <md-button ng-click="vm.toggleNotifications()">
+                                        <md-icon md-font-icon="icon-bell-off"
+                                                 md-menu-align-target ng-if="vm.notificationsEnabled"></md-icon>
+                                        <md-icon md-font-icon="icon-bell"
+                                                 md-menu-align-target ng-if="!vm.notificationsEnabled"></md-icon>
+                                        {{vm.notificationsEnabled ? 'Disable' : 'Enable'}} notifications
+                                    </md-button>
+                                </md-menu-item>
+                            </md-menu-content>
+                        </md-menu>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-menu>
+                            <md-button aria-label="Open phone interactions menu" class="md-icon-button"
+                                       ng-click="$mdOpenMenu()">
+                                <md-icon md-menu-origin md-font-icon="icon-phone"></md-icon>
+                            </md-button>
+                            <md-menu-content width="4">
+                                <md-menu-item>
+                                    <md-button ng-click="vm.redial($event)">
+                                        <md-icon md-font-icon="icon-phone" md-menu-align-target></md-icon>
+                                        Redial
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button disabled="disabled" ng-click="vm.checkVoicemail()">
+                                        <md-icon md-font-icon="icon-voicemail" md-menu-align-target></md-icon>
+                                        Check voicemail
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-divider></md-menu-divider>
+                                <md-menu-item>
+                                    <md-button ng-click="vm.toggleNotifications()">
+                                        <md-icon md-font-icon="icon-bell-off"
+                                                 md-menu-align-target ng-if="vm.notificationsEnabled"></md-icon>
+                                        <md-icon md-font-icon="icon-bell"
+                                                 md-menu-align-target ng-if="!vm.notificationsEnabled"></md-icon>
+                                        {{vm.notificationsEnabled ? 'Disable' : 'Enable'}} notifications
+                                    </md-button>
+                                </md-menu-item>
+                            </md-menu-content>
+                        </md-menu>
+                    </hljs>
+                </div>
+            </div>
+            <div layout="row" layout-sm="column">
+                <div flex class="preview" layout="column">
+                    <div class="md-caption">Small menu (width=2)</div>
+                    <div layout="row" layout-align="center center" flex>
+                        <md-menu>
+                            <md-button aria-label="Open phone interactions menu" class="md-icon-button"
+                                       ng-click="$mdOpenMenu()">
+                                <md-icon md-menu-origin md-font-icon="icon-phone"></md-icon>
+                            </md-button>
+                            <md-menu-content width="2">
+                                <md-menu-item>
+                                    <md-button ng-click="vm.redial($event)">
+                                        <md-icon md-font-icon="icon-phone" md-menu-align-target></md-icon>
+                                        Redial
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button disabled="disabled" ng-click="vm.checkVoicemail()">
+                                        <md-icon md-font-icon="icon-voicemail" md-menu-align-target></md-icon>
+                                        Check voicemail
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-divider></md-menu-divider>
+                                <md-menu-item>
+                                    <md-button ng-click="vm.toggleNotifications()">
+                                        <md-icon md-font-icon="icon-bell-off"
+                                                 md-menu-align-target ng-if="vm.notificationsEnabled"></md-icon>
+                                        <md-icon md-font-icon="icon-bell"
+                                                 md-menu-align-target ng-if="!vm.notificationsEnabled"></md-icon>
+                                        {{vm.notificationsEnabled ? 'Disable' : 'Enable'}} notifications
+                                    </md-button>
+                                </md-menu-item>
+                            </md-menu-content>
+                        </md-menu>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-menu>
+                            <md-button aria-label="Open phone interactions menu" class="md-icon-button"
+                                       ng-click="$mdOpenMenu()">
+                                <md-icon md-menu-origin md-font-icon="icon-phone"></md-icon>
+                            </md-button>
+                            <md-menu-content width="2">
+                                <md-menu-item>
+                                    <md-button ng-click="vm.redial($event)">
+                                        <md-icon md-font-icon="icon-phone" md-menu-align-target></md-icon>
+                                        Redial
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button disabled="disabled" ng-click="vm.checkVoicemail()">
+                                        <md-icon md-font-icon="icon-voicemail" md-menu-align-target></md-icon>
+                                        Check voicemail
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-divider></md-menu-divider>
+                                <md-menu-item>
+                                    <md-button ng-click="vm.toggleNotifications()">
+                                        <md-icon md-font-icon="icon-bell-off"
+                                                 md-menu-align-target ng-if="vm.notificationsEnabled"></md-icon>
+                                        <md-icon md-font-icon="icon-bell"
+                                                 md-menu-align-target ng-if="!vm.notificationsEnabled"></md-icon>
+                                        {{vm.notificationsEnabled ? 'Disable' : 'Enable'}} notifications
+                                    </md-button>
+                                </md-menu-item>
+                            </md-menu-content>
+                        </md-menu>
+                    </hljs>
+                </div>
+            </div>
+        </div>
+
+        <div class="md-title">Attributes</div>
+        <div class="attributes card md-whiteframe-4dp" layout="column">
+            <table class="simple" ms-responsive-table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            <b>* md-position-mode</b>
+
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-string">string</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-string">string</code></td>
+                        <td class="description">
+                            <p>The position mode in the form of
+                                <code>x</code>, <code>y</code>. Default value is <code>target</code>,<code>target</code>.
+                                Right now the <code>x</code> axis
+                                also suppports <code>target-right</code>.</p>
+                        </td>
+                    </tr>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            <b>* md-offset</b>
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-string">string</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-string">string</code></td>
+                        <td class="description">
+                            <p>An offset to apply to the dropdown after positioning
+                                <code>x</code>, <code>y</code>. Default value is <code>0</code>,<code>0</code>.</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <!-- / CONTENT -->
+
+</div>

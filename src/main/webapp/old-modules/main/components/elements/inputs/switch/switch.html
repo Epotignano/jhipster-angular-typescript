@@ -1,0 +1,230 @@
+<div id="switch" class="page-layout simple fullwidth doc-page element-doc-page">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="row" layout-align="space-between" layout-sm="column">
+
+        <div layout="column" layout-align="center start">
+            <div class="breadcrumb" layout="row" layout-align="start center">
+                <md-icon md-font-icon="icon-home" class="s16"></md-icon>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">COMPONENTS</span>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">ELEMENTS</span>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">INPUTS</span>
+            </div>
+            <div class="title">Switch</div>
+        </div>
+
+        <div layout="row" layout-align="start center">
+            <md-button class="md-raised reference-button" href="https://material.angularjs.org/latest/#/api/material.components.switch/directive/mdSwitch"
+                       target="_blank">
+                <md-icon md-font-icon="icon-link"></md-icon>
+                <span>Reference</span>
+            </md-button>
+        </div>
+
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <div class="card md-whiteframe-4dp" layout="column">
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Accent Colored</div>
+                    <div layout="row" layout-align="center center">
+                        <md-switch ng-model="vm.switch" aria-label="Switch">
+                            Switch: {{vm.switch}}
+                        </md-switch>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-switch ng-model="vm.switch" aria-label="Switch">
+                            Switch: {{vm.switch}}
+                        </md-switch>
+                    </hljs>
+                </div>
+            </div>
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Primary Colored</div>
+                    <div layout="row" layout-align="center center">
+                        <md-switch ng-model="vm.switch" class="md-primary" aria-label="Switch">
+                            Switch: {{vm.switch}}
+                        </md-switch>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-switch ng-model="vm.switch" class="md-primary" aria-label="Switch">
+                            Switch: {{vm.switch}}
+                        </md-switch>
+                    </hljs>
+                </div>
+            </div>
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Warn Colored</div>
+                    <div layout="row" layout-align="center center">
+                        <md-switch ng-model="vm.switch" class="md-warn" aria-label="Switch">
+                            Switch: {{vm.switch}}
+                        </md-switch>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-switch ng-model="vm.switch" class="md-warn" aria-label="Switch">
+                            Switch: {{vm.switch}}
+                        </md-switch>
+                    </hljs>
+                </div>
+            </div>
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">Disabled</div>
+                    <div layout="column" layout-align="center center">
+                        <md-switch ng-disabled="true" ng-model="vm.switch" aria-label="Switch">
+                            Switch: {{vm.switch}}
+                        </md-switch>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-switch ng-disabled="true" ng-model="vm.switch" aria-label="Switch">
+                            Switch: {{vm.switch}}
+                        </md-switch>
+                    </hljs>
+                </div>
+            </div>
+            <div layout="row" layout-sm="column">
+                <div flex class="preview">
+                    <div class="md-caption">No Ink</div>
+                    <div layout="row" layout-align="center center">
+                        <md-switch md-no-ink ng-model="vm.switch" aria-label="Switch">
+                            Switch: {{vm.switch}}
+                        </md-switch>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <hljs lang="html" ms-scroll>
+                        <md-switch md-no-ink ng-model="vm.switch" aria-label="Switch">
+                            Switch: {{vm.switch}}
+                        </md-switch>
+                    </hljs>
+                </div>
+            </div>
+        </div>
+
+        <div class="md-title">Attributes</div>
+        <div class="attributes card md-whiteframe-4dp" layout="column">
+            <table class="simple" ms-responsive-table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            <b>* ng-model</b>
+
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-string">string</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-string">string</code></td>
+                        <td class="description">
+                            <p>Assignable angular expression to data-bind to.</p>
+                        </td>
+                    </tr>
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            name
+
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-string">string</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-string">string</code></td>
+                        <td class="description">
+                            <p>Property name of the form under which the control is published.</p>
+                        </td>
+                    </tr>
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            ng-true-value
+
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-expression">expression</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-expression">expression</code></td>
+                        <td class="description">
+                            <p>The value to which the expression should be set when selected.</p>
+                        </td>
+                    </tr>
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            ng-false-value
+
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-expression">expression</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-expression">expression</code></td>
+                        <td class="description">
+                            <p>The value to which the expression should be set when not selected.</p>
+                        </td>
+                    </tr>
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            ng-change
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-string">string</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-string">string</code></td>
+                        <td class="description">
+                            <p>Angular expression to be executed when input changes due to user interaction with the
+                                input element.</p>
+                        </td>
+                    </tr>
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            md-no-ink
+
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-boolean">boolean</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-boolean">boolean</code></td>
+                        <td class="description">
+                            <p>Use of attribute indicates use of ripple ink effects.</p>
+                        </td>
+                    </tr>
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            aria-label
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-string">string</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-string">string</code></td>
+                        <td class="description">
+                            <p>Publish the button label used by screen-readers for accessibility. Defaults to the
+                                switch's text.</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <!-- / CONTENT -->
+
+</div>

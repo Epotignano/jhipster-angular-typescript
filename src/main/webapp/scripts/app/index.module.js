@@ -1,0 +1,7 @@
+/// <reference path="../../typings/tsd.d.ts" />
+/// <reference path="index.routes.ts" />
+/// <reference path="index.http.config.ts" />
+/// <reference path="index.formly.conf.ts" />
+angular.module('springTestApp', []).config(Onesnap.RouterConfig);
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImluZGV4Lm1vZHVsZS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSwrQ0FBK0M7QUFDL0Msd0NBQXdDO0FBQ3hDLDZDQUE2QztBQUM3Qyw2Q0FBNkM7QUFFNUMsT0FBTyxDQUFDLE1BQU0sQ0FBQyxlQUFlLEVBQUUsRUFBRSxDQUFDLENBQ2pDLE1BQU0sQ0FBQyxPQUFPLENBQUMsWUFBWSxDQUFDLENBQUEiLCJmaWxlIjoiaW5kZXgubW9kdWxlLmpzIiwic291cmNlc0NvbnRlbnQiOlsiLy8vIDxyZWZlcmVuY2UgcGF0aD1cIi4uLy4uL3R5cGluZ3MvdHNkLmQudHNcIiAvPlxuLy8vIDxyZWZlcmVuY2UgcGF0aD1cImluZGV4LnJvdXRlcy50c1wiIC8+XG4vLy8gPHJlZmVyZW5jZSBwYXRoPVwiaW5kZXguaHR0cC5jb25maWcudHNcIiAvPlxuLy8vIDxyZWZlcmVuY2UgcGF0aD1cImluZGV4LmZvcm1seS5jb25mLnRzXCIgLz5cblxuXHRhbmd1bGFyLm1vZHVsZSgnc3ByaW5nVGVzdEFwcCcsIFtdKVxuXHRcdC5jb25maWcoT25lc25hcC5Sb3V0ZXJDb25maWcpXG4iXSwic291cmNlUm9vdCI6Ii9zb3VyY2UvIn0=

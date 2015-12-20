@@ -1,0 +1,152 @@
+<div id="fab-toolbar" class="page-layout simple fullwidth doc-page element-doc-page">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="row" layout-align="space-between" layout-sm="column">
+
+        <div layout="column" layout-align="center start">
+            <div class="breadcrumb" layout="row" layout-align="start center">
+                <md-icon md-font-icon="icon-home" class="s16"></md-icon>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">COMPONENTS</span>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">ELEMENTS</span>
+            </div>
+            <div class="title">Fab Toolbar</div>
+        </div>
+
+        <div layout="row" layout-align="start center">
+            <md-button class="md-raised reference-button"
+                       href="https://material.angularjs.org/latest/#/demo/material.components.fabToolbar"
+                       target="_blank">
+                <md-icon md-font-icon="icon-link"></md-icon>
+                <span>Reference</span>
+            </md-button>
+        </div>
+
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <div class="description">
+            <p>
+                You can use the fabToolbar with a trigger and regular toolbar.
+            </p>
+
+            <p>
+                You may use the <code>md-open</code> attribute to programmatically
+                control whether or not the control is open, and you may add a class
+                of <code>md-left</code> or <code>md-right</code> to control the
+                position of the trigger and toolbar tools.
+            </p>
+        </div>
+
+        <div class="card md-whiteframe-4dp" layout="column">
+            <div layout="row" layout-sm="column">
+                <div flex class="preview" layout="column">
+                    <div class="md-caption">Alert</div>
+                    <md-fab-toolbar md-open="vm.demo.isOpen" count="vm.demo.count" ng-class="vm.demo.selectedAlignment">
+                        <md-fab-trigger class="align-with-text">
+                            <md-button aria-label="menu" class="md-fab md-primary">
+                                <md-icon md-font-icon="icon-menu"></md-icon>
+                            </md-button>
+                        </md-fab-trigger>
+                        <md-toolbar>
+                            <md-fab-actions class="md-toolbar-tools">
+                                <md-button aria-label="comment" class="md-icon-button">
+                                    <md-icon md-font-icon="icon-comment"></md-icon>
+                                </md-button>
+                                <md-button aria-label="label" class="md-icon-button">
+                                    <md-icon md-font-icon="icon-label"></md-icon>
+                                </md-button>
+                                <md-button aria-label="photo" class="md-icon-button">
+                                    <md-icon md-font-icon="icon-file-image-box"></md-icon>
+                                </md-button>
+                            </md-fab-actions>
+                        </md-toolbar>
+                    </md-fab-toolbar>
+                    <div class="md-padding" layout="column">
+                        <div layout="row" layout-align="space-around">
+                            <div layout="column">
+                                <b>Open/Closed</b>
+                                <md-radio-group ng-model="vm.demo.isOpen">
+                                    <md-radio-button ng-value="true">Open</md-radio-button>
+                                    <md-radio-button ng-value="false">Closed</md-radio-button>
+                                </md-radio-group>
+                            </div>
+                            <div layout="column">
+                                <b>Alignment</b>
+                                <md-radio-group ng-model="vm.demo.selectedAlignment">
+                                    <md-radio-button ng-value="'md-left'">Left</md-radio-button>
+                                    <md-radio-button ng-value="'md-right'">Right</md-radio-button>
+                                </md-radio-group>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div flex class="source-code">
+
+                    <md-tabs>
+                        <md-tab label="HTML">
+                            <hljs lang="html" ms-scroll>
+                                <md-fab-toolbar md-open="vm.demo.isOpen" count="vm.demo.count"
+                                                ng-class="vm.demo.selectedAlignment">
+                                    <md-fab-trigger class="align-with-text">
+                                        <md-button aria-label="menu" class="md-fab md-primary">
+                                            <md-icon md-font-icon="icon-menu"></md-icon>
+                                        </md-button>
+                                    </md-fab-trigger>
+                                    <md-toolbar>
+                                        <md-fab-actions class="md-toolbar-tools">
+                                            <md-button aria-label="comment" class="md-icon-button">
+                                                <md-icon md-font-icon="icon-comment"></md-icon>
+                                            </md-button>
+                                            <md-button aria-label="label" class="md-icon-button">
+                                                <md-icon md-font-icon="icon-label"></md-icon>
+                                            </md-button>
+                                            <md-button aria-label="photo" class="md-icon-button">
+                                                <md-icon md-font-icon="icon-file-image-box"></md-icon>
+                                            </md-button>
+                                        </md-fab-actions>
+                                    </md-toolbar>
+                                </md-fab-toolbar>
+                                <md-content class="md-padding" layout="column">
+                                    <div layout="row" layout-align="space-around">
+                                        <div layout="column">
+                                            <b>Open/Closed</b>
+                                            <md-radio-group ng-model="vm.demo.isOpen">
+                                                <md-radio-button ng-value="true">Open</md-radio-button>
+                                                <md-radio-button ng-value="false">Closed</md-radio-button>
+                                            </md-radio-group>
+                                        </div>
+                                        <div layout="column">
+                                            <b>Alignment</b>
+                                            <md-radio-group ng-model="vm.demo.selectedAlignment">
+                                                <md-radio-button ng-value="'md-left'">Left</md-radio-button>
+                                                <md-radio-button ng-value="'md-right'">Right</md-radio-button>
+                                            </md-radio-group>
+                                        </div>
+                                    </div>
+                                </md-content>
+                            </hljs>
+                        </md-tab>
+                        <md-tab label="JS">
+                            <hljs lang="js" ms-scroll>
+                                vm.isOpen = false;
+                                vm.demo = {
+                                    isOpen           : false,
+                                    count            : 0,
+                                    selectedAlignment: 'md-left'
+                                };
+                            </hljs>
+                        </md-tab>
+                    </md-tabs>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- / CONTENT -->
+
+</div>

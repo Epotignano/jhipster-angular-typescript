@@ -1,0 +1,25 @@
+<md-toolbar class="navigation-header md-whiteframe-1dp" layout="row" layout-align="start center">
+    <a class="logo" layout="row" ui-sref="app.dashboard" layout-align="start center">
+        <img class="logo-image" src="assets/images/logos/smile-motivationz.png" >
+        <span class="logo-text">Smile Motivationz</span>
+    </a>
+</md-toolbar>
+
+<ms-nav ms-scroll="vm.msScrollOptions" class="scrollable">
+    
+    <ms-nav-item ms-nav-toggle data-ng-repeat="menuItem in vm.menu">
+        <a ms-nav-button md-ink-ripple>
+            <i class="{{ menuItem.icon }} s16"></i>
+            <span class="ms-nav-label" translate="{{ menuItem.label }}"></span>
+            <i class="icon-chevron-down s16 arrow"></i>
+        </a>
+        <ms-nav-toggle-items>
+            <ms-nav-item ng-repeat="subItem in menuItem.items">
+                <a ms-nav-button ui-sref="{{ subItem.sref }}" ui-sref-active="active md-orange-bg" md-ink-ripple>
+                    <span class="ms-nav-label" translate="{{ subItem.label }}"></span>
+                </a>
+            </ms-nav-item>
+        </ms-nav-toggle-items>
+    </ms-nav-item>
+
+</ms-nav>

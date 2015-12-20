@@ -1,0 +1,215 @@
+<div id="select" class="page-layout simple fullwidth doc-page element-doc-page">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="row" layout-align="space-between" layout-sm="column">
+
+        <div layout="column" layout-align="center start">
+            <div class="breadcrumb" layout="row" layout-align="start center">
+                <md-icon md-font-icon="icon-home" class="s16"></md-icon>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">COMPONENTS</span>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">ELEMENTS</span>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">INPUTS</span>
+            </div>
+            <div class="title">Select</div>
+        </div>
+
+        <div layout="row" layout-align="start center">
+            <md-button class="md-raised reference-button"
+                       href="https://material.angularjs.org/latest/#/api/material.components.select/directive/mdSelect"
+                       target="_blank">
+                <md-icon md-font-icon="icon-link"></md-icon>
+                <span>Reference</span>
+            </md-button>
+        </div>
+
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <div class="description">
+            Displays a select box, bound to an ng-model.
+        </div>
+        <div class="md-title">With a placeholder (label and aria-label are added dynamically)</div>
+        <div class="card md-whiteframe-4dp" layout="column">
+            <div layout="row" layout-sm="column">
+                <div flex class="preview" layout="column">
+                    <div class="md-caption">Placeholder</div>
+                    <div flex layout="row" layout-align="center center">
+                        <md-select placeholder="State" ng-model="vm.userState">
+                            <md-option ng-repeat="state in vm.states" value="{{state.abbrev}}">
+                                {{state.abbrev}}
+                            </md-option>
+                        </md-select>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <md-tabs>
+                        <md-tab label="HTML">
+                            <hljs lang="html" ms-scroll>
+                                <md-select placeholder="State" ng-model="vm.userState">
+                                    <md-select-label>Select a state</md-select-label>
+                                    <md-option ng-repeat="state in vm.states" value="{{state.abbrev}}">
+                                        {{state.abbrev}}
+                                    </md-option>
+                                </md-select>
+                            </hljs>
+                        </md-tab>
+                        <md-tab label="JS">
+                            <hljs lang="js" ms-scroll>
+                                angular.controller('AppCtrl', function ()
+                                {
+                                    var vm = this;
+                                    vm.userState = '';
+                                    vm.states = ('AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY')
+                                            .split(' ').map(function (state)
+                                            {
+                                                return {abbrev: state};
+                                            });
+                                });
+                            </hljs>
+                        </md-tab>
+                    </md-tabs>
+                </div>
+            </div>
+        </div>
+        <div class="md-title">With an explicit label</div>
+        <div class="card md-whiteframe-4dp" layout="column">
+            <div layout="row" layout-sm="column">
+                <div flex class="preview" layout="column">
+                    <div class="md-caption">Label</div>
+                    <div flex layout="row" layout-align="center center">
+                        <md-select placeholder="State" ng-model="vm.userState">
+                            <md-select-label>Select a state</md-select-label>
+                            <md-option ng-repeat="state in vm.states" value="{{state.abbrev}}">
+                                {{state.abbrev}}
+                            </md-option>
+                        </md-select>
+                    </div>
+                </div>
+                <div flex class="source-code">
+                    <md-tabs>
+                        <md-tab label="HTML">
+                            <hljs lang="html" ms-scroll>
+                                <md-select placeholder="State" ng-model="vm.userState">
+                                    <md-select-label>Select a state</md-select-label>
+                                    <md-option ng-repeat="state in vm.states" value="{{state.abbrev}}">
+                                        {{state.abbrev}}
+                                    </md-option>
+                                </md-select>
+                            </hljs>
+                        </md-tab>
+                        <md-tab label="JS">
+                            <hljs lang="js" ms-scroll>
+                                angular.controller('AppCtrl', function ()
+                                {
+                                    var vm = this;
+                                    vm.userState = '';
+                                    vm.states = ('AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY')
+                                            .split(' ').map(function (state)
+                                            {
+                                                return {abbrev: state};
+                                            });
+                                });
+                            </hljs>
+                        </md-tab>
+                    </md-tabs>
+                </div>
+            </div>
+        </div>
+        <div class="md-title">Attributes</div>
+        <div class="attributes card md-whiteframe-4dp" layout="column">
+            <table class="simple" ms-responsive-table>
+                <thead>
+
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            <b>* ng-model</b>
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-expression">expression</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-expression">expression</code></td>
+                        <td class="description">
+                            <p>The model!</p>
+                        </td>
+                    </tr>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            md-on-close
+
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-expression">expression</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-expression">expression</code></td>
+                        <td class="description">
+                            <p>expression to be evaluated when the select is closed</p>
+                        </td>
+                    </tr>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            multiple
+
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-boolean">boolean</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-boolean">boolean</code></td>
+                        <td class="description">
+                            <p>Whether it's multiple.</p>
+                        </td>
+                    </tr>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            placeholder
+
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-string">string</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-string">string</code></td>
+                        <td class="description">
+                            <p>Placeholder hint text.</p>
+                        </td>
+                    </tr>
+
+                    <tr class="api-params-item">
+                        <td style="white-space: nowrap;">
+                            aria-label
+                            <span hide="" show-sm="">
+                                <code class="api-type label type-hint type-hint-string">string</code></span>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <code class="api-type label type-hint type-hint-string">string</code></td>
+                        <td class="description">
+                            <p>Optional label for accessibility. Only necessary if no placeholder or
+                                explicit label is present.</p>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <!-- / CONTENT -->
+
+</div>
