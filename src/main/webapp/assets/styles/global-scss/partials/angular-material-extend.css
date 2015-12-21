@@ -1,0 +1,53 @@
+/*----------------------------------------------------------------*/
+/*  Angular Material Extend
+/*  Adds and/or modifies Angular Material styles
+/*----------------------------------------------------------------*/
+md-autocomplete-wrap > input[type="search"] {
+  background: #FFFFFF;
+  padding: 0 15px !important; }
+
+md-backdrop.md-opaque {
+  background-color: rgba(33, 33, 33, 0.48) !important; }
+
+.md-button.md-icon-button {
+  height: 40px;
+  line-height: 40px;
+  width: 40px; }
+
+.md-button.md-fab {
+  line-height: 1; }
+
+md-dialog .md-actions {
+  min-height: 64px;
+  padding-top: 8px;
+  padding-bottom: 8px; }
+  md-dialog .md-actions .md-button {
+    margin: 0 8px; }
+
+md-list-item .md-list-item-text p {
+  font-size: 13px !important; }
+
+.md-menu {
+  padding: 0; }
+
+md-menu-content md-menu-item .md-button {
+  text-align: left; }
+
+md-progress-linear .md-container {
+  top: 0 !important; }
+
+md-select.simplified {
+  margin: 0 8px; }
+  md-select.simplified .md-select-value {
+    border: none !important;
+    box-sizing: border-box;
+    padding: 0; }
+    md-select.simplified .md-select-value *:first-child {
+      transform: none; }
+    md-select.simplified .md-select-value .md-select-icon {
+      transform: none; }
+      md-select.simplified .md-select-value .md-select-icon:after {
+        top: 1px; }
+
+md-sidenav {
+  -webkit-overflow-scrolling: touch; }

@@ -15,6 +15,7 @@ var gulp = require('gulp'),
     ngAnnotate = require('gulp-ng-annotate'),
     ngConstant = require('gulp-ng-constant-fork'),
     jshint = require('gulp-jshint'),
+    _ = require('lodash'),
     rev = require('gulp-rev'),
     path = require('path'),
     protractor = require("gulp-protractor").protractor,
@@ -40,7 +41,10 @@ var yeoman = {
     scss: 'src/main/scss/',
     port: 9000,
     apiPort: 8080,
-    liveReloadPort: 35729
+    liveReloadPort: 35729,
+    wiredep: {
+        directory: 'src/main/webapp/bower_components'
+    }
 };
 
 var _errorHandler = function (title) {
@@ -104,17 +108,82 @@ gulp.task('images', function () {
         pipe(browserSync.reload({ stream: true }));
 });
 
+/*
 gulp.task('sass', function () {
-    return gulp.src(yeoman.scss + '**/*.scss')
+    /*return gulp.src(yeoman.scss + '.scss')
         .pipe(sass({ includePaths: yeoman.importPath }).on('error', sass.logError))
         .pipe(gulp.dest(yeoman.app + 'assets/styles'));
 });
 
 gulp.task('styles', ['sass'], function () {
-    return gulp.src(yeoman.app + 'assets/styles/**/*.css').
+    return gulp.src(yeoman.app + 'assets/styles/*.css').
         pipe(gulp.dest(yeoman.tmp)).
         pipe(browserSync.reload({ stream: true }));
+}); */
+
+/// styles task 2 
+
+
+
+gulp.task('styles', function () {
+    var sassOptions = {
+        style: 'expanded'
+    };
+
+    var injectTypescriptComponentsScss = gulp.src([
+        path.join(yeoman.app, '/ts-app/components/**/*.scss'),
+        path.join('!' + yeoman.app, '/scss/index.scss')
+    ], { read: false });
+
+    var injectTypescriptAppScss = gulp.src([
+        path.join(yeoman.app, '/ts-app/app/**/*.scss'),
+        path.join('!' + yeoman.app, '/scss/index.scss')
+    ], { read: false });
+
+    var injectJsAppScss = gulp.src([
+        path.join(yeoman.app, 'scripts/app/**/*.scss'),
+        path.join('!' + yeoman.app, '/scss/index.scss')
+    ], { read: false });
+
+    var injectJsComponentsCss = gulp.src([
+        path.join(yeoman.app, 'scripts/components/**/*.scss'),
+        path.join('!' + yeoman.app, '/scss/index.scss')
+    ], { read: false });
+
+    var injectOptions = {
+        transform: function (filePath) {
+            filePath = filePath.replace(yeoman.app + '/scss/', '');
+            return '@import "' + filePath + '";';
+        },
+        starttag: '// injector',
+        endtag: '// endinjector',
+        addRootSlash: false
+    };
+
+  
+  
+    //create our magnus sass file!
+    return gulp.src([
+        path.join(yeoman.app, '/scss/index.scss')
+    ])
+        .pipe($.inject(series(
+            injectJsAppScss,
+            injectJsComponentsCss,
+            injectTypescriptComponentsScss,
+            injectTypescriptAppScss
+            ), injectOptions))
+        .pipe(wiredep(_.extend({}, { directory: yeoman.importPath })))
+        .pipe($.sourcemaps.init())
+        .pipe($.sass(sassOptions)).on('error', _errorHandler('Sass'))
+        .pipe($.autoprefixer()).on('error', _errorHandler('Autoprefixer'))
+        .pipe($.sourcemaps.write())
+        .pipe(gulp.dest(path.join(yeoman.app, '/assets/styles')))
+        .pipe(browserSync.reload({ stream: true  }));
 });
+
+// END STYLES TASK 2
+
+
 
 var $ = require('gulp-load-plugins')();
 var tsProject = $.typescript.createProject({
@@ -211,9 +280,9 @@ gulp.task('scripts', ['tsd:install', 'scripts:app']);
 // END TYPESCRIPT
 
 /// Start inject section 
-gulp.task('inject', ['wiredep','inject:app']);
+gulp.task('inject', ['wiredep', 'inject:app']);
 
-gulp.task('inject:app',['scripts'], function () {
+gulp.task('inject:app', ['scripts'], function () {
 
     var injectScripts = gulp.src([
         path.join(yeoman.app, 'scripts/app/**/*.module.js'),

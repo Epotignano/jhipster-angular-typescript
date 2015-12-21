@@ -1,0 +1,370 @@
+/*----------------------------------------------------------------*/
+/*  Animations
+/*----------------------------------------------------------------*/
+.animate.slide-up {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  -webkit-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -moz-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -ms-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -o-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* easeOutQuad */
+  -webkit-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -moz-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -ms-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -o-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* easeOutQuad */ }
+  .animate.slide-up.ng-enter, .animate.slide-up.ng-leave {
+    transition-duration: 400ms;
+    -webkit-transition-duration: 400ms;
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000; }
+  .animate.slide-up.ng-enter {
+    top: 100%;
+    opacity: 0; }
+  .animate.slide-up.ng-enter-active {
+    opacity: 1;
+    top: 0; }
+  .animate.slide-up.ng-leave {
+    opacity: 1;
+    top: 0; }
+  .animate.slide-up.ng-leave-active {
+    top: -100%;
+    opacity: 0; }
+
+/* ------------------------------------------- */
+/* Scale in Fade
+/* ------------------------------------------- */
+.animate-switch-scale-fade-in > .ng-animate {
+  -webkit-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -moz-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -ms-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -o-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* easeOutQuad */
+  -webkit-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -moz-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -ms-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -o-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* easeOutQuad */
+  position: absolute;
+  width: 100%;
+  overflow: hidden; }
+  .animate-switch-scale-fade-in > .ng-animate.ng-enter {
+    transform: scale(3);
+    -ms-transform: scale(3);
+    -webkit-transform: scale(3);
+    transition-duration: 250ms;
+    -webkit-transition-duration: 250ms;
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    opacity: 0; }
+    .animate-switch-scale-fade-in > .ng-animate.ng-enter.ng-enter-active {
+      transform: scale(1);
+      -ms-transform: scale(1);
+      -webkit-transform: scale(1);
+      opacity: 1; }
+  .animate-switch-scale-fade-in > .ng-animate.ng-leave {
+    transform: scale(1);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transition-duration: 250ms;
+    -webkit-transition-duration: 250ms;
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    opacity: 1; }
+    .animate-switch-scale-fade-in > .ng-animate.ng-leave.ng-leave.ng-leave-active {
+      transform: scale(3);
+      -ms-transform: scale(3);
+      -webkit-transform: scale(3);
+      opacity: 0; }
+
+.animate-switch-slide-up > .ng-animate {
+  -webkit-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -moz-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -ms-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -o-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* easeOutQuad */
+  -webkit-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -moz-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -ms-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -o-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* easeOutQuad */
+  position: absolute;
+  width: 100%;
+  overflow: hidden; }
+  .animate-switch-slide-up > .ng-animate.ng-enter {
+    transform: translate3d(0, 100%, 0);
+    -ms-transform: translate3d(0, 100%, 0);
+    -webkit-transform: translate3d(0, 100%, 0);
+    transition-duration: 250ms;
+    -webkit-transition-duration: 250ms;
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    opacity: 0; }
+    .animate-switch-slide-up > .ng-animate.ng-enter.ng-enter-active {
+      transform: translate3d(0, 0, 0);
+      -ms-transform: translate3d(0, 0, 0);
+      -webkit-transform: translate3d(0, 0, 0);
+      opacity: 1; }
+  .animate-switch-slide-up > .ng-animate.ng-leave {
+    transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    transition-duration: 250ms;
+    -webkit-transition-duration: 250ms;
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    opacity: 1; }
+    .animate-switch-slide-up > .ng-animate.ng-leave.ng-leave.ng-leave-active {
+      transform: translate3d(0, 100%, 0);
+      -ms-transform: translate3d(0, 100%, 0);
+      -webkit-transform: translate3d(0, 100%, 0);
+      opacity: 0; }
+
+.animate-slide-up {
+  -webkit-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -moz-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -ms-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -o-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* easeOutQuad */
+  -webkit-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -moz-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -ms-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -o-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* easeOutQuad */
+  opacity: 1; }
+  .animate-slide-up.ng-hide {
+    transform: translate3d(0, 100%, 0);
+    -ms-transform: translate3d(0, 100%, 0);
+    -webkit-transform: translate3d(0, 100%, 0);
+    transition-duration: 300ms;
+    -webkit-transition-duration: 300ms;
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    opacity: 0; }
+  .animate-slide-up.ng-hide-add, .animate-slide-up.ng-hide-remove {
+    transition-duration: 300ms;
+    -webkit-transition-duration: 300ms;
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000; }
+
+.animate-slide-right {
+  -webkit-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -moz-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -ms-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -o-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* easeOutQuad */
+  -webkit-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -moz-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -ms-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -o-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* easeOutQuad */
+  opacity: 1; }
+  .animate-slide-right.ng-hide {
+    transform: translate3d(-304px, 0, 0);
+    -ms-transform: translate3d(-304px, 0, 0);
+    -webkit-transform: translate3d(-304px, 0, 0);
+    transition-duration: 300ms;
+    -webkit-transition-duration: 300ms;
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    opacity: 0; }
+  .animate-slide-right.ng-hide-add, .animate-slide-right.ng-hide-remove {
+    transition-duration: 300ms;
+    -webkit-transition-duration: 300ms;
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000; }
+
+.animate-slide-left {
+  -webkit-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -moz-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -ms-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -o-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* easeOutQuad */
+  -webkit-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -moz-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -ms-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -o-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* easeOutQuad */
+  opacity: 1; }
+  .animate-slide-left.ng-hide {
+    transform: translate3d(304px, 0, 0);
+    -ms-transform: translate3d(304px, 0, 0);
+    -webkit-transform: translate3d(304px, 0, 0);
+    transition-duration: 300ms;
+    -webkit-transition-duration: 300ms;
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    opacity: 0; }
+  .animate-slide-left.ng-hide-add, .animate-slide-left.ng-hide-remove {
+    transition-duration: 300ms;
+    -webkit-transition-duration: 300ms;
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000; }
+
+.animate-flipInX {
+  -webkit-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -moz-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -ms-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -o-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* easeOutQuad */
+  -webkit-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -moz-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -ms-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -o-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* easeOutQuad */
+  opacity: 1; }
+  .animate-flipInX.ng-hide {
+    transform: perspective(100px) rotate3d(1, 0, 0, 90deg);
+    -ms-transform: perspective(100px) rotate3d(1, 0, 0, 90deg);
+    -webkit-transform: perspective(100px) rotate3d(1, 0, 0, 90deg);
+    transition-duration: 250ms;
+    -webkit-transition-duration: 250ms;
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    opacity: 0; }
+  .animate-flipInX.ng-hide-add, .animate-flipInX.ng-hide-remove {
+    transition-duration: 250ms;
+    -webkit-transition-duration: 250ms;
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000; }
+
+.animate-fadeIn {
+  -webkit-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -moz-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -ms-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -o-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* easeOutQuad */
+  -webkit-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -moz-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -ms-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -o-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* easeOutQuad */
+  opacity: 1; }
+  .animate-fadeIn.ng-hide {
+    transition-duration: 250ms;
+    -webkit-transition-duration: 250ms;
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    opacity: 0; }
+  .animate-fadeIn.ng-hide-add, .animate-fadeIn.ng-hide-remove {
+    transition-duration: 250ms;
+    -webkit-transition-duration: 250ms;
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000; }
+
+.example-animate-container {
+  background: #ECECEC;
+  list-style: none;
+  margin: 0;
+  padding: 0 10px; }
+
+.animate-repeat {
+  line-height: 40px;
+  list-style: none;
+  border-bottom: 1px solid #FFFFFF;
+  -webkit-transition: 1s linear all;
+  transition: 1s linear all; }
+
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter,
+.animate-repeat.ng-leave {
+  -webkit-transition: all linear 0.5s;
+  transition: all linear 0.5s; }
+
+.animate-repeat.ng-leave.ng-leave-active,
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter {
+  opacity: 0;
+  max-height: 0; }
+
+.animate-repeat.ng-leave,
+.animate-repeat.ng-move.ng-move-active,
+.animate-repeat.ng-enter.ng-enter-active {
+  opacity: 1;
+  max-height: 40px; }
+
+/**
+ * Stagger Leave (hide) animation
+ */
+.animate-repeat.ng-leave-stagger {
+  /* this will have a 100ms delay between each successive leave animation */
+  -webkit-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+  /* in case the stagger doesn't work then these two values
+     must be set to 0 to avoid an accidental CSS inheritance */
+  -webkit-transition-duration: 0s;
+  transition-duration: 0s; }
+
+/**
+ * Stagger ENTER ANIMATION
+ */
+.animate-repeat.ng-enter-stagger {
+  /* this will have a 100ms delay between each successive enter animation */
+  -webkit-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+  /* in case the stagger doesn't work then these two values
+     must be set to 0 to avoid an accidental CSS inheritance */
+  -webkit-transition-duration: 0s;
+  transition-duration: 0s; }
+
+/*----------------------------------------------------------------*/
+/*  @ Custom Animation Keyframes
+/*----------------------------------------------------------------*/
+@keyframes slide-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-500px); }
+  65% {
+    opacity: 1;
+    transform: translateX(0); }
+  100% {
+    transform: translateX(0); } }
+
+@keyframes slide-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(500px); }
+  65% {
+    opacity: 1;
+    transform: translateX(0); }
+  100% {
+    transform: translateX(0); } }
+
+@keyframes slide-in-bottom {
+  0% {
+    opacity: 0;
+    transform: translateY(200px); }
+  65% {
+    opacity: 1;
+    transform: translateY(0); }
+  100% {
+    transform: translateY(0); } }
+
+.animate-rotate {
+  animation: rotate 1.75s linear infinite; }
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
