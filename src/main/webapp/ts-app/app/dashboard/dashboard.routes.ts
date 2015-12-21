@@ -14,7 +14,7 @@ module Onesnap.Dashboard {
           url: '/dashboard',
           views : {
             'content': {
-              templateUrl: 'app/dashboard/dashboard.html'
+              templateUrl: 'scripts/app/dashboard/dashboard.html'
             }
           }
         });
