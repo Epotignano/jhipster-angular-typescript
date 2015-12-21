@@ -22,5 +22,8 @@ module Onesnap.Dashboard {
     }
 
   }
+  
+  angular.module('onesnap.dashboard')
+   .config(DashboardRouterConfig);
 }
 

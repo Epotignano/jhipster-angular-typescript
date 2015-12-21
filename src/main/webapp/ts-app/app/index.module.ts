@@ -4,5 +4,7 @@
 /// <reference path="index.formly.conf.ts" />
 
 module Onesnap {
-	angular.module('springTestApp', ['app.core', 'app.navigation', 'app.toolbar']);
+	angular.module('springTestApp', [
+		'app.core', 'app.navigation', 'app.toolbar', 
+	'onesnap.settings', 'onesnap.dashboard']);
 }

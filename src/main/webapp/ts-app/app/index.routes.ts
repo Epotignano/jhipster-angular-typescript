@@ -9,6 +9,12 @@ module Onesnap {
                 $urlRouterProvider: ng.ui.IUrlRouterProvider) {
     $stateProvider
         .state('app', {
+          abstract: true,
+          /*resolve: {
+            servicesDependencies : function(toasterService){
+              return true;
+            } ,
+          },*/
           url: '/app',
           views   : {
             'main@'         : {
@@ -26,9 +32,7 @@ module Onesnap {
         });
 
 
-      $urlRouterProvider.otherwise('/app');
-
-      // commons translations
+      $urlRouterProvider.otherwise('/app/dashboard');
 
     }
 

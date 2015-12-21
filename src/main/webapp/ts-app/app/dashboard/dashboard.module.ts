@@ -7,5 +7,4 @@
 module Onesnap.Dashboard {
   'use strict';
   angular.module('onesnap.dashboard', [])
-  .config(DashboardRouterConfig);
 }
