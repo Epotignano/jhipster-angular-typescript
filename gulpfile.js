@@ -108,18 +108,19 @@ gulp.task('images', function () {
         pipe(browserSync.reload({ stream: true }));
 });
 
-/*
-gulp.task('sass', function () {
-    /*return gulp.src(yeoman.scss + '.scss')
-        .pipe(sass({ includePaths: yeoman.importPath }).on('error', sass.logError))
-        .pipe(gulp.dest(yeoman.app + 'assets/styles'));
-});
+/* Typescript modules html to app html */
 
-gulp.task('styles', ['sass'], function () {
-    return gulp.src(yeoman.app + 'assets/styles/*.css').
-        pipe(gulp.dest(yeoman.tmp)).
-        pipe(browserSync.reload({ stream: true }));
-}); */
+gulp.task('copyTsHtml', function(){
+    es.merge(
+        gulp.src(yeoman.app + 'ts-app/app/**/*.html')
+            .pipe(gulp.dest(yeoman.app + 'scripts/app' )),
+            gulp.src(yeoman.app + 'ts-app/components/**/*.html')
+            .pipe(gulp.dest(yeoman.app + 'scripts/components'))
+    )
+})
+
+
+/* ***** */
 
 /// styles task 2 
 
@@ -275,7 +276,7 @@ gulp.task('scripts:components', function () {
 })
 
 
-gulp.task('scripts', ['tsd:install', 'scripts:app']);
+gulp.task('scripts', ['tsd:install', 'scripts:app', 'copyTsHtml']);
 
 // END TYPESCRIPT
 
@@ -382,7 +383,10 @@ gulp.task('watch', function () {
     gulp.watch(['gulpfile.js', 'pom.xml'], ['ngconstant:dev']);
     gulp.watch(yeoman.scss + '**/*.scss', ['styles']);
     gulp.watch(yeoman.app + 'assets/images/**', ['images']);
-    gulp.watch([yeoman.app + '*.html', yeoman.app + 'scripts/**', yeoman.app + 'i18n/**']).on('change', browserSync.reload);
+    gulp.watch([yeoman.app + '*.html', 
+    yeoman.app + 'scripts/app/**', yeoman.app + 'scripts/components/**',
+    yeoman.app + 'ts-app/app/**', yeoman.app + 'ts-app/components/**',
+    yeoman.app + 'i18n/**']).on('change', browserSync.reload);
 });
 
 gulp.task('wiredep', ['wiredep:test', 'wiredep:app']);

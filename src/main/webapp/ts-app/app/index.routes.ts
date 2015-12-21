@@ -14,7 +14,7 @@ module Onesnap {
             servicesDependencies : function(toasterService){
               return true;
             } ,
-          },*/
+          },¨*/
           url: '/app',
           views   : {
             'main@'         : {
