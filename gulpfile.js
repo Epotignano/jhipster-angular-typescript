@@ -313,7 +313,7 @@ gulp.task('inject:app', ['scripts'], function () {
 
 
 gulp.task('serve', ['inject'], function () {
-    runSequence('wiredep:test', 'wiredep:app', 'ngconstant:dev', 'sass', function () {
+    runSequence('wiredep:test', 'wiredep:app', 'ngconstant:dev', function () {
         var baseUri = 'http://localhost:' + yeoman.apiPort;
         // Routes to proxy to the backend. Routes ending with a / will setup
         // a redirect so that if accessed without a trailing slash, will

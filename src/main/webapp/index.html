@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" ng-app="springTestApp">
 
 <head>
     <meta charset="utf-8">
@@ -27,11 +27,16 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css assets/styles/main.css -->
-    <link rel="stylesheet" href="assets/styles/main.css">
     <!-- endbuild -->
+    
+    <link rel="stylesheet" href="assets/styles/index.css">
+    <link rel="stylesheet" href="assets/styles/global-scss/global.css">
+    <link rel="stylesheet" href="assets/styles/global-scss/partials/angular-material-extend.css">
+    <link rel="stylesheet" href="assets/styles/global-scss/partials/animations.css">
+
 </head>
 
-<body ng-app="springTestApp">
+<body md-theme="default">
     <!--[if lt IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -172,13 +177,13 @@
     <script src="scripts/app/main/components/maps/maps.module.js"></script>
     <script src="scripts/app/main/components/price-tables/price-tables.module.js"></script>
     <script src="scripts/app/main/components/widgets/widgets.module.js"></script>
-    <script src="scripts/app/main/components/charts/chart-js/chart-js.module.js"></script>
     <script src="scripts/app/main/components/charts/c3/c3.module.js"></script>
+    <script src="scripts/app/main/components/charts/chart-js/chart-js.module.js"></script>
     <script src="scripts/app/main/components/charts/chartist/chartist.module.js"></script>
     <script src="scripts/app/main/components/charts/nvd3/nvd3.module.js"></script>
     <script src="scripts/app/main/components/elements/bottom-sheet/bottom-sheet.module.js"></script>
-    <script src="scripts/app/main/components/elements/buttons/buttons.module.js"></script>
     <script src="scripts/app/main/components/elements/card/card.module.js"></script>
+    <script src="scripts/app/main/components/elements/buttons/buttons.module.js"></script>
     <script src="scripts/app/main/components/elements/datepicker/datepicker.module.js"></script>
     <script src="scripts/app/main/components/elements/dialog/dialog.module.js"></script>
     <script src="scripts/app/main/components/elements/fab-speed-dial/fab-speed-dial.module.js"></script>
@@ -189,14 +194,14 @@
     <script src="scripts/app/main/components/elements/progress-linear/progress-linear.module.js"></script>
     <script src="scripts/app/main/components/elements/sidenav/sidenav.module.js"></script>
     <script src="scripts/app/main/components/elements/swipe/swipe.module.js"></script>
-    <script src="scripts/app/main/components/elements/toast/toast.module.js"></script>
     <script src="scripts/app/main/components/elements/tabs/tabs.module.js"></script>
+    <script src="scripts/app/main/components/elements/toast/toast.module.js"></script>
     <script src="scripts/app/main/components/elements/whiteframe/whiteframe.module.js"></script>
     <script src="scripts/app/main/components/tables/datatable/datatable.module.js"></script>
     <script src="scripts/app/main/components/tables/simple-table/simple-table.module.js"></script>
     <script src="scripts/app/main/components/elements/inputs/autocomplete/autocomplete.module.js"></script>
-    <script src="scripts/app/main/components/elements/inputs/checkbox/checkbox.module.js"></script>
     <script src="scripts/app/main/components/elements/inputs/chips/chips.module.js"></script>
+    <script src="scripts/app/main/components/elements/inputs/checkbox/checkbox.module.js"></script>
     <script src="scripts/app/main/components/elements/inputs/fields/fields.module.js"></script>
     <script src="scripts/app/main/components/elements/inputs/radio/radio.module.js"></script>
     <script src="scripts/app/main/components/elements/inputs/select/select.module.js"></script>
@@ -238,11 +243,11 @@
     <script src="scripts/app/admin/health/health.modal.controller.js"></script>
     <script src="scripts/app/admin/logs/logs.controller.js"></script>
     <script src="scripts/app/admin/logs/logs.js"></script>
-    <script src="scripts/app/admin/tracker/tracker.controller.js"></script>
-    <script src="scripts/app/admin/tracker/tracker.js"></script>
     <script src="scripts/app/admin/metrics/metrics.controller.js"></script>
     <script src="scripts/app/admin/metrics/metrics.js"></script>
     <script src="scripts/app/admin/metrics/metrics.modal.controller.js"></script>
+    <script src="scripts/app/admin/tracker/tracker.controller.js"></script>
+    <script src="scripts/app/admin/tracker/tracker.js"></script>
     <script src="scripts/app/admin/user-management/user-management-detail.controller.js"></script>
     <script src="scripts/app/admin/user-management/user-management-dialog.controller.js"></script>
     <script src="scripts/app/admin/user-management/user-management.controller.js"></script>
@@ -290,13 +295,13 @@
     <script src="scripts/app/main/components/maps/maps.controller.js"></script>
     <script src="scripts/app/main/components/price-tables/price-tables.controller.js"></script>
     <script src="scripts/app/main/components/widgets/widgets.controller.js"></script>
-    <script src="scripts/app/main/components/charts/chart-js/chart-js.controller.js"></script>
     <script src="scripts/app/main/components/charts/c3/c3.controller.js"></script>
+    <script src="scripts/app/main/components/charts/chart-js/chart-js.controller.js"></script>
     <script src="scripts/app/main/components/charts/chartist/chartist.controller.js"></script>
     <script src="scripts/app/main/components/charts/nvd3/nvd3.controller.js"></script>
     <script src="scripts/app/main/components/elements/bottom-sheet/bottom-sheet.controller.js"></script>
-    <script src="scripts/app/main/components/elements/buttons/buttons.controller.js"></script>
     <script src="scripts/app/main/components/elements/card/card.controller.js"></script>
+    <script src="scripts/app/main/components/elements/buttons/buttons.controller.js"></script>
     <script src="scripts/app/main/components/elements/datepicker/datepicker.controller.js"></script>
     <script src="scripts/app/main/components/elements/dialog/dialog.controller.js"></script>
     <script src="scripts/app/main/components/elements/fab-speed-dial/fab-speed-dial.controller.js"></script>
@@ -307,13 +312,13 @@
     <script src="scripts/app/main/components/elements/progress-linear/progress-linear.controller.js"></script>
     <script src="scripts/app/main/components/elements/sidenav/sidenav.controller.js"></script>
     <script src="scripts/app/main/components/elements/swipe/swipe.controller.js"></script>
-    <script src="scripts/app/main/components/elements/toast/toast.controller.js"></script>
     <script src="scripts/app/main/components/elements/tabs/tabs.controller.js"></script>
+    <script src="scripts/app/main/components/elements/toast/toast.controller.js"></script>
     <script src="scripts/app/main/components/tables/datatable/datatable.controller.js"></script>
     <script src="scripts/app/main/components/tables/simple-table/simple-table.controller.js"></script>
     <script src="scripts/app/main/components/elements/inputs/autocomplete/autocomplete.controller.js"></script>
-    <script src="scripts/app/main/components/elements/inputs/checkbox/checkbox.controller.js"></script>
     <script src="scripts/app/main/components/elements/inputs/chips/chips.controller.js"></script>
+    <script src="scripts/app/main/components/elements/inputs/checkbox/checkbox.controller.js"></script>
     <script src="scripts/app/main/components/elements/inputs/fields/fields.controller.js"></script>
     <script src="scripts/app/main/components/elements/inputs/radio/radio.controller.js"></script>
     <script src="scripts/app/main/components/elements/inputs/select/select.controller.js"></script>
