@@ -1,3 +1,0 @@
-/// <reference path="../../../typings/tsd.d.ts" />
-
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImF1dGgvYXV0aC5tb2R1bGxlLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLGtEQUFrRCIsImZpbGUiOiJhdXRoL2F1dGgubW9kdWxsZS5qcyIsInNvdXJjZXNDb250ZW50IjpbIi8vLyA8cmVmZXJlbmNlIHBhdGg9XCIuLi8uLi8uLi90eXBpbmdzL3RzZC5kLnRzXCIgLz5cclxuIl0sInNvdXJjZVJvb3QiOiIvc291cmNlLyJ9

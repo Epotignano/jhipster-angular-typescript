@@ -1,0 +1,36 @@
+<div id="login" class="scrollable" ms-scroll>
+    <div id="login-form-wrapper" layout="row" layout-align="center center">
+        <div id="login-form" ng-form="loginForm" ng-submit="vm.signIn()" class="md-whiteframe-8dp">
+            <div class="logo">
+                <img src="assets/images/logos/one-snap.png" alt="">
+            </div>
+
+            <div class="title" translate="LOGIN.TITLE">Log in to your account</div>
+            <form>
+                <md-input-container flex md-no-float>
+                    <input ng-model="vm.credentials.username" placeholder="Email" translate translate-attr-placeholder="COMMONS.EMAIL">
+                </md-input-container>
+
+                <md-input-container flex md-no-float>
+                    <input ng-model="vm.credentials.password" type="password" placeholder="Password" translate translate-attr-placeholder="COMMONS.PASSWORD">
+                </md-input-container>
+
+
+                <md-input-container flex md-no-float>
+                    <md-checkbox ng-model="vm.credentials.rememberMe" aria-label="Remember me">
+                        Remember me
+                    </md-checkbox>
+                </md-input-container>
+
+                <div layout="row" class="md-red-bg">
+                    {{ vm.error }}
+                </div>
+
+
+                <md-button class="md-raised md-accent" aria-label="LOG IN" translate="LOGIN.LOG_IN" translate-attr-aria-label="LOGIN.LOG_IN">
+                    LOG IN
+                </md-button>
+            </form>
+        </div>
+    </div>
+</div>

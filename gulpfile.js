@@ -122,10 +122,6 @@ gulp.task('copyTsHtml', function(){
 
 /* ***** */
 
-/// styles task 2 
-
-
-
 gulp.task('styles', function () {
     var sassOptions = {
         style: 'expanded'
