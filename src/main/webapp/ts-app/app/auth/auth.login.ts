@@ -5,7 +5,7 @@ module Onesnap.Auth {
 	'use strict';
 
 	interface ILoginController {
-		signIn(credentials):void;
+		signIn(credentials : LoginCredentials);
 	}
 
 
@@ -18,7 +18,7 @@ module Onesnap.Auth {
 		
 		signIn() {
 			this.Auth.login({
-				username: this.credentials.username,
+				email: this.credentials.email,
 				password: this.credentials.password,
 				rememberMe: this.credentials.rememberMe
 			})

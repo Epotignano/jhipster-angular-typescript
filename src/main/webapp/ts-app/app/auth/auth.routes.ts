@@ -12,10 +12,10 @@ module Onesnap.Auth {
     constructor($stateProvider: ng.ui.IStateProvider, $translatePartialLoaderProvider) {
 
       $stateProvider.state('access', {
-        abstract : true,
+        abstract: true,
         url: '/access',
         views: {
-          'main@'                       : {
+          'main@': {
             templateUrl: 'scripts/app/core/layouts/basic.html'
           }
         }
@@ -23,11 +23,22 @@ module Onesnap.Auth {
 
 
       $stateProvider.state('access.pages_auth_login', {
-        url  : '/login',
+        url: '/login',
         views: {
           'content': {
             templateUrl: 'scripts/app/auth/auth.login.html',
             controller: 'OnesnapLoginController',
+            controllerAs: 'vm'
+          }
+        }
+      });
+
+      $stateProvider.state('access.pages_auth_register', {
+        url: '/register',
+        views: {
+          'content': {
+            templateUrl: 'scripts/app/auth/auth.register.html',
+            controller: 'OnesnapRegisterController',
             controllerAs: 'vm'
           }
         }
@@ -38,7 +49,7 @@ module Onesnap.Auth {
     }
 
   }
-  
-  	angular.module('onesnap.auth')
-		.config(RouterConfig)
+
+  angular.module('onesnap.auth')
+    .config(RouterConfig)
 }

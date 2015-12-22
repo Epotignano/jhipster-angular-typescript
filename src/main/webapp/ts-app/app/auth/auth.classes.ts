@@ -1,8 +1,12 @@
 module Onesnap.Auth {
-	
-	export class LoginCredentials {
+
+	export class UserCredentials {
 		username: string;
 		password: string;
+		email: string;
+	}
+
+	export class LoginCredentials extends UserCredentials {
 		rememberMe: boolean;
 	}
 }
