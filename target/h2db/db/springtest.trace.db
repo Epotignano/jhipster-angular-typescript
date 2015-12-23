@@ -34,3 +34,9 @@ CREATE TABLE PUBLIC.course (id BIGINT AUTO_INCREMENT NOT NULL, name VARCHAR(255)
 2015-12-22 19:47:33 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "COURSE" already exists; SQL statement:
 CREATE TABLE PUBLIC.course (id BIGINT AUTO_INCREMENT NOT NULL, name VARCHAR(255), teacher_id BIGINT, CONSTRAINT PK_COURSE PRIMARY KEY (id)) [42101-190]
+2015-12-23 10:05:46 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "COURSE" already exists; SQL statement:
+CREATE TABLE PUBLIC.course (id BIGINT AUTO_INCREMENT NOT NULL, name VARCHAR(255), teacher_id BIGINT, CONSTRAINT PK_COURSE PRIMARY KEY (id)) [42101-190]
+2015-12-23 16:10:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "COURSE" already exists; SQL statement:
+CREATE TABLE PUBLIC.course (id BIGINT AUTO_INCREMENT NOT NULL, name VARCHAR(255), teacher_id BIGINT, CONSTRAINT PK_COURSE PRIMARY KEY (id)) [42101-190]

@@ -14,7 +14,7 @@ module Onesnap {
 			this.$httpProvider.interceptors.push('errorHandlerInterceptor');
 			this.$httpProvider.interceptors.push('authExpiredInterceptor');
 			this.$httpProvider.interceptors.push('authInterceptor');
-			this.$httpProvider.interceptors.push('notificationInterceptor');
+			this.$httpProvider.interceptors.push('rxInterceptorFactory');
 
 
 		}

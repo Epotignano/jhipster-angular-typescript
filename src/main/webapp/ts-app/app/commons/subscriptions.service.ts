@@ -3,16 +3,16 @@
  */
 
 
-module Onesnap.Commons.Streams {
+module Onesnap {
 
 
-  interface IStreams  {
+  export interface IStreamService  {
     setStream(streamKey: string, stream: any)
     getStream(streamKey: string)
     getStreams()
   }
 
-  export class StreamsService implements IStreams{
+  export class StreamsService implements IStreamService{
 
     private streams = {};
     private generalListeners = [];
@@ -27,10 +27,12 @@ module Onesnap.Commons.Streams {
       'OBJECT_DELETE': 'odeleted'};
 
     setStream (streamKey: string, stream: any) {
-      this.streams[streamKey] = stream;
-      this.generalListeners.forEach(function(listener) {
-      listener.onNext(stream);
-      });
+      if(!this.streams[streamKey]) {
+        this.streams[streamKey] = stream;
+        this.generalListeners.forEach(function(listener) {
+        listener.onNext(stream);
+        }); 
+      }
     }
 
     setGeneralListener(thread: any) {
@@ -49,6 +51,7 @@ module Onesnap.Commons.Streams {
       return this.streams;
     }
   }
-
-
+  
+  angular.module('springTestApp')
+  .service('StreamsService', StreamsService)
 }

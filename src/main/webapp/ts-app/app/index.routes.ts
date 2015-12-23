@@ -10,11 +10,11 @@ module Onesnap {
     $stateProvider
         .state('app', {
           abstract: true,
-          /*resolve: {
+          resolve: {
             servicesDependencies : function(toasterService){
               return true;
             } ,
-          },¨*/
+          },
           url: '/app',
           views   : {
             'main@'         : {

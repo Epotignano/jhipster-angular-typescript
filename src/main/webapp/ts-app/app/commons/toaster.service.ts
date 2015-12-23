@@ -5,7 +5,7 @@
 /// <reference path="../../../typings/tsd.d.ts" />
 /// <reference path="subscriptions.service.ts" />
 
-module Onesnap.Commons.Streams {
+module Onesnap {
 
   interface IToaster {
     showToaster(notification, type)
@@ -18,7 +18,7 @@ module Onesnap.Commons.Streams {
     private observables;
 
     /** @ngInject */
-    constructor(private  StreamsService: Onesnap.Commons.Streams.StreamsService, private $mdToast, private $translate) {
+    constructor(private  StreamsService: Onesnap.StreamsService, private $mdToast, private $translate) {
       this.toasterStream = new Rx.Subject<{}>();
       this.observables = [];
       this.StreamsService.setGeneralListener(this.toasterStream);
@@ -48,5 +48,10 @@ module Onesnap.Commons.Streams {
       }
 
     }
+    
+   
   }
+  
+  angular.module('springTestApp')
+  .service('ToasterService', ToasterService);
 }
