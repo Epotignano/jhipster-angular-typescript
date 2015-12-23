@@ -18,7 +18,7 @@ module Onesnap.Auth {
 		
 		signIn() {
 			this.Auth.login({
-				email: this.credentials.email,
+				username: this.credentials.email,
 				password: this.credentials.password,
 				rememberMe: this.credentials.rememberMe
 			})
