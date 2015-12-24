@@ -1,0 +1,11 @@
+cl\onesnap\springtest\web\rest\TestUtil.class
+cl\onesnap\springtest\web\rest\TeacherResourceIntTest.class
+cl\onesnap\springtest\web\rest\CourseResourceIntTest.class
+cl\onesnap\springtest\cucumber\CucumberTest.class
+cl\onesnap\springtest\security\SecurityUtilsUnitTest.class
+cl\onesnap\springtest\cucumber\UserStepDefs.class
+cl\onesnap\springtest\web\rest\AuditResourceIntTest.class
+cl\onesnap\springtest\web\rest\UserResourceIntTest.class
+cl\onesnap\springtest\service\UserServiceIntTest.class
+cl\onesnap\springtest\web\rest\AccountResourceIntTest.class
+cl\onesnap\springtest\web\rest\StudentResourceIntTest.class
