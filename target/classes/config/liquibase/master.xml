@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
-    <include relativeToChangelogFile="false" file="classpath:config/liquibase/changelog/00000000000000_initial_schema.xml" />
-    <include relativeToChangelogFile="false" file="classpath:config/liquibase/changelog/00000000000001_init_user_2.xml" />
-    <include file="classpath:config/liquibase/changelog/20151217205900_added_entity_Course.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20151217205811_added_entity_Teacher.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20151217205739_added_entity_Student.xml" relativeToChangelogFile="false"/>
-</databaseChangeLog>
