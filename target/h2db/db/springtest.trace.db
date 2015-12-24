@@ -40,3 +40,60 @@ CREATE TABLE PUBLIC.course (id BIGINT AUTO_INCREMENT NOT NULL, name VARCHAR(255)
 2015-12-23 16:10:33 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "COURSE" already exists; SQL statement:
 CREATE TABLE PUBLIC.course (id BIGINT AUTO_INCREMENT NOT NULL, name VARCHAR(255), teacher_id BIGINT, CONSTRAINT PK_COURSE PRIMARY KEY (id)) [42101-190]
+2015-12-24 09:19:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "COURSE" already exists; SQL statement:
+CREATE TABLE PUBLIC.course (id BIGINT AUTO_INCREMENT NOT NULL, name VARCHAR(255), teacher_id BIGINT, CONSTRAINT PK_COURSE PRIMARY KEY (id)) [42101-190]
+2015-12-24 14:06:19 jdbc[93]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEACHER" not found; SQL statement:
+insert into teacher (id, name) values (null, ?) [42102-190]
+2015-12-24 14:06:19 jdbc[93]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEACHER" not found; SQL statement:
+insert into teacher (id, name) values (null, ?) [42102-190]
+2015-12-24 14:21:30 jdbc[103]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEACHER" not found; SQL statement:
+insert into teacher (id, name) values (null, ?) [42102-190]
+2015-12-24 14:21:30 jdbc[103]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEACHER" not found; SQL statement:
+insert into teacher (id, name) values (null, ?) [42102-190]
+2015-12-24 14:26:29 jdbc[103]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEACHER" not found; SQL statement:
+insert into teacher (id, name) values (null, ?) [42102-190]
+2015-12-24 14:26:29 jdbc[103]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEACHER" not found; SQL statement:
+insert into teacher (id, name) values (null, ?) [42102-190]
+2015-12-24 14:26:31 jdbc[103]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEACHER" not found; SQL statement:
+insert into teacher (id, name) values (null, ?) [42102-190]
+2015-12-24 14:26:31 jdbc[103]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEACHER" not found; SQL statement:
+insert into teacher (id, name) values (null, ?) [42102-190]
+2015-12-24 14:26:32 jdbc[103]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEACHER" not found; SQL statement:
+insert into teacher (id, name) values (null, ?) [42102-190]
+2015-12-24 14:26:32 jdbc[103]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEACHER" not found; SQL statement:
+insert into teacher (id, name) values (null, ?) [42102-190]
+2015-12-24 14:26:32 jdbc[103]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEACHER" not found; SQL statement:
+insert into teacher (id, name) values (null, ?) [42102-190]
+2015-12-24 14:26:32 jdbc[103]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEACHER" not found; SQL statement:
+insert into teacher (id, name) values (null, ?) [42102-190]
+2015-12-24 14:26:32 jdbc[103]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEACHER" not found; SQL statement:
+insert into teacher (id, name) values (null, ?) [42102-190]
+2015-12-24 14:26:32 jdbc[103]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEACHER" not found; SQL statement:
+insert into teacher (id, name) values (null, ?) [42102-190]
+2015-12-24 14:26:32 jdbc[103]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEACHER" not found; SQL statement:
+insert into teacher (id, name) values (null, ?) [42102-190]
+2015-12-24 14:26:32 jdbc[103]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEACHER" not found; SQL statement:
+insert into teacher (id, name) values (null, ?) [42102-190]
+2015-12-24 14:26:34 jdbc[104]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEACHER" not found; SQL statement:
+insert into teacher (id, name) values (null, ?) [42102-190]
+2015-12-24 14:26:34 jdbc[104]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEACHER" not found; SQL statement:
+insert into teacher (id, name) values (null, ?) [42102-190]

@@ -25,6 +25,7 @@
                 'uiGmapgoogle-maps',
                 'textAngular',
                 'ng-sortable',
-                'LocalStorageModule'
+                'LocalStorageModule',
+                'formly'
             ]);
 })();

@@ -1,7 +1,7 @@
 /**
  * Created by mmasuyama on 11/6/2015.
  */
-
+/// <reference path="../../typings/tsd.d.ts" />
 
 module Onesnap {
   'use strict';
@@ -44,12 +44,12 @@ module Onesnap {
         templateUrl: 'scripts/components/formly/formly.autocomplete.html'
       });
     }
-
+    
+   
 
   }
-
-
-
-
+  
+   angular.module('springTestApp')
+      .run(FormlyConfiguration);
 
 }

@@ -1,0 +1,10 @@
+/// <reference path="../../../typings/tsd.d.ts" />
+var Onesnap;
+(function (Onesnap) {
+    var Teachers;
+    (function (Teachers) {
+        angular.module('onesnap.teachers', []);
+    })(Teachers = Onesnap.Teachers || (Onesnap.Teachers = {}));
+})(Onesnap || (Onesnap = {}));
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInRlYWNoZXJzL3RlYWNoZXJzLm1vZHVsZS50cyJdLCJuYW1lcyI6WyJPbmVzbmFwIiwiT25lc25hcC5UZWFjaGVycyJdLCJtYXBwaW5ncyI6IkFBQUEsa0RBQWtEO0FBRWxELElBQU8sT0FBTyxDQUViO0FBRkQsV0FBTyxPQUFPO0lBQUNBLElBQUFBLFFBQVFBLENBRXRCQTtJQUZjQSxXQUFBQSxRQUFRQSxFQUFDQSxDQUFDQTtRQUN4QkMsT0FBT0EsQ0FBQ0EsTUFBTUEsQ0FBQ0Esa0JBQWtCQSxFQUFFQSxFQUFFQSxDQUFDQSxDQUFBQTtJQUN2Q0EsQ0FBQ0EsRUFGY0QsUUFBUUEsR0FBUkEsZ0JBQVFBLEtBQVJBLGdCQUFRQSxRQUV0QkE7QUFBREEsQ0FBQ0EsRUFGTSxPQUFPLEtBQVAsT0FBTyxRQUViIiwiZmlsZSI6InRlYWNoZXJzL3RlYWNoZXJzLm1vZHVsZS5qcyIsInNvdXJjZXNDb250ZW50IjpbIi8vLyA8cmVmZXJlbmNlIHBhdGg9XCIuLi8uLi8uLi90eXBpbmdzL3RzZC5kLnRzXCIgLz5cclxuXHJcbm1vZHVsZSBPbmVzbmFwLlRlYWNoZXJzIHtcclxuXHRhbmd1bGFyLm1vZHVsZSgnb25lc25hcC50ZWFjaGVycycsIFtdKVxyXG59Il0sInNvdXJjZVJvb3QiOiIvc291cmNlLyJ9

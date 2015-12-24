@@ -11,7 +11,7 @@ module Onesnap {
         .state('app', {
           abstract: true,
           resolve: {
-            servicesDependencies : function(toasterService){
+            servicesDependencies : function(ToasterService){
               return true;
             } ,
           },
