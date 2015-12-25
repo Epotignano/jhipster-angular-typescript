@@ -1,4 +1,5 @@
 /// <reference path="../../typings/tsd.d.ts" />
+/// <reference path="commons/toaster.service.ts" />
 
 module Onesnap {
   'use strict';
@@ -11,9 +12,10 @@ module Onesnap {
         .state('app', {
           abstract: true,
           resolve: {
-            servicesDependencies : function(ToasterService){
+            servicesDependencies : ['ToasterService', function( ToasterService : Onesnap.ToasterService ){
+              console.log(ToasterService)
               return true;
-            } ,
+            }] ,
           },
           url: '/app',
           views   : {

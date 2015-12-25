@@ -35,12 +35,13 @@ module Onesnap {
     }
 
     showToaster(notification, type){
-      switch(notification.EVENT){
+      
+      switch(notification.type){
         case(this.StreamsService.defaultEvents['OBJECT_UPDATE']):
               this.$mdToast.showSimple(this.$translate.instant("COMMONS.UPDATE_" + type));
               break;
-        case(this.StreamsService.defaultEvents['OBJECT_CREATE']):
-          this.$mdToast.showSimple(this.$translate.instant("COMMONS.SAVE_" + type));
+        case('Created'):
+          this.$mdToast.showSimple('Datos guardados correctamente (texto Hardcodeado)');
           break;
         case(this.StreamsService.defaultEvents['OBJECT_DELETE']):
           this.$mdToast.showSimple(this.$translate.instant("COMMONS.DELETE_" + type));

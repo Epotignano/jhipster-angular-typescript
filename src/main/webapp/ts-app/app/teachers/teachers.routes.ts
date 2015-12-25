@@ -19,7 +19,7 @@ module Onesnap.Teacher {
         .state('app.teachers.list', {
           url: '/list',
           templateUrl: 'scripts/app/teachers/teachers.list.html',
-          controller: 'TeacherListController',
+          controller: 'TeachersListController',
           controllerAs: 'vm'
         })
         
