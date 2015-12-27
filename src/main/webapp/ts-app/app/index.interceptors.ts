@@ -12,10 +12,6 @@ module Onesnap {
 			response.config.url.indexOf('api') !== -1) {
 				var _service = StreamsService;
 				var _stream = _service.getStream(response.config.url);
-				if (!_stream) {
-					_service.setStream(response.config.url, new Rx.Subject<{}>())
-					_stream = _service.getStream(response.config.url)
-				}
 				_stream.onNext({type: response.statusText, data: response.data})
 			}
 			return response

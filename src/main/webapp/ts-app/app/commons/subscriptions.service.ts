@@ -44,7 +44,11 @@ module Onesnap {
     }
 
     getStream (streamKey: string) {
-      return this.streams[streamKey];
+      if(!this.streams[streamKey]) {
+        this.setStream(streamKey, new Rx.Subject<{}>())
+      };
+      return this.streams[streamKey]
+      
     }
 
     getStreams() {

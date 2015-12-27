@@ -42,8 +42,10 @@ angular.module('springTestApp')
                         var isAuthenticated = Principal.isAuthenticated();
 
                         // an authenticated user can't access to login and register pages
-                        if (isAuthenticated && $rootScope.toState.parent === 'account' && ($rootScope.toState.name === 'login' || $rootScope.toState.name === 'register')) {
-                            $state.go('home');
+                        if (isAuthenticated && $rootScope.toState.parent === 'account' && 
+                        ($rootScope.toState.name === 'access.pages_auth_login' || 
+                        $rootScope.toState.name === 'access.pages_auth_register')) {
+                            $state.go('app.dashboard');
                         }
 
                         if ($rootScope.toState.data.authorities && $rootScope.toState.data.authorities.length > 0 && !Principal.hasAnyAuthority($rootScope.toState.data.authorities)) {
@@ -58,7 +60,7 @@ angular.module('springTestApp')
                                 $rootScope.previousStateNameParams = $rootScope.toStateParams;
 
                                 // now, send them to the signin state so they can log in
-                                $state.go('login');
+                                $state.go('access.pages_auth_login');
                             }
                         }
                     });
