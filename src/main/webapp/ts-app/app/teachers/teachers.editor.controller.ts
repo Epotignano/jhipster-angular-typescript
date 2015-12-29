@@ -18,19 +18,12 @@ module Onesnap.Teachers {
 				})
 			};
 
-			this.formFields = [{
-				key: 'id',
-				type: 'input',
-				templateOptions: {
-					type: 'text',
-					label: 'ID'
-				}
-			},
+			this.formFields = [
 				{
 					key: 'name',
 					type: 'input',
 					templateOptions: {
-						type: 'text',
+						type: 'text ',
 						label: 'Nombre'
 					}
 				}];

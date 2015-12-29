@@ -26,7 +26,7 @@
                     </md-icon>
                 </md-button>
                 <md-button type="button" entity-deletor ng-show="!!vm.options.deletion.service"
-                        collection="displayedCollection"
+                        collection="vm.list"
                         options="{compareBy : 'id', usePromise: true, askBeforeDelete: true}"
                         ng-model="element"
                         show-label="vm.options.deletion.showLabel"

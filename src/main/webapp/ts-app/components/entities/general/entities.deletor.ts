@@ -25,14 +25,18 @@ module Onesnap.Components.Entities {
 
       var _stream = this.StreamsService.getStream(this.apiEndpoint + this.ngModel[this.options.compareBy])
       _stream.subscribe((notification) => {
-        var _ind = this.collection.indexOf(this.ngModel);
-        this.collection.splice(_ind, 0);
+        this.removeProxy();
       })
-
+      this.removeProxy = () => {
+        var _ind = this.collection.indexOf(this.ngModel);
+        this.collection = this.collection.splice(_ind, 1);
+      };
+      
       this.$element.bind('click', () => {
         this.submitDeletion(this.collection, this.ngModel);
       });
     }
+
 
     executeDeletion = () => {
 
@@ -51,6 +55,8 @@ module Onesnap.Components.Entities {
         this.deletionService({ id: _model });
       }
     };
+
+    removeProxy: () => void;
 
     submitDeletion(ev, entity) {
       if (this.deletionService) {
