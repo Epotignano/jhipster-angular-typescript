@@ -7,12 +7,10 @@ module Onesnap {
 		static $inject: Array<string> = ['StreamsService'];
 		constructor(private StreamsService: Onesnap.StreamsService) {
 			this.response = (response) => {
-			if ( (response.status === 200 || response.status === 201) 
-			&& typeof response.data !== 'string' && 
-			response.config.url.indexOf('api') !== -1) {
+			if (response.config.url.indexOf('api') !== -1) {
 				var _service = StreamsService;
 				var _stream = _service.getStream(response.config.url);
-				_stream.onNext({type: response.statusText, data: response.data})
+				_stream.onNext({type: response.config.method, data: response.data})
 			}
 			return response
 		}

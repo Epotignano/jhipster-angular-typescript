@@ -5,10 +5,19 @@ module Onesnap.Teachers {
 	'use strict';
 
 	export class TeacherEditorController {
-		static $inject: Array<string> = ['Teacher'];
+		static $inject: Array<string> = ['Teacher', 'StreamsService', '$stateParams'];
 		public formFields;
 		public teacher
-		constructor(private Teacher) {
+		public teacherStream;
+		constructor(private Teacher, StreamsService: Onesnap.StreamsService, $stateParams: ng.ui.IStateParamsService) {
+			if ($stateParams['id']) {
+				Teacher.get({ id: $stateParams['id'] })
+				this.teacherStream = StreamsService.getStream('api/teachers/' + $stateParams['id']);
+				this.teacherStream.subscribe((notification) => {
+					this.teacher = notification.data;
+				})
+			};
+
 			this.formFields = [{
 				key: 'id',
 				type: 'input',
@@ -22,13 +31,18 @@ module Onesnap.Teachers {
 					type: 'input',
 					templateOptions: {
 						type: 'text',
-						label: 'Name'
+						label: 'Nombre'
 					}
 				}];
 		}
 
 		save() {
-			this.Teacher.save({id: this.teacher.id || null, name: this.teacher.name});
+			if (this.teacher.id) {
+				this.Teacher.update(this.teacher);
+			} else {
+				this.Teacher.save({ name: this.teacher.name });
+			}
+
 		}
 
 	}

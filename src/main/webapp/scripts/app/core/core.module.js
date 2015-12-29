@@ -16,7 +16,6 @@
                 'ngMaterial',
                 'angular-chartist',
                 'chart.js',
-                'datatables',
                 'gridshore.c3js.chart',
                 'nvd3',
                 'pascalprecht.translate',
@@ -25,6 +24,7 @@
                 'uiGmapgoogle-maps',
                 'textAngular',
                 'ng-sortable',
+                'smart-table',
                 'LocalStorageModule',
                 'formly'
             ]);

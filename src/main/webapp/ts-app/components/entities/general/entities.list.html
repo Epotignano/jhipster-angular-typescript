@@ -1,0 +1,49 @@
+<div class="content">
+
+    <md-input-container>
+        <label>
+            <i class="icon-magnify"></i> <span translate="COMMONS.SEARCH"></span>
+        </label>
+        <input type="text" ng-model="vm.filter.text">
+    </md-input-container>
+
+
+    <table st-table="displayedCollection" st-safe-src="vm.list" class="dataTable row-border hover no-footer dtr-inline">
+        <thead>
+        <tr>
+            <th ng-repeat="entity in vm.entityConf" st-sort="entity.key">
+                {{ entity.label }}
+            </th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="element in (filteredList = (displayedCollection | filter: vm.filter.text  ))">
+            <td ng-repeat="entity in vm.entityConf">{{ element[entity.key] }}</td>
+            <td>
+                <md-button  class="md-fab md-mini md-accent" ui-sref="{{vm.options.editionSref}}({'id' : element.id})">
+                    <md-icon md-font-icon="icon-pencil">
+                    </md-icon>
+                </md-button>
+                <md-button type="button" entity-deletor ng-show="!!vm.options.deletion.service"
+                        collection="displayedCollection"
+                        options="{compareBy : 'id', usePromise: true, askBeforeDelete: true}"
+                        ng-model="element"
+                        show-label="vm.options.deletion.showLabel"
+                        deletion-service="vm.options.deletion.service"
+                        api-endpoint="vm.options.apiEndpoint"
+                       class="md-fab md-mini md-warn">
+                    <md-icon md-font-icon="icon-trash">
+                    </md-icon>
+                </md-button>
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+

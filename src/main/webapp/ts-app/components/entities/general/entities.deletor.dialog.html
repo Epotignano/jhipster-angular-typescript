@@ -1,0 +1,20 @@
+
+<md-dialog style="max-width: 800px;" aria-label="Sunrise" style="max-width:800px">
+    <form>
+        <md-dialog-content>
+            <div ng-show="!!dialogVm.showLabel">
+              {{ dialogVm.showLabel(dialogVm.entity) }}
+            </div>
+          <div ng-hide="!!dialogVm.showLabel">
+              <span translate="COMMONS.DELETE_NOTIFICATION_REALLY"></span>
+              <span translate="COMMONS.DELETE_NOTIFICATION_AGREE"></span>
+          </div>
+
+        </md-dialog-content>
+        <div class="md-actions" layout="row">
+            <span flex></span>
+            <md-button ng-click="dialogVm.cancel()" class="md-default"><span translate="COMMONS.CANCEL"></span></md-button>
+            <md-button ng-click="dialogVm.add(dialogVm.book)" class="md-accent"><span translate="COMMONS.DELETE"></span></md-button>
+        </div>
+    </form>
+</md-dialog>

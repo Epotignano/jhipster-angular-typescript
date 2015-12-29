@@ -29,6 +29,13 @@ module Onesnap.Teacher {
           controller: 'TeacherEditorController',
           controllerAs : 'vm'
         })
+        
+        .state('app.teachers.edit', {
+          url: '/edit/:id',
+          templateUrl: 'scripts/app/teachers/teachers.editor.html',
+          controller: 'TeacherEditorController',
+          controllerAs : 'vm'
+        })
 
       //$translatePartialLoaderProvider.addPart('app/courses');
 

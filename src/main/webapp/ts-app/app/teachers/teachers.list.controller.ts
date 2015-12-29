@@ -5,27 +5,29 @@ module Onesnap.Teachers {
 	'use strict';
 
 	export class TeachersListController {
-		static $inject: Array<string> = [
-			'Teacher', 'StreamsService',
-			'DTOptionsBuilder', 'DTColumnBuilder'];
+		static $inject: Array<string> = ['Teacher', 'StreamsService'];
 		public teachersList: Array<any>;
-		public dtOptions;
-		public dtColumns;
+		public teachersThread;
+		public teachersConf;
 
-		constructor(private Teacher, private StreamsService: Onesnap.StreamsService,
-			private DTOptionsBuilder, private DTColumnBuilder) {
-			this.dtOptions = DTOptionsBuilder.fromFnPromise(function() {
-				return Teacher.query({ page: 0, size: 20 }).$promise;
-			}).withPaginationType('full_numbers');
-
-			this.dtColumns = [
-				DTColumnBuilder.newColumn('id').withTitle('ID'),
-				DTColumnBuilder.newColumn('name').withTitle('Name')
-			];
-
+		constructor(public Teacher, private StreamsService: Onesnap.StreamsService ) {
+			Teacher.query({page:0, size:20});
+				
+			this.teachersThread = this.StreamsService.getStream('api/teachers');
+			this.teachersThread.subscribe((notification) => {
+				this.teachersList = notification.data;
+			})
+			
+			this.teachersConf = [{
+				key: 'name',
+				label: 'Nombre',
+				sort: true
+			}];
 		}
-
-
+		
+		showTeacherLabel (chosenTeacher) {
+			return 'Estas seguro que quieres eliminar a ' + chosenTeacher.name;
+		}
 	}
 
 	angular

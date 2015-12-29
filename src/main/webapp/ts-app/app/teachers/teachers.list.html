@@ -1,9 +1,5 @@
-<div class="white-bg md-whiteframe-4dp">
-	<div class="dataTables_wrapper no-footer">
-		<table datatable="" 
-			dt-options="vm.dtOptions" 
-			dt-columns="vm.dtColumns" 
-			class="row-border hover">
-		</table>
-	</div>
-</div>
+<entity-list thread="vm.teachersThread" list="vm.teachersList" entity-conf="vm.teachersConf"
+             options="{editionSref : 'app.teachers.edit', apiEndpoint: 'api/teachers/',
+             deletion:{ service: vm.Teacher.remove, showLabel: vm.showTeacherLabel } }
+             "
+></entity-list>
