@@ -1,0 +1,19 @@
+<div class="toolbar" layout="row" layout-align="start center">
+    <span translate="">Teacher</span>
+</div>
+<!-- / CONTENT TOOLBAR -->
+
+<!-- CONTENT -->
+<md-content class="content" ms-scroll>
+    <div>
+        <formly-form model="vm.student" fields="vm.formFields">
+            <div layout="row" layout-align="end" >
+                <md-button type="submit" ng-click="vm.save(vm.student)"
+                           class="md-raised md-primary"
+                           aria-label="Save">
+                    <span>Save</span>
+                </md-button>
+            </div>
+        </formly-form>
+    </div>
+</md-content>

@@ -7,5 +7,6 @@ module Onesnap {
 	angular.module('springTestApp', [
 		'app.core', 'app.navigation', 'app.toolbar', 
 		'onesnap.auth','onesnap.settings', 
-		'onesnap.dashboard', 'onesnap.courses', 'onesnap.teachers', 'onesnap.components.entities'])
+		'onesnap.dashboard', 'onesnap.courses', 'onesnap.teachers', 'onesnap.students'
+		, 'onesnap.components.entities'])
 }

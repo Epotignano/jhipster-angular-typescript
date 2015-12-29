@@ -3285,3 +3285,51 @@ org.h2.message.DbException: The connection was not closed by the application and
 Caused by: org.h2.jdbc.JdbcSQLException: The connection was not closed by the application and is garbage collected [90018-190]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
 	... 145 more
+2015-12-29 00:29:38 jdbc[233]: exception
+org.h2.jdbc.JdbcSQLException: Table "STUDENT" not found; SQL statement:
+insert into student (id, firstname, lastname) values (null, ?, ?) [42102-190]
+2015-12-29 00:29:38 jdbc[233]: exception
+org.h2.jdbc.JdbcSQLException: Table "STUDENT" not found; SQL statement:
+insert into student (id, firstname, lastname) values (null, ?, ?) [42102-190]
+2015-12-29 00:33:00 jdbc[233]: exception
+org.h2.jdbc.JdbcSQLException: Table "STUDENT" not found; SQL statement:
+insert into student (id, firstname, lastname) values (null, ?, ?) [42102-190]
+2015-12-29 00:33:00 jdbc[233]: exception
+org.h2.jdbc.JdbcSQLException: Table "STUDENT" not found; SQL statement:
+insert into student (id, firstname, lastname) values (null, ?, ?) [42102-190]
+2015-12-29 00:33:02 jdbc[233]: exception
+org.h2.jdbc.JdbcSQLException: Table "STUDENT" not found; SQL statement:
+insert into student (id, firstname, lastname) values (null, ?, ?) [42102-190]
+2015-12-29 00:33:02 jdbc[233]: exception
+org.h2.jdbc.JdbcSQLException: Table "STUDENT" not found; SQL statement:
+insert into student (id, firstname, lastname) values (null, ?, ?) [42102-190]
+2015-12-29 00:33:03 jdbc[233]: exception
+org.h2.jdbc.JdbcSQLException: Table "STUDENT" not found; SQL statement:
+insert into student (id, firstname, lastname) values (null, ?, ?) [42102-190]
+2015-12-29 00:33:03 jdbc[233]: exception
+org.h2.jdbc.JdbcSQLException: Table "STUDENT" not found; SQL statement:
+insert into student (id, firstname, lastname) values (null, ?, ?) [42102-190]
+2015-12-29 00:33:04 jdbc[234]: exception
+org.h2.jdbc.JdbcSQLException: Table "STUDENT" not found; SQL statement:
+insert into student (id, firstname, lastname) values (null, ?, ?) [42102-190]
+2015-12-29 00:33:04 jdbc[234]: exception
+org.h2.jdbc.JdbcSQLException: Table "STUDENT" not found; SQL statement:
+insert into student (id, firstname, lastname) values (null, ?, ?) [42102-190]
+2015-12-29 00:33:04 jdbc[235]: exception
+org.h2.jdbc.JdbcSQLException: Table "STUDENT" not found; SQL statement:
+insert into student (id, firstname, lastname) values (null, ?, ?) [42102-190]
+2015-12-29 00:33:04 jdbc[235]: exception
+org.h2.jdbc.JdbcSQLException: Table "STUDENT" not found; SQL statement:
+insert into student (id, firstname, lastname) values (null, ?, ?) [42102-190]
+2015-12-29 00:33:04 jdbc[233]: exception
+org.h2.jdbc.JdbcSQLException: Table "STUDENT" not found; SQL statement:
+insert into student (id, firstname, lastname) values (null, ?, ?) [42102-190]
+2015-12-29 00:33:04 jdbc[233]: exception
+org.h2.jdbc.JdbcSQLException: Table "STUDENT" not found; SQL statement:
+insert into student (id, firstname, lastname) values (null, ?, ?) [42102-190]
+2015-12-29 00:33:04 jdbc[234]: exception
+org.h2.jdbc.JdbcSQLException: Table "STUDENT" not found; SQL statement:
+insert into student (id, firstname, lastname) values (null, ?, ?) [42102-190]
+2015-12-29 00:33:04 jdbc[234]: exception
+org.h2.jdbc.JdbcSQLException: Table "STUDENT" not found; SQL statement:
+insert into student (id, firstname, lastname) values (null, ?, ?) [42102-190]
