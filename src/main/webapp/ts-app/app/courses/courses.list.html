@@ -1,1 +1,5 @@
-<h1>The list</h1>
+<entity-list thread="vm.coursesThread" list="vm.coursesList" entity-conf="vm.coursesConf"
+             options="{editionSref : 'app.courses.edit', apiEndpoint: 'api/courses/',
+             deletion:{ service: vm.Course.remove, showLabel: vm.showCourseLabel } }
+             "
+></entity-list>
